@@ -24,6 +24,10 @@ Route::get('/mostra', function(){
     return view('posts');
 });
 
+Route::get('/mostraProd', function(){
+     return view('teste');
+});
+
 Route::get('/', function() {
     return view('pdv');
 });

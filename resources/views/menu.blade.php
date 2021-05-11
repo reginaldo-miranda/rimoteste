@@ -195,7 +195,7 @@ header{
             <li><a href="#">Fornecedores</a></li>
             <li><a class="produtos" href="#">Produtos</a>
                 <ul class="itemprodutos" >
-                    <li><a href="#">Produtos</a></li>
+                    <li><a href="{{ url('/mostraProd') }}">Produtos</a></li>
                    
                   {{--  <li><a href="{{ route("mostra") }}" >Grupo</a></li>  --}}
                   <li><a href="{{url('/mostra')}}">Grupo</a></li>
