@@ -1,0 +1,31 @@
+.inputquatro {
+    width: 40px;
+    padding: 10px;
+    border: 2px;
+    margin-left: 25px;
+}
+
+.inputseis {
+    width: 60px;
+    padding: 5px;
+}
+
+.inputdez {
+    width: 100px;
+    padding: 5px;
+}
+
+.inputvinte {
+    width: 200px;
+    padding: 5px;
+}
+
+.botoes {
+    height: 30px;
+}
+
+.juntar{
+ width: 90px;   
+ margin-right: 20px;
+ margin-left: 15px;
+}
