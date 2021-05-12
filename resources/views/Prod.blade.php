@@ -1,4 +1,4 @@
-<h1>teste Prod</h1>
+<h3 class="row d-flex justify-content-center">Produtos</h3>
 
 @extends('layout')
 

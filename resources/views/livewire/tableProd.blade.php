@@ -1,6 +1,3 @@
-<h1>tabela de produtos</h1>
-
-
 <table class="table">
     <thead>
         <tr>
