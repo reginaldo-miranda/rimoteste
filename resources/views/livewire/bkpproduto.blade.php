@@ -1,10 +1,10 @@
 <div>
      In work, do what you enjoy. 
      <div class="col-sm-3">
-        @include("livewire.$view")
+      {{--   @include("livewire.$view")  --}}
     </div>
     <div class="col-sm-9">
-        @include('livewire.tableProd')
+    {{--     @include('livewire.tableProd')  --}}
 
     </div>
 </div>

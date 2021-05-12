@@ -25,7 +25,7 @@ Route::get('/mostra', function(){
 });
 
 Route::get('/mostraProd', function(){
-     return view('teste');
+     return view('Prod');
 });
 
 Route::get('/', function() {

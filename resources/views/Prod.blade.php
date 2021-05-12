@@ -1,10 +1,10 @@
-<h1>teste</h1>
+<h1>teste Prod</h1>
 
 @extends('layout')
 
 @section('content')
     <div class="container">
-       @livewire('produto')
+       @livewire('produto-component')
     </div>
 
 @endsection
