@@ -13,7 +13,7 @@ class ProdutoComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
     use WithPagination;
-
+    Public $msg = 'Produtos';
     public $prod_id, $descricao, $grupo, $pvenda;
     public $view ='createProd';
     public function render()
@@ -37,7 +37,7 @@ class ProdutoComponent extends Component
             'grupo' => $this->grupo,
             'pvenda' => $this->pvenda
         ]);
-       // $this->edit($post->id);
+        $this->edit($prod->id);
     }
 
     public function edit($id){
@@ -50,6 +50,26 @@ class ProdutoComponent extends Component
         $this->pvenda    = $post->pvenda;
         $this->view = 'editProd';
 
+    }
+    public function default(){
+        $this->descricao = '';
+        $this->grupo     = '';
+        $this->pvenda    = '';
+        $this->view      = 'createProd';
+    }
+
+    
+    public function update(){
+
+        $this->validate(['descricao' => 'required', 'grupo'=>'required', 'pvenda'=>'required']);
+
+        $post = produto::find($this->prod_id);
+        $post->update([
+            'descricao' => $this->descricao,
+            'grupo'     => $this->grupo,
+            'pvenda'    => $this->pvenda
+        ]);
+            $this->default();
     }
 }
 
