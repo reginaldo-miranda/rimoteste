@@ -13,7 +13,7 @@ class ProdutoComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
     use WithPagination;
-    Public $msg = 'Produtos';
+   
     public $prod_id, $descricao, $grupo, $pvenda;
     public $view ='createProd';
     public function render()
@@ -37,7 +37,7 @@ class ProdutoComponent extends Component
             'grupo' => $this->grupo,
             'pvenda' => $this->pvenda
         ]);
-        $this->edit($prod->id);
+        $this->edit($post->id);
     }
 
     public function edit($id){
