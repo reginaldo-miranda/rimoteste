@@ -1,0 +1,24 @@
+#telapdv{
+  padding-top: 20px;
+  display: flex;
+  width: 400px;
+  height: 400px;
+  background-color: aqua;
+
+}
+
+
+#areavenda{
+    
+    width: 300px;
+    height: 400px;
+    resize: none;
+    float:right;
+
+}
+
+#telaprod{
+  display: flex;  
+  padding-left: 100px;
+
+}
