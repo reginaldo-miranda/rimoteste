@@ -6,8 +6,8 @@
       
          
         <title>Rimo</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
-        <link href="{{ asset('css/telapdv.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css')}}" rel="stylesheet"> 
+        <link href="{{ asset('css/telapdv.css')}}" rel="stylesheet">
       
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
