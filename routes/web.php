@@ -31,6 +31,10 @@ Route::get('/mostraProd', function(){
 Route::get('/', function() {
     return view('pdv');
 });
+
+Route::get('/menu',function(){
+    return view('menu');
+});
 /*
 Route::get('mostra', function(){
     return view('livewire.posts');

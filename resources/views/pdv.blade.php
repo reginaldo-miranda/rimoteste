@@ -1,26 +1,33 @@
 @extends('layout')
-{{-- @include('menu')  --}}
+
 <div id="pagina">
-
-
-
+ 
+ 
 <div class="container-fluid" id="bloco"> 
 
     <div class="row">
+      <a href="{{ url('/menu') }}">Menu</a>
       <div class="col">col</div>
       <div class="col">col</div>
       <div class="col">col</div>
       <div class="col">col</div>
-   </div>  
+   </div>
+ {{--  @include('menu')     --}} 
     <div class="row" >
       <div class="col-8">col-8</div>
+     
       <div class="col-4" id="col4">
         <textarea id="areavenda" row="100" cols="80" name="areavenda"></textarea>
       </div>
-      @include('menu')
+      {{-- @include('menu')  --}}
+      <div>
+        <label>Procurar produto</label>
+        <input type="text" class="form-control" wire:model="fone">
+        @error("fone")<span>{{ $message }}</span> @enderror
+    </div>
     </div>
  </div>
-
+ 
  </div> 
 {{-- 
 
