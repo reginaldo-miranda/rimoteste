@@ -46,4 +46,4 @@ Route::get('mostra', 'App\Http\Controllers\PostComponent@render')
       ->name('mostra'); */
 
 
-
+// pesquisa em livewire https://www.youtube.com/watch?v=qvxSEov0UhY

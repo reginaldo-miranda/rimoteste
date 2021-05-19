@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 * {
     margin: 0;
     padding: 0;
@@ -11,11 +14,16 @@ header{
     margin-left:45px ;
     background-color: #5b859a;
     position: fixed;
+<<<<<<< HEAD
 
   /* text-align: center; */
 
 }
 
+=======
+  /* text-align: center; */
+}
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral{
     margin-top:55px;
     margin-left: 15px;
@@ -25,9 +33,13 @@ header{
     position: fixed;
     left: -270px;
     transition: left 0.5s;
+<<<<<<< HEAD
 
 }
 
+=======
+}
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral .titulo{
     color: white;
     text-align: center;
@@ -41,10 +53,14 @@ header{
  .menuLateral ul li{
     line-height: 30px;
     border-bottom: 1px solid red;
+<<<<<<< HEAD
 
  }
 
 
+=======
+ }
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral ul li a{
    color: white;
    padding-left: 30px;
@@ -52,18 +68,25 @@ header{
    display: block;
    text-decoration: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral ul li a:hover{
     background-color: #370707;
     transition: 0.6s;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral ul ul li a{
     font-size: 12px;
     font-weight: 300;
     padding-left: 60px;
     background-color: #131313;
 }
+<<<<<<< HEAD
 
 .menuLateral ul ul{
     display: none;
@@ -79,14 +102,29 @@ header{
     display: block;
 }
 
+=======
+.menuLateral ul ul{
+    display: none;
+}
+.menuLateral ul .itemprodutos.mostra{
+    display: block;
+}
+.menuLateral ul.itemfuncionais.mostra{
+    display: block;
+}
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral ul li a span{
   position: absolute;
   font-size: 30px;
   right: 25px;
   transition: 0.4s;
+<<<<<<< HEAD
 
 }
 
+=======
+}
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 .menuLateral ul li a span.gira{
     transform: rotate(90deg);
 }
@@ -102,31 +140,48 @@ header{
     cursor: pointer;
     background-color: #5b859a;
     color: white;
+<<<<<<< HEAD
 
 }
 
 .btnAbre span{
    font-size: 30px;
 
+=======
+}
+.btnAbre span{
+   font-size: 30px;
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 }
 .btnFecha{
     position: relative;
     top: 6px;
     left: 15px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
 }
 .btnFecha:hover{
    color: #5b859a;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
  /* ------------- menu horizonttal ----------------------------- */
 .menuh{
     padding-left: 12px;
 }
 .menuh ul li{
+<<<<<<< HEAD
 
     background-color: #5b859a;
     float: left;
+=======
+    background-color: #5b859a;
+   
+>>>>>>> dbc132bf19874cc98cff38c5fd33b07382fae3ba
     width: 200px;
     height: 35px;
     display: inline-block;
