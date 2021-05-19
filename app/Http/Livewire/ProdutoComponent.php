@@ -15,11 +15,13 @@ class ProdutoComponent extends Component
     use WithPagination;
    
     public $prod_id, $descricao, $grupo, $pvenda;
-    public $searchprod;
+    public $searchprod, $prod;
     public $view ='createProd';
     public function render()
     {
      
+      
+
       $searchprod = '%'. $this->searchprod .'%';
 
       $produtos = produto::where('descricao', 'LIKE', $searchprod)
@@ -30,7 +32,9 @@ class ProdutoComponent extends Component
     
 
         return view('livewire.produto-component',['produtos'=> $produtos]);
+        
     }  
+
 
     public function destroy($id){
 
