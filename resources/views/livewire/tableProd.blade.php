@@ -9,6 +9,7 @@
         </tr>
     </thead>
     <tbody>
+   
      @foreach($produtos as $post)
       <tr>
           <td>{{ $post->id }}</td>

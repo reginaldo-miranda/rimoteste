@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="container">
+       
        @livewire('produto-component')
     </div>
 
