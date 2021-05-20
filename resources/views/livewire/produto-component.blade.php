@@ -6,8 +6,8 @@
     <div class="col-sm-9">
          @include("livewire.tableProd") 
         {{-- @include("livewire.tableProd.$produtos")  --}}
-      {{--    @include('livewire.tableProd', ['searchprod' => $searchprod])
-       @include('user-profile', ['user' => $user])  --}}
-
+        {{--    @include('livewire.tableProd', ['searchprod' => $searchprod])
+         @include('user-profile', ['user' => $user])  --}}
+        
     </div>
 </div>

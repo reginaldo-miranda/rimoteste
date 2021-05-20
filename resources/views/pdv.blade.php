@@ -22,7 +22,7 @@
       {{-- @include('menu')  --}}
       <div>
         <label>Procurar produto</label>
-        <input type="text" class="form-control" wire:model="prod">
+        <input type="text" class="form-control" wire:model="searchprod">
         @error("searchprod")<span>{{ $message }}</span> @enderror
     </div>
      
