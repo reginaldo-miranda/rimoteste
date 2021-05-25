@@ -8,6 +8,9 @@
         {{-- @include("livewire.tableProd.$produtos")  --}}
         {{--    @include('livewire.tableProd', ['searchprod' => $searchprod])
          @include('user-profile', ['user' => $user])  --}}
+         @include('livewire.moda')
         
     </div>
+
+ 
 </div>
