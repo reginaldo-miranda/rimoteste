@@ -9,7 +9,7 @@ use Illuminate\Pagination\Paginator;
 use Livewire\WithPagination;
 
 
-use Livewire\Component;
+//use Livewire\Component;
 
 class Pdvcomponent extends Component
 {
@@ -26,7 +26,16 @@ class Pdvcomponent extends Component
     public function render()
     {
 
-        return view('livewire.pdvcomponent');
+
+        $searchprod = '%'. $this->searchprod .'%';
+        $produtos = produto::where('descricao', 'LIKE', $searchprod)
+                             ->orWhere('grupo', 'LIKE', $searchprod)  
+                             ->orderby('id','desc')->paginate(4);
+        /*   $produtos = produto::orderby('id','desc')->paginate(4); */
+        return view('livewire.pdvcomponent',['produtos'=> $produtos]);
+
+
+       /* return view('livewire.pdvcomponent'); */
     }
 
     public function buscar(){
