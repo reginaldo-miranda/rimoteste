@@ -29,9 +29,22 @@
         
                 <input type="text" class="form-control" wire:model="searchprod">  
                 @error("searchprod")<span>{{ $message }}</span> @enderror
+                
+               
             </div>
             @include('livewire.modaprod')
         </div>
     </div>
-   
+     
 </div> 
+<div> 
+   
+    @foreach($produtos as $post)
+     {{--     @if($searchprod == $post->descricao) --}}
+            {{ $teste = $post->descricao }}
+        {{-- @else
+            {{ 'nao achei' }}
+        @endif  --}}    
+    @endforeach 
+
+</div>
