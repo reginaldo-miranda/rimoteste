@@ -15,14 +15,10 @@ class Pdvcomponent extends Component
 {
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv;
 
-    public function mount($id){
+    public $searchprod;
 
-     $buscapdv = produto::find($id);
-
-     return " aqui achei "; //view('livewire.pdvcomponent')->layout('pdv');*/
-
-    }
-
+    protected $paginationTheme = 'bootstrap';
+    use WithPagination;
     public function render()
     {
 
