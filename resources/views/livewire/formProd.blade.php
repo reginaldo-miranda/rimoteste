@@ -25,5 +25,8 @@
     <label>procurar produtos</label>
     <input type="text" class="form-control" wire:model="searchprod">  
     @error("searchprod")<span>{{ $message }}</span> @enderror
+
+
+    
 </div>
 

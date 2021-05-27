@@ -26,8 +26,11 @@
                 {{--  <input type="text" class="form-control" wire:model="buscapdv">  
                 <input wire:keydown.enter="buscar">
                 @error("buscapdv")<span>{{ $message }}</span> @enderror --}}
-        
-                <input type="text" class="form-control" wire:model="searchprod">  
+                <input type="text" class="form-control" wire:model="searchprod1">      
+                @foreach($produtos as $pesquisa) {{--  // $key => $value) --}}
+                     
+                @endforeach       
+                
                 @error("searchprod")<span>{{ $message }}</span> @enderror
                 
                
@@ -38,13 +41,5 @@
      
 </div> 
 <div> 
-   
-    @foreach($produtos as $post)
-     {{--     @if($searchprod == $post->descricao) --}}
-            {{ $teste = $post->descricao }}
-        {{-- @else
-            {{ 'nao achei' }}
-        @endif  --}}    
-    @endforeach 
-
+    
 </div>

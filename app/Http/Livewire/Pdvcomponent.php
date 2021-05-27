@@ -15,7 +15,7 @@ class Pdvcomponent extends Component
 {
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv;
 
-    public $searchprod;
+    public $searchprod1;
 
     protected $paginationTheme = 'bootstrap';
     use WithPagination;
@@ -23,9 +23,9 @@ class Pdvcomponent extends Component
     {
 
 
-        $searchprod = '%'. $this->searchprod .'%';
-        $produtos = produto::where('descricao', 'LIKE', $searchprod)
-                             ->orWhere('grupo', 'LIKE', $searchprod)  
+        $searchprod1 = '%'. $this->searchprod1 .'%';
+        $produtos = produto::where('descricao', 'LIKE', $searchprod1)
+                             ->orWhere('grupo', 'LIKE', $searchprod1)  
                              ->orderby('id','desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
         return view('livewire.pdvcomponent',['produtos'=> $produtos]);
