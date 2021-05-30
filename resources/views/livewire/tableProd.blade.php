@@ -27,12 +27,14 @@
             </button>
         </td>
       </tr>
-         
+        
      @endforeach
+   
 
     </tbody>
     
 </table>
+
 
 {{ $produtos->links() }}
 

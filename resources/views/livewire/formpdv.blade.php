@@ -25,17 +25,23 @@
                 <label>Procurar produto</label>
                 {{--  <input type="text" class="form-control" wire:model="buscapdv">  
                 <input wire:keydown.enter="buscar">
-                @error("buscapdv")<span>{{ $message }}</span> @enderror --}}
-                <input type="text" class="form-control" wire:model="searchprod1">      
-                @foreach($produtos as $pesquisa) {{--  // $key => $value) --}}
-                     
-                @endforeach       
+                @error("buscapdv")<span>{{ $message }}</span> @enderror 
+                <input type="text"  class="form-control" wire:model="searchprod1"> --}}
+
+                 <input type="text"  class="form-control" wire:keydown.enter="buscar">
+                 @foreach($produtos as $pesquisa)  // $key => $value) 
                 
+                      {{ $pesquisa->descricao }}
+                  
+                @endforeach        
+               
                 @error("searchprod")<span>{{ $message }}</span> @enderror
                 
                
             </div>
-            @include('livewire.modaprod')
+              
+               @include('livewire.modaprod') 
+             
         </div>
     </div>
      
