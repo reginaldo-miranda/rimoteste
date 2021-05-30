@@ -47,9 +47,9 @@ class Pdvcomponent extends Component
             ->orderby('id', 'desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
 
-      /* return view('livewire.pdvcomponent', ['produtos' => $produtos]);
-       /* return view('livewire.formpdv', ['produtos' => $produtos]); */
-        $this->view = 'livewire.formpdv' ['produtos => $_FILESprodutos'];    
+      /* return view('livewire.pdvcomponent', ['produtos' => $produtos]); */
+       return view('livewire.pdvbusca', ['produtos' => $produtos]); 
+         
     }
 
  

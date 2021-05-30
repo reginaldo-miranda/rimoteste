@@ -12,7 +12,7 @@
       <div class="modal-header">
         {{--    inicio         --}}
 
-     {{--    @include('livewire.tableprod')   --}}
+       @include('livewire.tableprod')  
 
         {{--     fim             --}}
   </div>
