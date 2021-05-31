@@ -5,9 +5,9 @@
           
     <div class="col-sm-9">
        
-    {{--     @include("livewire.tableProd") --}}
+    @include("livewire.tableProd") 
 
-     @include('livewire.formProd')  
+  
      
  </div>
 </div>

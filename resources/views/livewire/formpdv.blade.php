@@ -32,7 +32,6 @@
                      
                
                 @error("searchprod")<span>{{ $message }}</span> @enderror
-                
                
             </div>
               

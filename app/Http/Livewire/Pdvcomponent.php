@@ -46,7 +46,7 @@ class Pdvcomponent extends Component
             ->orWhere('grupo', 'LIKE', $searchprod1)
             ->orderby('id', 'desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
-
+       // dd($produtos);
       /* return view('livewire.pdvcomponent', ['produtos' => $produtos]); */
        return view('livewire.pdvbusca', ['produtos' => $produtos]); 
          
