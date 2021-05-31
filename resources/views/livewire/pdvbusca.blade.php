@@ -7,9 +7,9 @@
     {{ $pesquisa->descricao }}
                   
 @endforeach 
+<textarea id="areavenda" row="100" cols="80" name="areavenda">{{$pesquisa->descricao}}</textarea>
 
-@include('livewire.modaprod')
  
-@include('livewire.formProd')
+
 </div>
    

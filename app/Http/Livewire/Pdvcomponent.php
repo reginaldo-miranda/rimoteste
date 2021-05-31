@@ -23,7 +23,7 @@ class Pdvcomponent extends Component
     public function render()
     {
        
-      /*  
+       
                 
         $searchprod1 = '%'. $this->searchprod1 .'%';
         $produtos = produto::where('descricao', 'LIKE', $searchprod1)
@@ -33,11 +33,11 @@ class Pdvcomponent extends Component
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
         
                  
-           return view('livewire.pdvcomponent');
+        return view('livewire.pdvcomponent', ['produtos' => $produtos]); 
     }
      
       
-
+/*
     public function buscar(){
      
         $searchprod1 = '%' . $this->searchprod1 . '%';
@@ -45,12 +45,13 @@ class Pdvcomponent extends Component
             ->orWhere('id', 'LIKE', $searchprod1)
             ->orWhere('grupo', 'LIKE', $searchprod1)
             ->orderby('id', 'desc')->paginate(4);
+
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
        // dd($produtos);
-      /* return view('livewire.pdvcomponent', ['produtos' => $produtos]); */
-       return view('livewire.pdvbusca', ['produtos' => $produtos]); 
+      /* return view('livewire.pdvcomponent', ['produtos' => $produtos]); 
+       return view('livewire.formProd', ['produtos' => $produtos]); 
          
-    }
+    } */
 
  
 }
