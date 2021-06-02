@@ -13,7 +13,7 @@ use Livewire\WithPagination;
 
 class Pdvcomponent extends Component
 {
-    public $prod_id, $descricao, $grupo, $pvenda, $buscapdv;
+    public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
      public $view ='formpdv';
 
     public $searchprod1;
@@ -36,6 +36,17 @@ class Pdvcomponent extends Component
         return view('livewire.pdvcomponent', ['produtos' => $produtos]); 
     }
      
+    public function edit($id){
+
+        $post = produto::find($id);
+        dd($post);
+        $this->prod_id   = $post->id;
+        $this->descricao = $post->descricao;
+        $this->grupo     = $post->grupo;
+        $this->pvenda    = $post->pvenda;
+       // $this->view = 'editProd';
+
+    }
       
 /*
     public function buscar(){

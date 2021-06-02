@@ -23,8 +23,11 @@
       {{-- @include('menu')  --}}
       <div>
         <label>produto</label>
-         <input type="text" class="form-control" wire:model="searchprod1"> 
-       {{--   <input type="text" class="form-control" wire:keydown.enter="buscar"> --}}
+          {{--   <input type="text" class="form-control" wire:model="searchprod1">  
+        <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
+
+        <input type="text" class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
+        
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
