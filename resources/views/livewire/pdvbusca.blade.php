@@ -1,42 +1,15 @@
 <div>
   
-    <h1>Itens</h1>
- {{-- 
-@foreach($produtos as $pesquisa) {{--  // $key => $value) 
-
-    @if(count($produtos) == 1)
-                
-       <textarea id="areavenda" row="100" cols="80" name="areavenda">
-            {{$pesquisa->descricao}}  {{$pesquisa->pvenda}}
-        
-       </textarea>
+    <h1>aqui</h1>
  
-     @else      
-        
-     @endif
-@endforeach --}} 
+@foreach($produtos as $pesquisa) {{--  // $key => $value)  --}}
+                
+    {{ $pesquisa->descricao }}
+                  
+@endforeach 
 
- @foreach($produtos as $post)
-
- @if(count($produtos) == 1)
-      <tr>
-           <td>{{ $post->id }}</td>
-           <td>{{ $post->descricao }}</td>
-           <td>{{ $post->pvenda }}</td>
-          <td>
-              <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
-                  Editar
-              </button>
-          </td>
-          <td>
-            <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
-                Deletar
-            </button>
-        </td>
-      </tr>
-   @endif     
-     @endforeach
-
+@include('livewire.modaprod')
+ 
 
 </div>
    

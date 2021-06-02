@@ -14,10 +14,10 @@
  {{--  @include('menu')     --}} 
     <div class="row" >
       <div class="col-8">col-8</div>
-     
+  
       <div class="col-4" id="col4">
-       {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda"></textarea> --}}
-       @include('livewire.pdvbusca')
+       {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda"></textarea> 
+       @include('livewire.pdvbusca') --}}
      {{--    <textarea class="form-control" type="text" name = 'areavenda'  rows="3" value = "{{ old('body', $post->body ?? null) }}" ></textarea> --}}
       </div>
       {{-- @include('menu')  --}}
@@ -31,6 +31,7 @@
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
+    @include('livewire.pdvbusca')
     @include('livewire.modaprod')
     </div>
  </div>
