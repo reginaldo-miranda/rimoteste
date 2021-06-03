@@ -14,8 +14,8 @@ use Livewire\WithPagination;
 class Pdvcomponent extends Component
 {
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
-     public $view ='formpdv';
-
+    public $view ='formpdv';
+     
     public $searchprod1;
 
     protected $paginationTheme = 'bootstrap';
@@ -40,12 +40,19 @@ class Pdvcomponent extends Component
 
         //$post = produto::find($id);
         $produtos = produto::find($id);
-   //     $this->prod_id   = $post->id;
-    //    $this->descricao = $post->descricao;
-    //    $this->grupo     = $post->grupo;
-     //   $this->pvenda    = $post->pvenda;
+        $this->prod_id   = $produtos->id;
+        $this->descricao = $produtos->descricao;
+        $this->grupo     = $produtos->grupo;
+        $this->pvenda    = $produtos->pvenda;
+       
        // $this->view = 'editProd';
-       return view('livewire.formpdv', ['produtos' => $produtos]); 
+       // dd($produtos);
+       // return view('livewire.pdvvenda', ['produtos' => $produtos]); 
+    }
+
+    public function teste(){
+
+        return 'teste pdv';
     }
       
 /*

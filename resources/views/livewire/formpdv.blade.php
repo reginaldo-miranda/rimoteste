@@ -11,28 +11,32 @@
       <div class="col">col</div>
       <div class="col">col</div>
    </div>
- {{--  @include('menu')     --}} 
+
     <div class="row" >
+        
       <div class="col-8">col-8</div>
-  
+        @include('livewire.pdvvenda')
       <div class="col-4" id="col4">
-       {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda"></textarea> 
-       @include('livewire.pdvbusca') --}}
-     {{--    <textarea class="form-control" type="text" name = 'areavenda'  rows="3" value = "{{ old('body', $post->body ?? null) }}" ></textarea> --}}
+      
+      {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda">{{ $descricao }}</textarea><br> 
+     
+      <textarea class="form-control" type="text" name = 'areavenda'  rows="3" value = "{{ $descricao }}" ></textarea> --}}
       </div>
-      {{-- @include('menu')  --}}
+       
       <div>
+        
         <label>produto</label>
           {{--   <input type="text" class="form-control" wire:model="searchprod1">  
         <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
-
+        
         <input type="text" class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
         
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
-    @include('livewire.pdvbusca')
+       
     @include('livewire.modaprod')
+   
     </div>
  </div>
  

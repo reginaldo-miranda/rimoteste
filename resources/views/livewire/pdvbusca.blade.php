@@ -1,15 +1,18 @@
 <div>
   
-    <h1>aqui</h1>
+    <h5>busca pdv</h5>
  
-@foreach($produtos as $pesquisa) {{--  // $key => $value)  --}}
+ @foreach($produtos as $pesquisa)//$key=>$value) 
                 
-    {{ $pesquisa->descricao }}
+  
+    {{$pesquisa->$descricao}}   
+   
+  
+    {{ $pesquisa->$pvenda }}
+  
                   
-@endforeach 
+  @endforeach 
 
-@include('livewire.modaprod')
  
-
 </div>
    
