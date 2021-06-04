@@ -14,8 +14,9 @@
 
     <div class="row" >
         
-      <div class="col-8">col-8</div>
+      <div>
         @include('livewire.pdvvenda')
+    </div>  
       <div class="col-4" id="col4">
       
       {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda">{{ $descricao }}</textarea><br> 
@@ -30,7 +31,7 @@
         <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
         
         <input type="text" class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
-        
+       
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
@@ -38,6 +39,7 @@
     @include('livewire.modaprod')
    
     </div>
+                       
  </div>
  
  </div> 
