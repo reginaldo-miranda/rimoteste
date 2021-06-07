@@ -18,7 +18,7 @@
         @include('livewire.pdvvenda')
     </div>  
       <div class="col-4" id="col4">
-      <button class="btn btn-primary btn-sm">abrir</button>
+      <button wire:click="abrir"class="btn btn-primary btn-sm">abrir</button>
       {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda">{{ $descricao }}</textarea><br> 
      
       <textarea class="form-control" type="text" name = 'areavenda'  rows="3" value = "{{ $descricao }}" ></textarea> --}}

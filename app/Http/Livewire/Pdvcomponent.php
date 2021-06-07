@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\models\produto;
+use App\models\vendasitens;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
 use Livewire\WithPagination;
@@ -15,6 +16,8 @@ class Pdvcomponent extends Component
 {
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
     public $view ='formpdv';
+    public $cliente = 1, $qde=2;
+
      
     public $searchprod1;
 
@@ -44,29 +47,34 @@ class Pdvcomponent extends Component
         $this->descricao = $produtos->descricao;
         $this->grupo     = $produtos->grupo;
         $this->pvenda    = $produtos->pvenda;
-        $this->prod_id = '';
-       // $this->view = 'editProd';
+      
+
+        $vendaitens = vendasitens::create([
+            
+            'id_cliente' =>$this->cliente,
+            'id_produto' =>$this->prod_id,
+            'qde'        => $this->qde,
+            'valorunit'  => $this->pvenda
+          ]);
+          $this->prod_id = '';
+        $this->view = 'pdvbusca';
        // dd($produtos);
        //return view('livewire.pdvvenda', ['produtos' => $produtos]); 
-       return redirect('livewire.formpdv');
+    //   return redirect('livewire.formpdv');
        // return back()->withInput();
     }
 
-    public function setType($type)
-    {
-        if (in_array($type, $this->types)) {
-            $this->types = array_diff($this->types, array($type));
-        } else {
-            $this->types[] = $type;
-        }
-    }
-
-
-
+   
     public function teste(){
 
         return 'teste pdv';
     }
+
+
+    public function abrir(){
+        dd();                      
+       'aqui na venda';
+      }
       
 /*
     public function buscar(){
@@ -83,7 +91,7 @@ class Pdvcomponent extends Component
        return view('livewire.formProd', ['produtos' => $produtos]); 
          
     } */
-
+   
  
 }
 

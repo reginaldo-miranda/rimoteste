@@ -6,7 +6,8 @@
 @section('content')
     <div class="container">
        
-      @livewire('pdvcomponent')
+      @livewire('pdvcomponent') 
+     
     </div>
 
 @endsection
