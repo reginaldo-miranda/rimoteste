@@ -1,5 +1,5 @@
 <h5>venda</h5>
-<div class="container">
+<div class="scrolling-pagination">
 <table class="table">
  
   
@@ -28,6 +28,13 @@
 
  </tbody>
 </table>  
+<script type = "text / javascript" > 
+    window.onscroll = function (ev) {
+    if ((window.innerHeight + window.scrollY)> = document.body.offsetHeight) {
+    window.livewire.emit ('carregar mais');
+    }
+    };
+ </script>
 </div>
  {{-- 
 <div class="container">
@@ -35,4 +42,50 @@
    {{ $prod_id }} {{$descricao}} {{ $pvenda }}
   
 
-</div>--}}
+</div>
+
+$browser->scrollIntoView('.selector')
+        ->click('.selector'); // scroll 
+        
+        
+          <script type = "text / javascript" > 
+         window.onscroll = function (ev) {
+         if ((window.innerHeight + window.scrollY)> = document.body.offsetHeight) {
+         window.livewire.emit ('carregar mais');
+         }
+         };
+      </script>
+        
+        ------------------------------------------------------
+class ArticleList extends Component
+{
+    public $perPage = 10;
+
+    public function render()
+    {
+        $articles = Article::paginate($this->perPage);
+
+        return view('livewire.article-list', [
+            'articles' => $articles
+        ]);
+    }
+}
+
+<div>
+    @foreach ($articles as $article)
+        <div class="mb-6">
+            <h1 class="text-xl">#{{ $article->id }} {{ $article->title }}</h1>
+            <p>{{ $article->teaser }}</p>
+        </div>
+    @endforeach
+</div>
+
+
+
+
+
+
+        ----------------------------------------------------
+
+        https://www.positronx.io/build-onscroll-load-more-in-laravel-with-livewire-package/  outro modelo de scroll
+        --}}

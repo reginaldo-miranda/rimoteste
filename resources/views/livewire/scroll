@@ -1,0 +1,166 @@
+Laravel Livewire Infinite Scrolling
+Quando comecei a implementar a rolagem infinita no Livewire, não pensei que seria tão simples. Acontece que carregar mais registros com o clique de um botão ou a rolagem de uma janela do navegador é incrivelmente simples.
+
+Prefere assistir? Há um curso dedicado que cobre o Livewire Infinite Scrolling no Codecourse.
+
+Esta não é a solução de melhor desempenho, como veremos mais tarde. Mas funciona bem, desde que você não tenha um número ridículo de resultados gerais para mostrar.
+
+Neste artigo, vou guiá-lo através do acoplamento de um componente Livewire simples com Alpine.js para executar o carregamento infinito de resultados de uma lista de artigos.
+
+Prefácio
+Estou começando com uma nova instalação do Laravel e Livewire instalado. Eu também trouxe o Laravel Breeze para o andaime. É tudo de que precisamos aqui.
+
+Modelo de artigo e propagação
+Sinta-se à vontade para pular isso se você já tiver um banco de dados cheio de itens para exibir.
+
+Crie um modelo de artigo com migração e fábrica
+
+php artisan make:model Article -m -f
+Mantenha a simplicidade na upmigração com a titlee a teaser.
+
+public function up()
+{
+    Schema::create('articles', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');
+        $table->string('teaser');
+        $table->timestamps();
+    });
+}
+E, claro, migre.
+
+php artisan migrate
+Preencha o ArticleFactorypara gerar alguns dados falsos.
+
+public function definition()
+{
+    return [
+        'title' => $this->faker->sentence(5),
+        'teaser' => $this->faker->sentence(20),
+    ];
+}
+Usando php artisan tinkerou Tinkerwell se você tiver, semeie o banco de dados com 100 ou mais registros.
+
+Article::factory()->times(100)->create();
+Exibindo resultados com Livewire
+Crie um componente para listar através dos artigos. Chamaremos isso de ... ArticleList.
+
+php artisan livewire:make ArticleList
+Abra o ArticleListcomponente Livewire, pegue uma coleção de artigos paginados (tecnicamente a LengthAwarePaginator) e passe-os para o modelo Livewire Blade correspondente.
+
+class ArticleList extends Component
+{
+    public $perPage = 10;
+
+    public function render()
+    {
+        $articles = Article::paginate($this->perPage);
+
+        return view('livewire.article-list', [
+            'articles' => $articles
+        ]);
+    }
+}
+Agora, na visualização, itere!
+
+<div>
+    @foreach ($articles as $article)
+        <div class="mb-6">
+            <h1 class="text-xl">#{{ $article->id }} {{ $article->title }}</h1>
+            <p>{{ $article->teaser }}</p>
+        </div>
+    @endforeach
+</div>
+Adicione a lista de artigos a uma página (no meu caso é dashboard.blade.php) e verifique o resultado.
+
+<livewire:article-list />
+Você deve ver 10 artigos listados na página.
+
+Carregando mais
+É aqui que o Livewire brilha.
+
+Primeiro, crie um método no ArticleListcomponente que incrementa a $perPagepropriedade pelo incremento escolhido.
+
+class ArticleList extends Component
+{
+    public $perPage = 10;
+
+    public function loadMore()
+    {
+        $this->perPage += 10;
+    }
+
+    // ...
+}
+Agora adicione um botão abaixo da lista de artigos para invocar esse método.
+
+<div>
+    @foreach ($articles as $article)
+        <div class="mb-6">
+            <h1 class="text-xl">#{{ $article->id }} {{ $article->title }}</h1>
+            <p>{{ $article->teaser }}</p>
+        </div>
+    @endforeach
+    
+    @if($articles->hasMorePages())
+        <button wire:click.prevent="loadMore">Load more</button>
+    @endif
+</div>
+Observe que estamos adicionando um cheque usando hasMorePagesdo Laravel LengthAwarePaginator. Não precisamos mostrar o botão se não houver mais resultados para carregar.
+
+Agora clique no Load morebotão. Ao incrementar a $perPagepropriedade, mostramos gradualmente mais resultados.
+
+Uma olhada nos bastidores
+Antes de usarmos a API JavaScript Intersection Observer para adicionar comportamento de rolagem infinita, é importante observar o que está acontecendo nos bastidores aqui e por que não é a solução de melhor desempenho.
+
+Essa é uma maneira incrivelmente fácil de implementar esse tipo de comportamento, mas tem um pequeno problema de desempenho, dependendo de quantos resultados gerais você tem.
+
+Sempre que o fazemos Article::paginate($this->perPage), solicitamos a nova quantidade incrementada de resultados para mostrar na lista.
+
+No primeiro carregamento da página, carregamos 10 resultados.
+Quando acertamos Load more, carregamos 20 resultados no geral.
+Quando o atingimos de novo e de novo, estamos carregando 30, 40, 50 e assim por diante.
+Isso significa que cada pressionamento de Load moreconsulta o banco de dados para o número atual de resultados que queremos exibir por página, não o próximo conjunto de 10.
+
+Por enquanto, está tudo bem e abordaremos uma abordagem diferente em outro artigo!
+
+Trazendo a API Intersection Observer
+Para rolagem infinita, agora iremos acionar o loadMoremétodo quando o usuário atingir o final da lista atual de artigos exibidos.
+
+Como usei o Laravel Breeze para este artigo, já instalei o Alpine.js. Você pode implementar esse comportamento sem o Alpine, mas se quiser tentar, vá para a documentação do Alpine.js e coloque-o em seu projeto.
+
+Preparar? Logo abaixo de @endforeach, adicione o seguinte componente Alpine.
+
+<div
+    x-data="{
+        observe () {
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        @this.call('loadMore')
+                    }
+                })
+            }, {
+                root: null
+            })
+
+            observer.observe(this.$el)
+        }
+    }"
+    x-init="observe"
+></div>
+O que está acontecendo aqui?
+
+Na inicialização, estamos chamando observe, que registra um IntersectionObserverpara o elemento atual (este div, referenciado por this.$elem Alpine).
+
+Ao iterar sobre o entries, que representa a interseção entre o elemento de destino e o contêiner raiz, verificaremos se temos uma interseção (em resumo - isso é divvisível?).
+
+Se estiver visível, usamos @this, que representa o componente Livewire atual ( ArticleList) por seu ID exclusivo para chamar o loadMoremétodo.
+
+É basicamente isso. Assim que o componente Alpine estiver lá, rolar até a parte inferior da página acionará o carregamento de mais resultados, como vimos anteriormente ao clicar no Load morebotão. Provavelmente é uma boa ideia deixar o Load morebotão lá, apenas no caso de a API Intersection Observer não ser compatível com o usuário.
+
+Eu recomendo puxar o polyfill Intersection Observer em seu projeto de qualquer maneira, já que ainda existem alguns navegadores sem suporte para ele (mas, pelo menos você tem esse Load morebotão!).
+
+
+
+https://blog.codecourse.com/laravel-livewire-infinite-scrolling/

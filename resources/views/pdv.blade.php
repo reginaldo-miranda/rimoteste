@@ -7,7 +7,8 @@
     <div class="container">
        
       @livewire('pdvcomponent') 
-     
+      @livewire('VendaitensComponente')
     </div>
+    
 
 @endsection
