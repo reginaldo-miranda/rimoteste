@@ -25,16 +25,17 @@ class Pdvcomponent extends Component
     use WithPagination;
     public function render()
     {
-                
-        $searchprod1 = '%'. $this->searchprod1 .'%';
+        $produtos = vendasitens::get(); 
+     /*  $searchprod1 = '%'. $this->searchprod1 .'%';
         $produtos = produto::where('descricao', 'LIKE', $searchprod1)
                             ->orWhere('id', 'LIKE' ,$searchprod1) 
                             ->orWhere('grupo', 'LIKE', $searchprod1)  
                             ->orderby('id','desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
         
-                 
-        return view('livewire.pdvcomponent', ['produtos' => $produtos]); 
+        //dd($produtos);         
+     
+        return view('livewire.pdvcomponent',['produtos'=> $produtos]);
     }
      
     public function edit($id){

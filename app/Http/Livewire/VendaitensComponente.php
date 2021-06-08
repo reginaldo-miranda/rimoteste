@@ -9,8 +9,8 @@ class VendaitensComponente extends Component
 {
     public function render()
     {
-        $venda = vendasitens::all()
-        dd($venda);
+        $venda = vendasitens::all();
+     
         return view('livewire.vendaitens-componente');
     }
 }
