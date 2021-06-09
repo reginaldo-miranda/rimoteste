@@ -3,9 +3,7 @@
       
     <div class="col-sm-9">
      
-       @include("livewire.formpdv") 
-      <textarea id="areavenda1" row="1" cols="25" name="areavenda1">
-        {{ $descricao }}
-       </textarea> 
+      @include("livewire.pdvbusca")   
+    
     </div>
 </div>

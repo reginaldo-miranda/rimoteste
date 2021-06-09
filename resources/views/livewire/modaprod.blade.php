@@ -11,9 +11,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        {{--    inicio         -
+        {{--    inicio         --}}
 
-       @include('livewire.tableprod')  
+       @include('livewire.tableProd')  
 
         {{--     fim             --}}
   </div>

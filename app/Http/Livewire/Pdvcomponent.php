@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Database\Eloquent;
 use Livewire\Component;
 use App\models\produto;
 use App\models\vendasitens;
@@ -23,21 +24,25 @@ class Pdvcomponent extends Component
 
     protected $paginationTheme = 'bootstrap';
     use WithPagination;
+
     public function render()
     {
-        $produtos = vendasitens::get(); 
-     /*  $searchprod1 = '%'. $this->searchprod1 .'%';
-        $produtos = produto::where('descricao', 'LIKE', $searchprod1)
-                            ->orWhere('id', 'LIKE' ,$searchprod1) 
-                            ->orWhere('grupo', 'LIKE', $searchprod1)  
-                            ->orderby('id','desc')->paginate(4);
+       // $produtos = produto::get(); 
+
+        $searchprod1 = '%'. $this->searchprod1 .'%';
+        $produtos= produto::where('descricao', 'LIKE', $searchprod1)
+                             ->orWhere('grupo', 'LIKE', $searchprod1)  
+                             ->orderby('id','desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
+
         
-        //dd($produtos);         
-     
         return view('livewire.pdvcomponent',['produtos'=> $produtos]);
-    }
+        
+                
      
+
+    }
+     /*
     public function edit($id){
 
         //$post = produto::find($id);
@@ -58,20 +63,15 @@ class Pdvcomponent extends Component
             'valorunit'  => $this->pvenda
           ]);
           $this->prod_id = '';
-        $this->view = 'pdvbusca';
+         $this->view = 'pdvbusca';
        // dd($produtos);
        //return view('livewire.pdvvenda', ['produtos' => $produtos]); 
     //   return redirect('livewire.formpdv');
        // return back()->withInput();
     }
-
+*/
    
-    public function teste(){
-
-        return 'teste pdv';
-    }
-
-
+    
     public function abrir(){
         dd();                      
        'aqui na venda';

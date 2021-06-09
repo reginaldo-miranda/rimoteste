@@ -36,6 +36,6 @@
 </table>
 
 
-{{ $produtos->links() }}
+ {{ $produtos->links() }}  
 
  

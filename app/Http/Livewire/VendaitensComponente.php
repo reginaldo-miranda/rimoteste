@@ -33,7 +33,7 @@ class VendaitensComponente extends Component
     public function render()
     {
         $produtos = vendasitens::get();
-            
+           
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
@@ -57,7 +57,7 @@ class VendaitensComponente extends Component
             'valorunit'  => $this->pvenda
           ]);
           $this->prod_id = '';
-          $this->view = 'pdvbusca';
+        //  $this->view = 'pdvbusca';
        // dd($produtos);
        // return view('livewire.pdvvenda', ['produtos' => $produtos]); 
        // return redirect('livewire.formpdv');
