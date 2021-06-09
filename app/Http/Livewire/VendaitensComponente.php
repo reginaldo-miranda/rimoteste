@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\models\vendasitens;
 use App\models\produto;
+use App\models\vendas;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
 use Livewire\WithPagination;
@@ -15,7 +16,7 @@ class VendaitensComponente extends Component
 
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2;
+    public $cliente = 1, $qde=2, $valortotal=100;
 
     public $limitPerPage = 10;
 
@@ -63,4 +64,13 @@ class VendaitensComponente extends Component
        // return redirect('livewire.formpdv');
        // return back()->withInput();
     }
+    public function abrir(){
+        
+        $vendapdv = vendas::create([
+            'id_cliente'=>$this->cliente,
+            'valor_total'=>$this->valortotal
+        ]);
+        
+   
+   }
 }

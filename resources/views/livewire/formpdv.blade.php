@@ -35,8 +35,7 @@
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
-  {{--   @include('livewire.pdvbusca')      --}}
-   
+  
    
     </div>
                        

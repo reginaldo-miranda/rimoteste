@@ -28,14 +28,14 @@
 
  </tbody>
 </table>  
-{{-- 
+
 <script type = "text / javascript" > 
     window.onscroll = function (ev) {
-    if ((window.innerHeight + window.scrollY)> = document.body.offsetHeight) {
+    if ((window.innerHeight + window.scrollY)> = document.tbody.offsetHeight) {
     window.livewire.emit ('carregar mais');
     }
     };
- </script> --}}
+ </script> 
 
 </div>
  {{-- 
