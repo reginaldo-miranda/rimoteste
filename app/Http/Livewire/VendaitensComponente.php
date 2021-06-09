@@ -33,8 +33,8 @@ class VendaitensComponente extends Component
 
     public function render()
     {
-        $produtos = vendasitens::get();
-           
+       // $produtos = vendasitens::get();
+        $produtos = vendasitens::paginate($this->perPage);
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
