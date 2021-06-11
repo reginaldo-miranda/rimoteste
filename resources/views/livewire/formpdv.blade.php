@@ -10,7 +10,7 @@
       <div class="col">col</div>
       <div class="col">col</div>
       <div class="col">col</div>
-   </div>
+    </div>
 
     <div class="row" >
       
@@ -19,25 +19,18 @@
        </div>  
           
           
-        <label>produto <textarea id="areavenda1" row="1" cols="25" name="areavenda1">
+        <label>produto <textarea id="areavenda" row="1" cols="25" name="areavenda1">
           {{ $descricao }}
          </textarea></label>
           {{--   <input type="text" class="form-control" wire:model="searchprod1">  
         <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
-      
          
-        Codigo Produtos:<input type="text" id="areavenda1"class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
-           
-              
-          
-
+        Codigo Produtos:<input type="text" id="inputpdv"class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
+  
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
-  
-   
     </div>
-                       
  </div>
   
     {{--   <script type="text/javascript">
@@ -49,13 +42,7 @@
 
       </script>  --}}
 
-<style>
- #areavenda1{
-   height: 25px;
-
-
- }  
-</style>      
+        
  </div> 
 
 {{-- 

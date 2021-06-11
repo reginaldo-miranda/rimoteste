@@ -58,7 +58,11 @@ class VendaitensComponente extends Component
             'id_cliente'=>$this->cliente,
             'valor_total'=>$this->valortotal
         ]);
-        
    
    }
+   
+   public function destruir($id){
+    vendasitens::destroy($id);
+   }
+
 }

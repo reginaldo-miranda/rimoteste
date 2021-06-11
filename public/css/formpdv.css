@@ -1,3 +1,4 @@
+
 /*
 #telapdv{
   padding-top: 30px;
@@ -9,12 +10,12 @@
 }
 
 */
-#areavenda1{
-    padding-top: 30px;
-    width: 350px;
-    height: 400px;
-    resize: none;
-    float:right;
+#areavenda{
+  /*  padding-top: 30px;*/
+    width: 100px;
+    height: 25px;
+   /* resize: none;*/
+   /* float:right; */
 
 }
 
@@ -44,4 +45,12 @@
 
 #exampleModal{
   width: 900px;
+}
+
+#inputpdv{
+
+    height: 25px;
+    width: 130px;
+
+
 }

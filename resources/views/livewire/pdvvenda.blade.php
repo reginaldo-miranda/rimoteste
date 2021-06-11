@@ -10,7 +10,7 @@
     height:400px;
     overflow:auto;*/
       background: rgb(230, 230, 230);
-            width: 100%;
+            width: 600px;
             height: 380px;
             overflow-y: auto;
            /* overflow-x: hidden; */
@@ -38,7 +38,7 @@
                 </button>
             </td>
             <td>
-                <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
+                <button wire:click="destruir({{ $post->id }})" class="btn btn-danger btn-sm">
                     Deletar
                 </button>
             </td>
