@@ -1,4 +1,4 @@
-<h5>venda</h5>
+
 {{-- <div class="scrolling-pagination"> --}}
 
 <style>
@@ -13,7 +13,7 @@
             width: 100%;
             height: 380px;
             overflow-y: auto;
-            overflow-x: hidden;
+           /* overflow-x: hidden; */
         }
 
 

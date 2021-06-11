@@ -6,32 +6,31 @@
 
     <div class="row">
       <a href="{{ url('/menu') }}">Menu</a>
-      <div class="col">col</div>
+      <div class="col"> <button wire:click="abrir"class="btn btn-primary btn-sm">abrir</button></div>
       <div class="col">col</div>
       <div class="col">col</div>
       <div class="col">col</div>
    </div>
 
     <div class="row" >
-        
-      <div>
-        @include('livewire.pdvvenda')
-    </div>  
-      <div class="col-4" id="col4">
-      <button wire:click="abrir"class="btn btn-primary btn-sm">abrir</button>
-      {{--  <textarea id="areavenda" row="100" cols="80" name="areavenda">{{ $descricao }}</textarea><br> 
-     
-      <textarea class="form-control" type="text" name = 'areavenda'  rows="3" value = "{{ $descricao }}" ></textarea> --}}
-      </div>
+      
+       <div>
+          @include('livewire.pdvvenda')
+       </div>  
           
-      <div>
-        
-        <label>produto</label>
+          
+        <label>produto <textarea id="areavenda1" row="1" cols="25" name="areavenda1">
+          {{ $descricao }}
+         </textarea></label>
           {{--   <input type="text" class="form-control" wire:model="searchprod1">  
         <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
-        
-        <input type="text" class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
-       
+      
+         
+        Codigo Produtos:<input type="text" id="areavenda1"class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
+           
+              
+          
+
         @error("buscapdv")<span>{{ $message }}</span> @enderror
         
     </div>
@@ -40,16 +39,23 @@
     </div>
                        
  </div>
-    
-      <script type="text/javascript">
+  
+    {{--   <script type="text/javascript">
         window.onscroll = function (ev) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
                 window.livewire.emit('load-more');
             }
         };
 
-      </script>
- 
+      </script>  --}}
+
+<style>
+ #areavenda1{
+   height: 25px;
+
+
+ }  
+</style>      
  </div> 
 
 {{-- 
