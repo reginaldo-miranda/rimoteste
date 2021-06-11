@@ -1,52 +1,69 @@
 <h5>venda</h5>
-<div class="scrolling-pagination">
+{{-- <div class="scrolling-pagination"> --}}
+
+<style>
+
+.p{
+  
+  /*  border:solid 1px #000000;
+    width:600px;
+    height:400px;
+    overflow:auto;*/
+      background: rgb(230, 230, 230);
+            width: 100%;
+            height: 380px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+
+}
+</style>
+
+ <div class="p">
 <table class="table">
  
   
-   @foreach($produtos as $post)
-   <tr>
-    
-       <td>{{ $post->id_venda }}</td>
-       <td>{{ $post->id_cliente }}</td>
-       <td>{{ $post->id_produto }}</td>
-       <td>{{ $post->qde }}</td>
-       <td>{{ $post->valorunit }}</td>
-       <td>
-           <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
-               Editar
-           </button>
-       </td>
-       <td>
-         <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
-             Deletar
-         </button>
-     </td>
-   </tr>
-     
-  @endforeach
-  <div
-    x-data="{
-        observe () {
-            let observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        @this.call('loadMore')
-                    }
-                })
-            }, {
-                root: null
-            })
-
-            observer.observe(this.$el)
-        }
-    }"
-    x-init="observe"
->
+        @foreach($produtos as $post)
+        <tr>
+         
+            <td>{{ $post->id_venda }}</td>
+            <td>{{ $post->id_cliente }}</td>
+            <td>{{ $post->id_produto }}</td>
+            <td>{{ $post->qde }}</td>
+            <td>{{ $post->valorunit }}</td>
+            <td>
+                <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
+                    Editar
+                </button>
+            </td>
+            <td>
+                <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
+                    Deletar
+                </button>
+            </td>
+        </tr>
+            
+        @endforeach
+   
 </div>
 
 
  </tbody>
+  
 </table>  
+
+
+
+
+</div>
+
+
+ {{-- 
+https://pt.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/pt/css-box-model // scroll
+
+
+
 
 <script type = "text / javascript" > 
     window.onscroll = function (ev) {
@@ -54,10 +71,11 @@
     window.livewire.emit ('carregar mais');
     }
     };
- </script> 
 
-</div>
- {{-- 
+</script> 
+
+
+
 <div class="container">
 
    {{ $prod_id }} {{$descricao}} {{ $pvenda }}

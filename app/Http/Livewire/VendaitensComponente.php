@@ -18,23 +18,11 @@ class VendaitensComponente extends Component
     public $view ='formpdv';
     public $cliente = 1, $qde=2, $valortotal=100;
 
-    public $limitPerPage = 10;
-
-    protected $listeners = [
-        'load-more' => 'loadMore'
-    ];
    
-    public function loadMore()
-    {
-        $this->limitPerPage = $this->limitPerPage + 6;
-    }
-
-
-
     public function render()
     {
-       // $produtos = vendasitens::get();
-        $produtos = vendasitens::paginate($this->perPage);
+        $produtos = vendasitens::get();
+           
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
