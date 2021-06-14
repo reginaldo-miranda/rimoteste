@@ -8,6 +8,8 @@ use App\models\produto;
 use App\models\vendas;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
+//use App\Http\Livewire\DB;
 use Livewire\WithPagination;
 
 
@@ -21,8 +23,10 @@ class VendaitensComponente extends Component
    
     public function render()
     {
-        $produtos = vendasitens::get();
-           
+      //  $produtos = vendasitens::get();
+        $produtos = DB::table('vendasitens')
+        ->join('produtos', 'produtos.id', '=', 'produtos.id')
+        ->select('vendasitens.*','produtos.descricao')->get();
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
@@ -66,3 +70,16 @@ class VendaitensComponente extends Component
    }
 
 }
+
+
+
+
+/*
+
+$users = DB::table('users')
+            ->join('contacts', 'users.id', '=', 'contacts.user_id')
+            ->join('orders', 'users.id', '=', 'orders.user_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get(); */
+
+     

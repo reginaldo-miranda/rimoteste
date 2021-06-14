@@ -31,6 +31,7 @@
             <td>{{ $post->id_cliente }}</td>
             <td>{{ $post->id_produto }}</td>
             <td>{{ $post->qde }}</td>
+            <td>{{ $post->descricao }}</td>
             <td>{{ $post->valorunit }}</td>
             <td>
                 <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
