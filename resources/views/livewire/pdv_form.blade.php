@@ -1,9 +1,43 @@
 @extends('layout')
 
-<div id="pagina">
- 
-<div class="container-fluid" id="bloco"> 
+<div class="container">
+    <div id="menu">
+        <h3>menu</h3>
+    </div>
+    <div id="descricaoprod">
 
+        <h5>id prod qde 02 coca cola lata unit preco unit total</h5>
+    </div>
+    <div class="row" id="blocovenda">
+        <div id="valortotal">
+            <h2>valor total</h2>
+        </div>
+        <div id="scrollvenda">
+            <textarea id="areavenda" row="1" cols="25" name="areavenda1">
+            {{ $descricao }}
+          </textarea>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <div id="pagina">
+   
+<div class="container-fluid" id="bloco"> 
+  <textarea id="areavenda1" row="1" cols="25" name="areavenda1">
+    {{ $descricao }}
+</textarea> 
     <div class="row">
       <a href="{{ url('/menu') }}">Menu</a>
       <div class="col"> <button wire:click="abrir"class="btn btn-primary btn-sm">abrir</button></div>
@@ -23,11 +57,11 @@
           {{ $descricao }}
          </textarea></label>
           {{--   <input type="text" class="form-control" wire:model="searchprod1">  
-        <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 
+        <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> -
          
         Codigo Produtos:<input type="text" id="inputpdv"class="form-control" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
   
-        @error("buscapdv")<span>{{ $message }}</span> @enderror
+        @error('buscapdv')<span>{{ $message }}</span> @enderror
         
     </div>
     </div>
@@ -40,7 +74,7 @@
             }
         };
 
-      </script>  --}}
+      </script>  
 
         
  </div> 
@@ -57,9 +91,8 @@
         </div>
     </div>    
 
-<div>  --}}
-    {{-- 
-    <!DOCTYPE html>
+<div> --}}
+{{-- <!DOCTYPE html>
     <html>
     <head>
     <style>
@@ -103,13 +136,10 @@
     </div>
     
     </body>
-    </html>
-    
- --}}
-    
+    </html> --}}
 
- {{-- 
-<html>
+
+{{-- <html>
 <head>
 <style>
 .grid-container {
@@ -162,7 +192,6 @@
 <p>Item 1, 2, and 5 are set to span multiple columns or rows.</p>
 
 </body>
-</html>
- --}}
+</html> --}}
 
- {{-- https://www.youtube.com/watch?v=qvxSEov0UhY&t=203s // pesquisa search--}}
+{{-- https://www.youtube.com/watch?v=qvxSEov0UhY&t=203s // pesquisa search --}}

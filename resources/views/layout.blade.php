@@ -11,6 +11,8 @@
         <link href="{{ asset('css/formpdv.css')}}" rel="stylesheet">
         <link href={{ asset('css/menu.css')}} rel="stylesheet">
         <link href="{{ asset('css/modalProd.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/pdv_form.css') }}" rel="stylesheet">
       
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

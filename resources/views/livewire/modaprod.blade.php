@@ -1,5 +1,5 @@
 @extends('layout')
-<button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
+
 
 
 {{--<button type="button" class="btn-sm btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Open modal</button>
@@ -20,7 +20,7 @@
   </div>
    
 </div>
-
+<button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
  {{--   <script>
         $(document).ready(function(){
         $('#exampleModal').modal('show');
