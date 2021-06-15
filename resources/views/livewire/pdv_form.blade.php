@@ -1,22 +1,61 @@
 @extends('layout')
 
 <div class="container">
-    <div id="menu">
-        <h3>menu</h3>
-    </div>
-    <div id="descricaoprod">
 
-        <h5>id prod qde 02 coca cola lata unit preco unit total</h5>
+    <div class="row">
+
+        <div class="col-6">
+
+            <div id="cabecalho">
+                <div id="menu">
+                    <a href="{{ url('/menu') }}" id="menu">Menu</a>
+                   
+                </div>
+                <div id="descricaoprod">
+                    <textarea id="textareavenda" name="textareavenda">
+                    {{ $descricao }}
+                 </textarea>
+                </div>
+                <div id="btnabrir" class="col">
+                  <button id="botaoabir" wire:click="abrir">abrir venda</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row" id="blocovenda">
+                <div id="valortotal">
+                    <h1>valor total</h1>
+                    <div>
+                        <h3>Valor pago</h3>
+                    </div>
+                    <div>
+                        <h3>Troco</h3>
+                    </div>
+                </div>
+              
+                <div id="scrollvenda">
+                    <textarea id="areavenda" row="1" cols="25" name="areavenda1">
+                        {{ $descricao }}
+                     </textarea>
+                     
+                </div>
+                
+            </div>
+        </div>
+       
     </div>
-    <div class="row" id="blocovenda">
-        <div id="valortotal">
-            <h2>valor total</h2>
-        </div>
-        <div id="scrollvenda">
-            <textarea id="areavenda" row="1" cols="25" name="areavenda1">
-            {{ $descricao }}
-          </textarea>
-        </div>
+    
+
+    <div>
+        <label>produto</label>
+        <label id="labelqde">Qde</label>
+        <label>Valor<label>
+    </div>
+    <div class="row">
+        <input type="text">
+        <input id="inputqde" type="text">
+        <input id="inputvalor" type="text">
     </div>
 
 </div>
