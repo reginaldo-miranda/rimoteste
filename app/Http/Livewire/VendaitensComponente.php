@@ -19,7 +19,7 @@ class VendaitensComponente extends Component
 
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2, $valortotal=100;
+    public $cliente = 1, $qde=2, $valortotal=100, $status, $status_ap;
 
    
     public function render()
@@ -48,7 +48,8 @@ class VendaitensComponente extends Component
             'id_cliente' =>$this->cliente,
             'id_produto' =>$this->prod_id,
             'qde'        => $this->qde,
-            'valorunit'  => $this->pvenda
+            'valorunit'  => $this->pvenda,
+           
           ]);
           $this->prod_id = '';
         //  $this->view = 'pdvbusca';
@@ -57,12 +58,13 @@ class VendaitensComponente extends Component
        // return redirect('livewire.formpdv');
        // return back()->withInput();
     }
-    public function abrir($ap){
+    public function abrir($status_ap){
         
-      
+
         $vendapdv = vendas::create([
-            'id_cliente'=>$this->cliente,
-            'valor_total'=>$this->valortotal
+           // 'id_cliente' =>$this->cliente,
+           // 'valor_total'=>$this->valortotal,
+            'status'     =>$status_ap
                                 
         ]);
       

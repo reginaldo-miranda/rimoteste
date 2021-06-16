@@ -17,7 +17,8 @@
                  </textarea>
                 </div>
                 <div id="btnabrir" class="col">
-                  <button id="botaoabir" wire:click="abrir({{ $ap = '2'}}) ">abrir venda</button>
+                 
+                  <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button>
                 </div>
 
             </div>
@@ -53,7 +54,7 @@
         <label class="negrito">Valor<label>
     </div>
     <div class="row">
-        <input type="text">
+        <input autofocus type="text">
         <input id="inputqde" type="text">
         <input id="inputvalor" type="text">
     </div>
@@ -100,10 +101,13 @@
      });  --}}
 
 <script>
+   document.getElementsByName("botaoabir")[0].disabled = true;
      $("#botaoabir").click(function(e){
         e.preventDefault(); // evita que o formulário seja submetido
-        $("#btnabrir").hide(); //toggle();
+        $("#btnabrir").toggle();
+        $($this).focus();
     });
+
  </script>
 
 

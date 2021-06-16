@@ -11,7 +11,8 @@ class vendas extends Model
 
      protected $fillable = [
         'id_cliente',
-        'valor_total'
+        'valor_total',
+        'status'
      ];
 
 
