@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\models\vendasitens;
 use App\models\produto;
 use App\models\vendas;
+use App\Http\Livewire\document;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
@@ -56,14 +57,16 @@ class VendaitensComponente extends Component
        // return redirect('livewire.formpdv');
        // return back()->withInput();
     }
-    public function abrir(){
+    public function abrir($ap){
         
+      
         $vendapdv = vendas::create([
             'id_cliente'=>$this->cliente,
             'valor_total'=>$this->valortotal
+                                
         ]);
-   
-   }
+      
+    }
    
    public function destruir($id){
     vendasitens::destroy($id);

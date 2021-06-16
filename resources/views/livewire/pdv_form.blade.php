@@ -17,7 +17,7 @@
                  </textarea>
                 </div>
                 <div id="btnabrir" class="col">
-                  <button id="botaoabir" wire:click="abrir">abrir venda</button>
+                  <button id="botaoabir" wire:click="abrir({{ $ap = '2'}}) ">abrir venda</button>
                 </div>
 
             </div>
@@ -48,9 +48,9 @@
     
 
     <div>
-        <label>produto</label>
+        <label class="negrito">produto</label>
         <label id="labelqde">Qde</label>
-        <label>Valor<label>
+        <label class="negrito">Valor<label>
     </div>
     <div class="row">
         <input type="text">
@@ -60,10 +60,51 @@
 
 </div>
 
+{{-- 
+<html>
+<head runat="server">
+    <title></title>
+</head>
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
 
+    $(document).ready(function (e) {
+        $("#divConteudo").hide();
 
+        $("#btnMostrarEsconder").click(function (e) {
+            $("#divConteudo").toggle();
+        });
+    });
+</script>
 
+<body>
+    <div id="divConteudo">
+        Conteudo
+    </div>
+    <button id="btnMostrarEsconder" type="button">Mostrar e Esconder</button>
+</body>
+</html>
+
+ --}}
+
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ {{-- 
+ <script type="text/javascript">
+     $(document).click(function (e) {
+         $("#btnabrir").hide();
+ 
+         $("#botaoabir").ready(function (e) {
+           $("#btnabrir").hide(); //toggle();
+         });
+     });  --}}
+
+<script>
+     $("#botaoabir").click(function(e){
+        e.preventDefault(); // evita que o formulário seja submetido
+        $("#btnabrir").hide(); //toggle();
+    });
+ </script>
 
 
 
