@@ -18,7 +18,9 @@
                 </div>
                 <div id="btnabrir" class="col">
                  
-                  <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button>
+                 
+            {{--    <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
+                    <button id="botaoabir"  onclick="getfocus()" >Caixa Fechado</button> 
                 </div>
 
             </div>
@@ -54,7 +56,7 @@
         <label class="negrito">Valor<label>
     </div>
     <div class="row">
-        <input autofocus type="text">
+        <input type="text" id="inputprod" disabled>
         <input id="inputqde" type="text">
         <input id="inputvalor" type="text">
     </div>
@@ -101,12 +103,22 @@
      });  --}}
 
 <script>
+  /*
    document.getElementsByName("botaoabir")[0].disabled = true;
      $("#botaoabir").click(function(e){
         e.preventDefault(); // evita que o formulário seja submetido
         $("#btnabrir").toggle();
         $($this).focus();
-    });
+    });*/
+
+    
+function getfocus() {
+  document.getElementById("inputprod").disabled = false;
+  document.getElementById("inputprod").focus();
+  abrir({{ $ap = 1}});
+  $("#botaoabir").hide();
+}
+
 
  </script>
 

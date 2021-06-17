@@ -60,7 +60,7 @@ class VendaitensComponente extends Component
     }
     public function abrir($status_ap){
         
-
+ 
         $vendapdv = vendas::create([
            // 'id_cliente' =>$this->cliente,
            // 'valor_total'=>$this->valortotal,
