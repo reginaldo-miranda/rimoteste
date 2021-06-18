@@ -74,6 +74,12 @@ class VendaitensComponente extends Component
     vendasitens::destroy($id);
    }
 
+   public function fecharvenda(){
+    
+    return view('livewire.vendaitens-componente');
+
+   }
+
 }
 
 

@@ -91,16 +91,16 @@
 
 #scrollvenda{
      
-    display: block;
-    width: 450px;
-    height: 450px;
+    display: none;
+    width: 410px;
+    height: 350px;
     background-color: rgb(226, 129, 11);
     float: right;
 }
 
 #blocovenda{
   display: block;
-  height: 500px;
+  height: 300px;
   width: 410px;
   background-color: aqua;
   float: right;
@@ -147,4 +147,9 @@
 }
 .negrito{
   font-weight: bold;
+}
+
+#btnfechar{
+  display: none;
+
 }
