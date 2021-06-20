@@ -1,63 +1,10 @@
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
 /*
-#telapdv{
-  padding-top: 30px;
-  display: flex;
-  width: 400px;
-  height: 400px;
-  background-color: aqua;
-
-}
-
-
-#areavenda1{
-  /*  padding-top: 30px;
-    width: 100px;
-    height: 25px;
-   /* resize: none;*/
-   /* float:right; 
-
-}
-
-#telaprod{
-  display: flex;  
-  padding-left: 100px;
-}
-
-
-.col{
-  height: 80px;
-  background-color: beige;
-}
-
-#col4{
-
-  height: 400px;
-  background-color: beige;
-}
-#pagina{
-  /*padding-top: 60px;
-  display: flex;
-  width: 100%;
-  height: 600px;
-  background-color: blanchedalmond;
-}
-
-#exampleModal{
-  width: 900px;
-}
-
-#inputpdv{
-
-    height: 25px;
-    width: 130px;
-
-
-}
-
-
-/*---------------------------------------------*/
-
 #menu{
 
     display: flex;
@@ -76,7 +23,7 @@
     height:50px;
     background-color: rgb(221, 231, 231);
 
-}
+}*/
 
 #valortotal{
 
@@ -98,8 +45,8 @@
     float: right;
 }
 
-#blocovenda{
-  display: block;
+#blocodevalores{
+  display: flex;
   height: 300px;
   width: 410px;
   background-color: aqua;
@@ -109,8 +56,14 @@
 
 #cabecalho{
 
+  display: block;
+  width: 57%;
+  height: 75px;
+  background-color: rgb(187, 233, 218);
+
 
 }
+
 
 #inputqde{
   width: 50px;
@@ -122,7 +75,7 @@
 
 #textareavenda{
   height: 50px;
-  width: 540px;
+  width: 100%;
 }
 #btnabrir{
   margin-top: 130px;

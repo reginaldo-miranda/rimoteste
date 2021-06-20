@@ -2,66 +2,77 @@
 
 <div class="container">
 
+      <div id="cabecalho">
+        <div id="menu">
+            <a href="{{ url('/menu') }}" id="menu">Menu</a>
+        </div>
+        <div id="textareadescprod">
+            <textarea id="textareavenda" name="textareavenda">
+                {{ $descricao }}
+              </textarea>
+        </div>
+     
+
+
+      <div id="blocodevalores">
+
+          <div id="valortotal">
+              <h1>valor total</h1>
+             <div>
+                <h3>Valor pago</h3>
+             </div>
+             <div>
+                <h3>Troco</h3>
+             </div>
+          </div>
+      </div>
+ </div>
+       <div id="scrollvenda">
+            <textarea id="areavenda" row="1" cols="25" name="areavenda1">
+               {{ $descricao }}
+            </textarea>
+            {{-- @include('livewire.pdvvenda') --}}
+
+       </div>
+       <div id="btnabrir">
+          {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
+          <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
+       </div>
+       <div>  
+           <button id="btnfechar" wire:click="fecharvenda">fechar</button>
+       </div>
+
+      
+    <div>
+        <label class="negrito">produto</label>
+        <label id="labelqde">Qde</label>
+        <label class="negrito">Valor<label>
+    </div>
     <div class="row">
-
-        <div class="col-6">
-
-            <div id="cabecalho">
-                <div id="menu">
-                    <a href="{{ url('/menu') }}" id="menu">Menu</a>
-
-                </div>
-                <div id="descricaoprod">
-                    <textarea id="textareavenda" name="textareavenda">
-                        {{ $descricao }}
-                     </textarea>
-                </div>
-            </div>
-            <div id="btnabrir" class="col">
-                {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="row" id="blocovenda">
-            <div id="valortotal">
-                <h1>valor total</h1>
-                <div>
-                    <h3>Valor pago</h3>
-                </div>
-                <div>
-                    <h3>Troco</h3>
-                </div>
-            </div>
-
-            <div id="scrollvenda">
-                <textarea id="areavenda" row="1" cols="25" name="areavenda1">
-                    {{ $descricao }}
-                 </textarea>
-                {{-- @include('livewire.pdvvenda') --}}
-
-            </div>
-            <button id="btnfechar" wire:click="fecharvenda">fechar</button>
-        </div>
+        <input type="text" id="inputprod" disabled>
+        <input id="inputqde" type="text">
+        <input id="inputvalor" type="text">
     </div>
 
 </div>
+<script>
+    function getfocus(id) {
+        document.getElementById("inputprod").disabled = false;
+        document.getElementById("inputprod").focus();
+
+        $("#botaoabir").hide();
+        $("#btnfechar").show();
+
+        // id.innerHTML = "Ooops!";
+
+    }
+
+</script>
 
 
-<div>
-    <label class="negrito">produto</label>
-    <label id="labelqde">Qde</label>
-    <label class="negrito">Valor<label>
-</div>
-<div class="row">
-    <input type="text" id="inputprod" disabled>
-    <input id="inputqde" type="text">
-    <input id="inputvalor" type="text">
-</div>
 
-</div>
+
+
 
 {{-- <html>
 <head runat="server">
@@ -102,42 +113,10 @@
          });
      }); --}}
 
-<script>
-    /*
-   document.getElementsByName("botaoabir")[0].disabled = true;
-     $("#botaoabir").click(function(e){
-        e.preventDefault(); // evita que o formulário seja submetido
-        $("#btnabrir").toggle();
-        $($this).focus();
-    });*/
-
-    /*
-function getfocus() {
-  document.getElementById("inputprod").disabled = false;
-  document.getElementById("inputprod").focus();
-
-  $("#botaoabir").hide();
-}*/
-    function getfocus(id) {
-        document.getElementById("inputprod").disabled = false;
-        document.getElementById("inputprod").focus();
-
-        $("#botaoabir").hide();
-        $("#btnfechar").show();
-
-        // id.innerHTML = "Ooops!";
-
-    }
-
-</script>
 
 {{-- voltar o botao fechar
 
- 
-
-
-
-  const botaoSticky = function(e) {
+   const botaoSticky = function(e) {
   e.target.style.display = "none";
   aparecerSticky();
 }
