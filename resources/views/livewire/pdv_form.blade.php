@@ -1,16 +1,16 @@
 @extends('layout')
 
-<div class="container" style="background-color:blue" >
+<div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
 
     <div class="row"> <!-- inicio row 1 -----> 
-        <div id="cabecalho" style="background-color:green; width: 60%">
+        <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
                       {{ $descricao }}
-                    </textarea>
+                 </textarea>
             </div>
         </div>
 
@@ -18,60 +18,70 @@
 
         <div id="blocodevalores">
             <div id="valortotal">
-                <h1>valor total</h1>
+                  <h2>valor total:<input type="text"></h2>
                 <div>
-                    <h3>Valor pago</h3>
+                    <h3>Valor pago:&nbsp<input type="text"></h3>
                 </div>
                 <div>
-                    <h3>Troco</h3>
+                    <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
                 </div>
             </div>
         </div>
     </div> <!-- fim da div row 1 ---->
 
-        <div class="container" style="background-color:black">
-          <div class="row"> <!-- row 2 ---->
-            <div class="col-4">
-                <div id="btnabrir">
-                     {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                     <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
-                </div>
-              </div>
-              <div class="col-8">
-                <div class="ml-auto mr-0" style="width: 83%">
-                    @include('livewire.pdvvenda')
-                </div>
-              </div>     
-           
-          </div>   <!----- fim da row 2 --------->  
-        </div> 
-    <div>
-        <button id="btnfechar" wire:click="fecharvenda">fechar</button>
-    </div>
+    <div class="container" style="background-color:rgb(211, 181, 181)">
+      <div class="row"> <!-- row 2 ---->
+        <div class="col-4">
+            <div id="btnabrir">
+                  {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
+                  <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="ml-auto mr-0" style="width: 68%">
+                @include('livewire.pdvvenda')
+            </div>
+          </div>     
+        
+      </div>   <!----- fim da row 2 --------->  
+    </div> 
 
+   
 
-    <div>
-        <label class="negrito">produto</label>
-        <label id="labelqde">Qde</label>
-        <label class="negrito">Valor<label>
-    </div>
-    <div class="row">
-        <input type="text" id="inputprod" disabled>
-        <input id="inputqde" type="text">
-        <input id="inputvalor" type="text">
-    </div>
+    <!-- <div class="col-12"> -->
+        <div>
+            <label class="negrito">produto</label>
+            <label id="labelqde">Qde</label>
+            <label class="negrito">Valor<label>
+        </div>
+        <div class="row">
+            <input type="text" id="inputprod" disabled>
+            <input id="inputqde" type="text">
+            <input id="inputvalor" type="text">
+        <!-- </div> -->
 
-</div>
+        <!-- <div> --->
+            <div class="col-2 ml-auto mr-0">
+               <button id="btnfechar" wire:click="fecharvenda">fechar</button>
+               <button id="btncancela">cancela</button>
+            </div> 
+       </div>
+     <!-- </div> -->
 </div>
 <script>
     function getfocus(id) {
         document.getElementById("inputprod").disabled = false;
         document.getElementById("inputprod").focus();
 
+ 
         $("#botaoabir").hide();
         $("#btnfechar").show();
-
-        // id.innerHTML = "Ooops!";
+        $("#btncancela").show();
+       
+      
+        //id.innerHTML = "Ooops!";
+        $("#botaoabir").show();
+        id.innerHTML = "Ooops caixa aberto gaste bem!";
 
     }
 

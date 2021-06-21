@@ -1,67 +1,65 @@
-
 {{-- <div class="scrolling-pagination"> --}}
 
 <style>
+    .p {
 
-.p{
-  
-  /*  border:solid 1px #000000;
+        /*  border:solid 1px #000000;
     width:600px;
     height:400px;
     overflow:auto;*/
-      background: rgb(230, 230, 230);
-            width: 600px;
-            height: 380px;
-            overflow-y: auto;
-           /* overflow-x: hidden; */
-        }
+        background: rgb(230, 230, 230);
+        width: 500px;
+        height: 380px;
+        overflow-y: auto;
+        /* overflow-x: hidden; */
+    }
 
 
-}
+    }
+
 </style>
 
- <div class="p">
-<table class="table">
- 
-  
-        @foreach($produtos as $post)
-        <tr>
-         
-            <td>{{ $post->id_venda }}</td>
-            <td>{{ $post->id_cliente }}</td>
-            <td>{{ $post->id_produto }}</td>
-            <td>{{ $post->qde }}</td>
-            <td>{{ $post->descricao }}</td>
-            <td>{{ $post->valorunit }}</td>
-            <td>
-                <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
-                    Editar
-                </button>
-            </td>
-            <td>
-                <button wire:click="destruir({{ $post->id }})" class="btn btn-danger btn-sm">
-                    Deletar
-                </button>
-            </td>
-        </tr>
-            
-        @endforeach
-   
+<div class="p">
+
+    <table class="table table-striped table-hover table-bordered">
+
+        <tbody>
+            @foreach ($produtos as $post)
+                <tr>
+
+                    <td>{{ $post->id_venda }}</td>
+                    <td>{{ $post->id_cliente }}</td>
+                    <td>{{ $post->id_produto }}</td>
+                    <td>{{ $post->qde }}</td>
+                    <td>{{ $post->descricao }}</td>
+                    <td>{{ $post->valorunit }}</td>
+                    <td>
+                        <button wire:click="edit({{ $post->id }})" class="btn btn-primary" id="btntabela">
+                            Editar
+                        </button>
+                    </td>
+                    <td>
+                        <button wire:click="destruir({{ $post->id }})" class="btn btn-danger" id="btntabela">
+                            Deletar
+                        </button>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
 
- </tbody>
-  
-</table>  
 
 
 
 
-</div>
 
 
- {{-- 
-https://pt.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/pt/css-box-model // scroll
+
+
+
+{{-- https://pt.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/pt/css-box-model // scroll
 
 
 
@@ -127,5 +125,4 @@ class ArticleList extends Component
 
         ----------------------------------------------------
 
-        https://www.positronx.io/build-onscroll-load-more-in-laravel-with-livewire-package/  outro modelo de scroll
-        --}}
+        https://www.positronx.io/build-onscroll-load-more-in-laravel-with-livewire-package/  outro modelo de scroll --}}

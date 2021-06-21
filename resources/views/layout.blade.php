@@ -11,9 +11,9 @@
         {{-- <link href="{{ asset('css/telapdv.css')}}" rel="stylesheet"> 
         <link href="{{ asset('css/formpdv.css')}}" rel="stylesheet">
         <link href={{ asset('css/menu.css')}} rel="stylesheet">
-        <link href="{{ asset('css/modalProd.css') }}" rel="stylesheet"> 
-
-        <link href="{{ asset('css/pdv_form.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('css/modalProd.css') }}" rel="stylesheet"> --}}
+        <link href={{ asset('css/menu.css')}} rel="stylesheet">
+        <link href="{{ asset('css/pdv_form.css') }}" rel="stylesheet"> 
       
         <!-- Fonts -->
      
