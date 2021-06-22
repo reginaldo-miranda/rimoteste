@@ -22,11 +22,11 @@
 <div class="p">
 
     <table class="table table-striped table-hover table-bordered">
-
+       
         <tbody>
             @foreach ($produtos as $post)
                 <tr>
-
+                    
                     <td>{{ $post->id_venda }}</td>
                     <td>{{ $post->id_cliente }}</td>
                     <td>{{ $post->id_produto }}</td>
@@ -42,6 +42,7 @@
                         <button wire:click="destruir({{ $post->id }})" class="btn btn-danger" id="btntabela">
                             Deletar
                         </button>
+                       
                     </td>
                 </tr>
             @endforeach

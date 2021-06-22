@@ -9,7 +9,7 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                      {{ $descricao }}
+                      {{ $id_venda }}
                  </textarea>
             </div>
         </div>
@@ -17,15 +17,20 @@
         <!-------------------------------------------------------------------------->
 
         <div id="blocodevalores">
+
             <div id="valortotal">
-                  <h2>valor total:<input type="text"></h2>
-                <div>
-                    <h3>Valor pago:&nbsp<input type="text"></h3>
-                </div>
-                <div>
-                    <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
-                </div>
+                   <div class="form-group">
+                     <h2>valor total:<input     type="text"></h2>
+                  </div>
+                  <div class="form-group">
+                      <h3>Valor pago:&nbsp<input type="text"></h3>
+                  </div>
+                  <div class="form-group">
+                      <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
+                  </div>
+              
             </div>
+
         </div>
     </div> <!-- fim da div row 1 ---->
 
@@ -39,7 +44,11 @@
           </div>
           <div class="col-8">
             <div class="ml-auto mr-0" style="width: 68%">
-                @include('livewire.pdvvenda')
+              @include('livewire.pdvvenda')
+              @foreach ($produtos as $post)
+                 {{ $post->id_venda }}
+              @endforeach
+               
             </div>
           </div>     
         
@@ -50,20 +59,21 @@
 
     <!-- <div class="col-12"> -->
         <div>
-            <label class="negrito">produto</label>
-            <label id="labelqde">Qde</label>
-            <label class="negrito">Valor<label>
+            <label for="inputprod"  class="negrito">produto</label>
+            <label for="inputqde"   id="labelqde">Qde</label>
+            <label for="inputvalor" class="negrito">Valor<label>
         </div>
         <div class="row">
-            <input type="text" id="inputprod" disabled>
-            <input id="inputqde" type="text">
+            <input type="text"     id="inputprod" disabled>
+            <input id="inputqde"   type="text">
             <input id="inputvalor" type="text">
         <!-- </div> -->
 
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
-               <button id="btnfechar" wire:click="fecharvenda">fechar</button>
-               <button id="btncancela">cancela</button>
+               {{ $id_venda }} 
+               <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post->id_venda }})">fechar</button>
+               <button id="btncancela" class="btn btn-danger">cancela</button>
             </div> 
        </div>
      <!-- </div> -->

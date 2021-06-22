@@ -17,9 +17,9 @@ use Livewire\WithPagination;
 class VendaitensComponente extends Component
 {
 
-    public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
+    public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2, $valortotal=100, $status, $status_ap;
+    public $cliente = 1, $qde=2, $valortotal=100, $status, $status_ap, $fechado = 2;
 
    
     public function render()
@@ -27,7 +27,9 @@ class VendaitensComponente extends Component
       //  $produtos = vendasitens::get();
         $produtos = DB::table('vendasitens')
         ->join('produtos', 'produtos.id', '=', 'produtos.id')
+        ->where('status', '=' , 1)
         ->select('vendasitens.*','produtos.descricao')->get();
+      
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
@@ -74,9 +76,31 @@ class VendaitensComponente extends Component
     vendasitens::destroy($id);
    }
 
-   public function fecharvenda(){
+   public function fecharvenda($id){
     
-    return view('livewire.vendaitens-componente');
+    //  $this->validate(['descricao' => 'required', 'grupo'=>'required', 'pvenda'=>'required']);
+
+    /*  $post = vendasitens::find($id)->all();
+      //dd($post);
+      $post->update([
+        'status'=>$this->fechado
+         
+
+      ]);
+
+   /*   foreach  ($request->clientes as $id_key => $dados) {
+        Cliente::where(['id' => $id_key])->update($dados);
+    }*/
+
+//    DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
+
+    $produtos = DB::table('vendasitens')
+    ->join('produtos', 'produtos.id', '=', 'produtos.id')
+    ->where('status', '=' , 1)
+    ->select('vendasitens.*','produtos.descricao')->get();
+
+
+     return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
 
    }
 
