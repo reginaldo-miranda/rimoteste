@@ -47,9 +47,9 @@
             
               @include('livewire.pdvvenda')
                     
-                @foreach ($produtos as $post)
+               {{--  @foreach ($produtos as $post)
                    {{ $post->id_venda }}
-                 @endforeach
+                 @endforeach  --}}
                 
              
             </div>
@@ -75,9 +75,8 @@
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
                {{ $id_venda }} 
-               <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>  
-
-              
+              {{--  <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>   --}}
+               <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda">fechar</button>  
                <button id="btncancela" class="btn btn-danger">cancela</button>
             </div> 
        </div>
