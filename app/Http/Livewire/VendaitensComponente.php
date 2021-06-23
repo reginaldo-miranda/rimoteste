@@ -19,7 +19,7 @@ class VendaitensComponente extends Component
 
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2, $valortotal=100, $status, $status_ap, $fechado = 2;
+    public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $status_ap, $fechado = 2;
     public $post;
 
    
@@ -50,6 +50,7 @@ class VendaitensComponente extends Component
             'id_produto' =>$this->prod_id,
             'qde'        => $this->qde,
             'valorunit'  => $this->pvenda,
+            'status'     =>$this->status,
            
           ]);
           $this->prod_id = '';
@@ -82,25 +83,25 @@ class VendaitensComponente extends Component
     
     //  $this->validate(['descricao' => 'required', 'grupo'=>'required', 'pvenda'=>'required']);
 
-    /*  $post = vendasitens::find($id)->all();
+    /* $post = vendasitens::find($id)->all();
       //dd($post);
       $post->update([
         'status'=>$this->fechado
       
       ]);
 
-      /*   foreach  ($request->clientes as $id_key => $dados) {
+       foreach  ($request->clientes as $id_key => $dados) {
         Cliente::where(['id' => $id_key])->update($dados);
-    }*
+    }
+*/
+  $produtos =  DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
 
-    DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
-
-    $produtos = DB::table('vendasitens')
+ /*   $produtos = DB::table('vendasitens')
     ->join('produtos', 'produtos.id', '=', 'produtos.id')
     ->where('status', '=' , 1)
-    ->select('vendasitens.*','produtos.descricao')->get();
+    ->select('vendasitens.*','produtos.descricao')->get();*/
     return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
-   // return view('livewire.vendaitens-componente');*/
+   // return view('livewire.vendaitens-componente');
 
    }
 

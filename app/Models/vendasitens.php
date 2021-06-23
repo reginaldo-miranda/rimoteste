@@ -13,6 +13,7 @@ class vendasitens extends Model
         'id_cliente',
         'id_produto',
         'qde',
-        'valorunit'
+        'valorunit',
+        'status'
     ];
 }

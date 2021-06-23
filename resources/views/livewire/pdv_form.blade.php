@@ -67,7 +67,8 @@
             <label for="inputvalor" class="negrito">Valor<label>
         </div>
         <div class="row">
-            <input type="text"     id="inputprod" disabled>
+           {{--  <input type="text"     id="inputprod" disabled>  --}}
+            <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" disabled>
             <input id="inputqde"   type="text">
             <input id="inputvalor" type="text">
         <!-- </div> -->
@@ -75,7 +76,7 @@
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
                {{ $id_venda }} 
-              {{--  <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>   --}}
+              <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>  
                <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda">fechar</button>  
                <button id="btncancela" class="btn btn-danger">cancela</button>
             </div> 

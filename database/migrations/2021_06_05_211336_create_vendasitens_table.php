@@ -20,6 +20,7 @@ class CreateVendasitensTable extends Migration
             $table->integer('id_produto');
             $table->double('qde');
             $table->double('valorunit');
+            $table->integer('status');
             $table->timestamps();
         });
     }
