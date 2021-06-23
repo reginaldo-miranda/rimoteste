@@ -27,9 +27,10 @@ class VendaitensComponente extends Component
     {
         //$produtos = vendasitens::get();
         $produtos = DB::table('vendasitens')
-        ->join('produtos', 'produtos.id', '=', 'produtos.id')
-        ->where('status', '=' , 1)
-        ->select('vendasitens.*','produtos.descricao')->get();
+               
+        ->select('vendasitens.*','produtos.descricao')
+        ->join('produtos', 'produtos.id', '=', 'produtos.id')->where('status', '=' , 1)->get();
+
         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);    }
 
     public function edit($id){
@@ -60,6 +61,7 @@ class VendaitensComponente extends Component
        // return redirect('livewire.formpdv');
        // return back()->withInput();
     }
+
     public function abrir($status_ap){
         
  
