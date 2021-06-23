@@ -5,6 +5,7 @@
     
       @livewire('pdvcomponent')  
       @livewire('vendaitens-componente')
+ 
     </div>
     
 
