@@ -29,9 +29,10 @@ class VendaitensComponente extends Component
         $produtos = DB::table('vendasitens')
                
         ->select('vendasitens.*','produtos.descricao')
-        ->join('produtos', 'produtos.id', '=', 'produtos.id')->where('status', '=' , 1)->get();
+        ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
 
-        return view('livewire.vendaitens-componente',['produtos'=> $produtos]);    }
+        return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
+     }
 
     public function edit($id){
 
@@ -43,23 +44,28 @@ class VendaitensComponente extends Component
         $this->descricao = $produtos->descricao;
         $this->grupo     = $produtos->grupo;
         $this->pvenda    = $produtos->pvenda;
-      
+        $this->gravar();
+      //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]); 
+    }
 
+    public function gravar(){
         $vendaitens = vendasitens::create([
             
             'id_cliente' =>$this->cliente,
             'id_produto' =>$this->prod_id,
             'qde'        => $this->qde,
             'valorunit'  => $this->pvenda,
-            'status'     =>$this->status,
+            'status'     =>$this->status
            
           ]);
           $this->prod_id = '';
-        //  $this->view = 'pdvbusca';
+      //   $this->view = 'pdvbusca';
        // dd($produtos);
-       // return view('livewire.pdvvenda', ['produtos' => $produtos]); 
-       // return redirect('livewire.formpdv');
-       // return back()->withInput();
+      // return view('livewire.pdvvenda', ['produtos' => $produtos]); 
+     //  return back()->withInput();
+      // return redirect('livewire.pdv_form');
+      
+     //   return view('livewire.vendaitens-componente',['vendasitens'=> $vendaitens]);
     }
 
     public function abrir($status_ap){
@@ -102,7 +108,7 @@ class VendaitensComponente extends Component
     ->join('produtos', 'produtos.id', '=', 'produtos.id')
     ->where('status', '=' , 1)
     ->select('vendasitens.*','produtos.descricao')->get();*/
-    return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
+  //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
    // return view('livewire.vendaitens-componente');
 
    }
