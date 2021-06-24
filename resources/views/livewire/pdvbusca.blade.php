@@ -1,8 +1,4 @@
 <div>
-  
-  <h5>busca pdv</h5>   
-  @include('livewire.modaprod')  
-
-  {{-- @livewire('VendaitensComponente') --}}
+    @include('livewire.modaprod')  
 </div>
    

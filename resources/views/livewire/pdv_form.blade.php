@@ -71,15 +71,17 @@
             <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" disabled>
             <input id="inputqde"   type="text">
             <input id="inputvalor" type="text">
+            <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
         <!-- </div> -->
 
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
                {{ $id_venda }} 
+            
               <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>  
-               <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda">fechar</button>  
-               <button id="btncancela" class="btn btn-danger">cancela</button>
+               {{-- <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda">fechar</button>    --}}
+               <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
        </div>
      <!-- </div> -->

@@ -3,9 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\models\vendasitens;
 use App\models\produto;
 use App\models\vendas;
+use App\models\vendasitens;
 use App\Http\Livewire\document;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
@@ -30,8 +30,7 @@ class VendaitensComponente extends Component
                
         ->select('vendasitens.*','produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
-
-        return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
+         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
      }
 
     public function edit($id){
@@ -44,7 +43,7 @@ class VendaitensComponente extends Component
         $this->descricao = $produtos->descricao;
         $this->grupo     = $produtos->grupo;
         $this->pvenda    = $produtos->pvenda;
-        $this->gravar();
+      
       //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]); 
     }
 
@@ -59,6 +58,7 @@ class VendaitensComponente extends Component
            
           ]);
           $this->prod_id = '';
+          $this->getfocus(id);
          //  $this->view = 'pdvbusca';
          //  return back()->withInput();
       
@@ -93,9 +93,17 @@ class VendaitensComponente extends Component
       ->select('vendasitens.*','produtos.descricao')->get();
       return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
       return view('livewire.vendaitens-componente');
-  */
+     /<script>
+      $("#botaoabir").show();
+      </script>   */
+   } 
 
-   }
+   public function default(){
+    //$this->nome = '';
+    // $this->fone = '';
+   // $this->view = ('livewire.vendaitens-componente');
+   return 'estou na cancela';
+}
 
 }
 
