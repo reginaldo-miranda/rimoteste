@@ -59,13 +59,9 @@ class VendaitensComponente extends Component
            
           ]);
           $this->prod_id = '';
-      //   $this->view = 'pdvbusca';
-       // dd($produtos);
-      // return view('livewire.pdvvenda', ['produtos' => $produtos]); 
-     //  return back()->withInput();
-      // return redirect('livewire.pdv_form');
+         //  $this->view = 'pdvbusca';
+         //  return back()->withInput();
       
-     //   return view('livewire.vendaitens-componente',['vendasitens'=> $vendaitens]);
     }
 
     public function abrir($status_ap){
@@ -88,28 +84,16 @@ class VendaitensComponente extends Component
 
    public function fecharvenda(){
      
-    
-    //  $this->validate(['descricao' => 'required', 'grupo'=>'required', 'pvenda'=>'required']);
-
-    /* $post = vendasitens::find($id)->all();
-      //dd($post);
-      $post->update([
-        'status'=>$this->fechado
-      
-      ]);
-
-       foreach  ($request->clientes as $id_key => $dados) {
-        Cliente::where(['id' => $id_key])->update($dados);
-    }
-*/
+  
   $produtos =  DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
 
  /*   $produtos = DB::table('vendasitens')
-    ->join('produtos', 'produtos.id', '=', 'produtos.id')
-    ->where('status', '=' , 1)
-    ->select('vendasitens.*','produtos.descricao')->get();*/
-  //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
-   // return view('livewire.vendaitens-componente');
+      ->join('produtos', 'produtos.id', '=', 'produtos.id')
+      ->where('status', '=' , 1)
+      ->select('vendasitens.*','produtos.descricao')->get();
+      return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
+      return view('livewire.vendaitens-componente');
+  */
 
    }
 
@@ -119,11 +103,13 @@ class VendaitensComponente extends Component
 
 
 /*
-
-$users = DB::table('users')
-            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get(); */
+ exemplo de join
+ 
+  $users = DB::table('users')
+        ->join('contacts', 'users.id', '=', 'contacts.user_id')
+        ->join('orders', 'users.id', '=', 'orders.user_id')
+        ->select('users.*', 'contacts.phone', 'orders.price')
+        ->get();
+*/
 
      

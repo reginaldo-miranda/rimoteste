@@ -71,6 +71,7 @@
             <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" disabled>
             <input id="inputqde"   type="text">
             <input id="inputvalor" type="text">
+           
         <!-- </div> -->
 
         <!-- <div> --->
