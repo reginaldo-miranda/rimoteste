@@ -31,6 +31,7 @@ class VendaitensComponente extends Component
         ->select('vendasitens.*','produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
          return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
+         
      }
 
     public function edit($id){
@@ -43,7 +44,7 @@ class VendaitensComponente extends Component
         $this->descricao = $produtos->descricao;
         $this->grupo     = $produtos->grupo;
         $this->pvenda    = $produtos->pvenda;
-      
+        $this->gravar();
       //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]); 
     }
 
@@ -58,7 +59,7 @@ class VendaitensComponente extends Component
            
           ]);
           $this->prod_id = '';
-          $this->getfocus(id);
+        //  $this->getfocus(id);va
          //  $this->view = 'pdvbusca';
          //  return back()->withInput();
       

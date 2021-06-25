@@ -79,14 +79,16 @@
             <div class="col-2 ml-auto mr-0">
                {{ $id_venda }} 
             
-              <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}})">fechar</button>  
-               {{-- <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda">fechar</button>    --}}
+              {{-- original  <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    --}}
+              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  
                <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
        </div>
      <!-- </div> -->
 </div>
+
 <script>
+
     function getfocus(id) {
         document.getElementById("inputprod").disabled = false;
         document.getElementById("inputprod").focus();
@@ -97,13 +99,61 @@
         $("#btncancela").show();
        
       
-        //id.innerHTML = "Ooops!";
-        $("#botaoabir").show();
+        //  id.innerHTML = "Ooops!";
+        //  $("#botaoabir").show();
         id.innerHTML = "Ooops caixa aberto gaste bem!";
-
+   
     }
 
+    function getfechar(id){
+      $("#botaoabir").show();
+
+    }
+/*
+    $(document).ready(function() {
+         $("#b2").click(function() {
+         $("input").prop('disabled', false);
+      });
+    });
+/*    
+
 </script>
+
+{{--  ------------------------- inicio ---------------------------------  
+
+$(function () {
+  setDisabled(true);
+
+  $("#IniciarTarefa").on("click", function (e) {
+      $("#IniciarTarefa").hide();
+      $("#submeter").show();
+      e.preventDefault();
+      setDisabled(false);
+      
+  });
+
+  $("#FinalizarTarefa").on("click", function (e) {
+      e.preventDefault();
+      setDisabled(true);
+  });
+
+  function setDisabled(state) {
+      $('.desabilita input,select,textarea, checkbox').each(function () {
+          if(state) $("#submeter").hide();
+          $(this).prop("disabled", state);
+      });
+  }
+});
+
+
+--------------------------------------------------------------------------------
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
+<div class="desabilita">
+   <input>
+</div>
+<button id="IniciarTarefa">Incluir</button>
+<button id="submeter">Gravar</button>
+{{--  ------------------------- fim ---------------------------------  --}}
 
 
 
