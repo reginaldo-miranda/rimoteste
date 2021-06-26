@@ -40,6 +40,7 @@
             <div id="btnabrir">
                   {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
                   <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
+                   
             </div>
           </div>
           <div class="col-8">
@@ -79,16 +80,19 @@
             <div class="col-2 ml-auto mr-0">
                {{ $id_venda }} 
             
-              {{-- original  <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    --}}
-              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  
+              <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
+           {{--    <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
                <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
        </div>
      <!-- </div> -->
 </div>
 
+
+
 <script>
 
+    
     function getfocus(id) {
         document.getElementById("inputprod").disabled = false;
         document.getElementById("inputprod").focus();
@@ -100,11 +104,17 @@
        
       
         //  id.innerHTML = "Ooops!";
-        //  $("#botaoabir").show();
+        $("#botaoabir").show();
         id.innerHTML = "Ooops caixa aberto gaste bem!";
+
+        
    
     }
 
+    </script>
+
+
+   {{--
     function getfechar(id){
       $("#botaoabir").show();
 
@@ -117,7 +127,8 @@
     });
 /*    
 
-</script>
+--}}
+
 
 {{--  ------------------------- inicio ---------------------------------  
 
