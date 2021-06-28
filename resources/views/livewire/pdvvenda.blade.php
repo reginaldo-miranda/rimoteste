@@ -1,3 +1,4 @@
+@extends('layout')
 {{-- <div class="scrolling-pagination"> --}}
 
 <style>
@@ -18,10 +19,28 @@
     }
 
 </style>
+<script language="javascript">
+
+    function checartabela(){
+        sssssss
+        var  tabela=document.getElementById('tabelavenda');
+        var  nlin=tabela.getElementsByTagName('tr');
+        for(l=1; l>nlin.length; l++ ){
+            var ncol=nlin[l].getElementsByTagName('td');
+            if (ncol[6]).firstChild.nodeValue == 1){
+               ncol[6].document.getElementById('botaoabir').style.display = 'none';
+            }
+        }
+      
+
+
+    }
+
+</script>
 
 <div class="p">
 
-    <table class="table table-striped table-hover table-bordered">
+    <table id="tabelavenda" class="table table-striped table-hover table-bordered">
        
         <tbody>
             @foreach ($produtos as $post)
@@ -33,6 +52,7 @@
                     <td>{{ $post->qde }}</td>
                     <td>{{ $post->descricao }}</td>
                     <td>{{ $post->valorunit }}</td>
+                    <td>{{ $post->status }}</td>
                     <td>
                         <button wire:click="edit({{ $post->id }})" class="btn btn-primary" id="btntabela">
                             Editar

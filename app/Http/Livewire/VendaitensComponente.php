@@ -97,14 +97,24 @@ class VendaitensComponente extends Component
      /<script>
       $("#botaoabir").show();
       </script>   */
+      $this->getfechar();
    } 
 
    public function default(){
-    //$this->nome = '';
-    // $this->fone = '';
-   // $this->view = ('livewire.vendaitens-componente');
-   return 'estou na cancela';
-}
+      //$this->nome = '';
+      // $this->fone = '';
+     // $this->view = ('livewire.vendaitens-componente');
+     return 'estou na cancela';
+   }
+
+   public function getfechar(){
+
+     
+ //   document.getElementById('idDoBotao').style.display = 'none';
+     //document.getElementById('idDoBotao').style.display = 'inline';
+   
+   }
+
 
 }
 

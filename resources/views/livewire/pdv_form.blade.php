@@ -1,7 +1,7 @@
 @extends('layout')
 
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
-
+  <body onload="livewire.pdvvenda.checartabela()">
     <div class="row"> <!-- inicio row 1 -----> 
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
@@ -9,7 +9,7 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                   {{ $prod_id}} {{ $descricao }} {{ $pvenda }}
+                   {{ $prod_id}} {{ $descricao }} {{ $pvenda }} 
                  </textarea>
             </div>
         </div>
@@ -86,12 +86,11 @@
             </div> 
        </div>
      <!-- </div> -->
+  </body>
 </div>
 
 
-
 <script>
-
     
     function getfocus(id) {
         document.getElementById("inputprod").disabled = false;
@@ -107,6 +106,8 @@
         $("#botaoabir").show();
         id.innerHTML = "Ooops caixa aberto gaste bem!";
 
+
+        //document.getElementById('botaoabir').style.display = 'none';
         
    
     }
