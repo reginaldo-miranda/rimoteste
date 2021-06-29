@@ -9,7 +9,7 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                   {{ $prod_id}} {{ $descricao }} {{ $pvenda }} 
+                   {{ $prod_id}} {{ $descricao }} {{ $pvenda }} {{ $status}}
                  </textarea>
             </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="col-4">
             <div id="btnabrir">
                   {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                  <button id="botaoabir"  onclick="getfocus(this)">Caixa Fechado</button>
+                  <button id="botaoabir" wire:click="checar" onclick="getfocus(this)">Caixa Fechado</button>
                    
             </div>
           </div>
@@ -49,9 +49,21 @@
               @include('livewire.pdvvenda')
               @include('livewire.pdvfuncao')
                     
-               {{--  @foreach ($produtos as $post)
-                   {{ $post->id_venda }}
-                 @endforeach  --}}
+                
+
+                 @foreach ($produtos as $post)
+                   @if($status == 1){
+                      <script>
+                         document.getElementById('botaoabir').style.display = 'none';
+                         document.getElementById("inputprod").focus();
+                        // $("#btnfechar").show();
+                         //$("#btncancela").show();
+                      </script>
+                      }
+               
+                   @endif
+                  
+                 @endforeach  
                 
              
             </div>
@@ -70,19 +82,18 @@
         </div>
         <div class="row">
            {{--  <input type="text"     id="inputprod" disabled>  --}}
-            <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" disabled>
+            <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
             <input id="inputqde"   type="text">
             <input id="inputvalor" type="text">
-            <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
+            <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
         <!-- </div> -->
 
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
-               {{ $id_venda }} 
-            
-              <button id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
-           {{--    <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
+                         
+              <button  id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
+              {{--<button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
                <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
        </div>
@@ -92,7 +103,10 @@
 
 <script>
  // document.getElementById('botaoabir').style.display = 'none';
-
+//if($status == 1){
+ //   document.getElementById('botaoabir').style.display = 'none';
+//  }
+//endif
 </script>
 
 <script>
@@ -100,7 +114,7 @@
     function getfocus(id) {
 
          
-        document.getElementById("inputprod").disabled = false;
+      //  document.getElementById("inputprod").disabled = false;
         document.getElementById("inputprod").focus();
 
  
@@ -113,7 +127,7 @@
         $("#botaoabir").show();
        
         id.innerHTML = "Ooops caixa aberto gaste bem!";
-       
+        
 
 
         //document.getElementById('botaoabir').style.display = 'none';
@@ -121,9 +135,10 @@
    
     }
 
-    function checar(){
+   /* function checar(){
       document.getElementById('botaoabir').style.display = 'none';
     }
+    */
 
     </script>
 

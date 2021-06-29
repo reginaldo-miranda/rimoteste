@@ -20,7 +20,7 @@ class VendaitensComponente extends Component
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
     public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $status_ap, $fechado = 2;
-    public $post;
+    public $post,$vendas;
 
    
     public function render()
@@ -98,7 +98,7 @@ class VendaitensComponente extends Component
      /<script>
       $("#botaoabir").show();
       </script>   */
-      $this->getfechar();
+     
    } 
 
    public function default(){
@@ -108,12 +108,15 @@ class VendaitensComponente extends Component
      return 'estou na cancela';
    }
 
-   public function getfechar(){
+   public function checar(){
 
-     
- //   document.getElementById('idDoBotao').style.display = 'none';
-     //document.getElementById('idDoBotao').style.display = 'inline';
+    $produtos = DB::table('vendasitens')->where('status', '=' , 1)->get();
    
+  
+     // document.getElementById('botaoabir').style.display = 'none';
+     //  document.getElementById('idDoBotao').style.display = 'inline';
+    
+     return view('livewire.pdv_form',['vendasitens'=> $produtos]);  
    }
 
 

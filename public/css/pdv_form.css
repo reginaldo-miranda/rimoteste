@@ -38,10 +38,6 @@ input{
   
 }
 
-#btnfechar , #btncancela{
-  display: none;
-
-}
 #btntabela{
   padding: 0;
   height: 15px;
