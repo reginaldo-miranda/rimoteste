@@ -77,9 +77,10 @@
             {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
-                 <input id="inputprod"  type="text"  name="inputprod"  wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
-                 <input id="inputqde"   type="text"  name="inputqde">
-                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
+                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)"
+                  maxlength="5" onkeypress="PressEnter('inputqde');" required>
+                 <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeypress="PressEnter('inputvalor');"required>
+                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" maxlength="5" required>
                    
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
@@ -98,12 +99,16 @@
 </div>
 
 <script>
-$(".inputs").keyup(function() {
+  /*
+$(".input").keyup(function() {
     if (this.value.length == this.maxLength) {
         $(this).next('.inputs').focus();
     }
 });
+*/
 </script>
+
+
 <script type="text/javascript">
 
 function PressEnter(nextinputId){
@@ -114,10 +119,10 @@ function PressEnter(nextinputId){
 }
 
 </script>
-
-<input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
-<input type="text" id="input2"  maxlength="5" required>
-
+{{-- 
+  <input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
+  <input type="text" id="input2"  maxlength="5" required>
+ --}}
 
 
 
