@@ -19,24 +19,7 @@
     }
 
 </style>
-<script language="javascript">
 
-    function checartabela(){
-        sssssss
-        var  tabela=document.getElementById('tabelavenda');
-        var  nlin=tabela.getElementsByTagName('tr');
-        for(l=1; l>nlin.length; l++ ){
-            var ncol=nlin[l].getElementsByTagName('td');
-            if (ncol[6]).firstChild.nodeValue == 1){
-               ncol[6].document.getElementById('botaoabir').style.display = 'none';
-            }
-        }
-      
-
-
-    }
-
-</script>
 
 <div class="p">
 

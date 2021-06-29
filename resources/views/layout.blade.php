@@ -20,8 +20,10 @@
        @livewireStyles   
       
        
-    </head>
-    <body onload="livewire.pdvvenda.checartabela()">
+    </head> 
+    @include('livewire.pdvfuncao')
+    <body onload="checartabela()">
+       
         @yield('content')
 
 

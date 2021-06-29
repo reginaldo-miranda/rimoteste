@@ -1,7 +1,7 @@
 @extends('layout')
 
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
-  <body onload="livewire.pdvvenda.checartabela()">
+
     <div class="row"> <!-- inicio row 1 -----> 
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
@@ -39,7 +39,7 @@
         <div class="col-4">
             <div id="btnabrir">
                   {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                  <button id="botaoabir" onclick="getfocus(this)">Caixa Fechado</button>
+                  <button id="botaoabir"  onclick="getfocus(this)">Caixa Fechado</button>
                    
             </div>
           </div>
@@ -47,6 +47,7 @@
             <div class="ml-auto mr-0" style="width: 68%">
             
               @include('livewire.pdvvenda')
+              @include('livewire.pdvfuncao')
                     
                {{--  @foreach ($produtos as $post)
                    {{ $post->id_venda }}
@@ -86,13 +87,19 @@
             </div> 
        </div>
      <!-- </div> -->
-  </body>
+ 
 </div>
 
+<script>
+ // document.getElementById('botaoabir').style.display = 'none';
+
+</script>
 
 <script>
     
     function getfocus(id) {
+
+         
         document.getElementById("inputprod").disabled = false;
         document.getElementById("inputprod").focus();
 
@@ -104,12 +111,18 @@
       
         //  id.innerHTML = "Ooops!";
         $("#botaoabir").show();
+       
         id.innerHTML = "Ooops caixa aberto gaste bem!";
+       
 
 
         //document.getElementById('botaoabir').style.display = 'none';
         
    
+    }
+
+    function checar(){
+      document.getElementById('botaoabir').style.display = 'none';
     }
 
     </script>

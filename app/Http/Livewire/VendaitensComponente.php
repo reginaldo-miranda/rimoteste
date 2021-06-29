@@ -58,6 +58,7 @@ class VendaitensComponente extends Component
             'status'     =>$this->status
            
           ]);
+          $vendaitens->refresh();
           $this->prod_id = '';
         //  $this->getfocus(id);va
          //  $this->view = 'pdvbusca';
