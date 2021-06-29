@@ -9,7 +9,7 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                   {{ $prod_id}} {{ $descricao }} {{ $pvenda }} {{ $status}}
+                    {{ $prod_id}} {{ $descricao }} {{ $pvenda }}  
                  </textarea>
             </div>
         </div>
@@ -39,41 +39,30 @@
         <div class="col-4">
             <div id="btnabrir">
                   {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                  <button id="botaoabir" wire:click="checar" onclick="getfocus(this)">Caixa Fechado</button>
-                   
+                  <button id="botaoabir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
             </div>
           </div>
           <div class="col-8">
             <div class="ml-auto mr-0" style="width: 68%">
-            
               @include('livewire.pdvvenda')
-              @include('livewire.pdvfuncao')
-                    
-                
 
                  @foreach ($produtos as $post)
-                   @if($status == 1){
-                      <script>
-                         document.getElementById('botaoabir').style.display = 'none';
-                         document.getElementById("inputprod").focus();
-                        // $("#btnfechar").show();
-                         //$("#btncancela").show();
-                      </script>
-                      }
-               
+                   @if($status == 1)
+                        <script>
+                            document.getElementById("botaoabir").style.display = 'none';
+                            document.getElementById("inputprod").focus();
+                            document.getElementById("btnfechar").style.display = 'none';
+                            //$("#btnfechar").hide();
+                            //$("#btncancela").show();
+                        </script>
                    @endif
                   
                  @endforeach  
-                
-             
-            </div>
+              </div>
           </div>     
         
       </div>   <!----- fim da row 2 --------->  
     </div> 
-
-   
-
     <!-- <div class="col-12"> -->
         <div>
             <label for="inputprod"  class="negrito">produto</label>
@@ -92,7 +81,7 @@
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
                          
-              <button  id="btnfechar"  class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
+              <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
               {{--<button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
                <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
@@ -102,15 +91,7 @@
 </div>
 
 <script>
- // document.getElementById('botaoabir').style.display = 'none';
-//if($status == 1){
- //   document.getElementById('botaoabir').style.display = 'none';
-//  }
-//endif
-</script>
-
-<script>
-    
+    $("#btnfechar").hide();
     function getfocus(id) {
 
          
@@ -127,37 +108,12 @@
         $("#botaoabir").show();
        
         id.innerHTML = "Ooops caixa aberto gaste bem!";
-        
-
-
         //document.getElementById('botaoabir').style.display = 'none';
-        
    
     }
 
-   /* function checar(){
-      document.getElementById('botaoabir').style.display = 'none';
-    }
-    */
 
     </script>
-
-
-   {{--
-    function getfechar(id){
-      $("#botaoabir").show();
-
-    }
-/*
-    $(document).ready(function() {
-         $("#b2").click(function() {
-         $("input").prop('disabled', false);
-      });
-    });
-/*    
-
---}}
-
 
 {{--  ------------------------- inicio ---------------------------------  
 

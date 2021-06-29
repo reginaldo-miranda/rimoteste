@@ -19,7 +19,7 @@ class VendaitensComponente extends Component
 
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $status_ap, $fechado = 2;
+    public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $fechado = 2;
     public $post,$vendas;
 
    
@@ -60,21 +60,22 @@ class VendaitensComponente extends Component
           ]);
           $vendaitens->refresh();
           $this->prod_id = '';
-        //  $this->getfocus(id);va
-         //  $this->view = 'pdvbusca';
-         //  return back()->withInput();
+          //  $this->getfocus(id);va
+          //  $this->view = 'pdvbusca';
+          //  return back()->withInput();
       
     }
 
-    public function abrir($status_ap){
+    public function abrir(){
         
- 
-        $vendapdv = vendas::create([
+       $status = 1;
+        
+       $vendapdv = vendas::create([
            // 'id_cliente' =>$this->cliente,
            // 'valor_total'=>$this->valortotal,
-            'status'     =>$status_ap
-                                
-        ]);
+          'status' =>$status
+                        
+      ]);
       
     }
    
@@ -102,22 +103,23 @@ class VendaitensComponente extends Component
    } 
 
    public function default(){
-      //$this->nome = '';
+      // $this->nome = '';
       // $this->fone = '';
-     // $this->view = ('livewire.vendaitens-componente');
+      // $this->view = ('livewire.vendaitens-componente');
      return 'estou na cancela';
    }
 
    public function checar(){
 
-    $produtos = DB::table('vendasitens')->where('status', '=' , 1)->get();
-   
-  
+     $produtos = DB::table('vendasitens')->where('status', '=' , 1)->get();
+     $status = 1;
+     $this->abrir($status);
      // document.getElementById('botaoabir').style.display = 'none';
      //  document.getElementById('idDoBotao').style.display = 'inline';
     
      return view('livewire.pdv_form',['vendasitens'=> $produtos]);  
    }
+
 
 
 }

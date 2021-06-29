@@ -4,18 +4,15 @@
 <style>
     .p {
 
-        /*  border:solid 1px #000000;
-    width:600px;
-    height:400px;
-    overflow:auto;*/
+       /*  border:solid 1px #000000;
+       width:600px;
+       height:400px;
+       overflow:auto;*/
         background: rgb(230, 230, 230);
         width: 500px;
         height: 380px;
         overflow-y: auto;
-        /* overflow-x: hidden; */
-    }
-
-
+       /* overflow-x: hidden; */
     }
 
 </style>
@@ -29,8 +26,8 @@
             @foreach ($produtos as $post)
                 <tr>
                     
-                    <td>{{ $post->id_venda }}</td>
-                    <td>{{ $post->id_cliente }}</td>
+                    <td>{{ $post->id_venda }}</td> 
+                    <td>{{ $post->id_cliente }}</td> 
                     <td>{{ $post->id_produto }}</td>
                     <td>{{ $post->qde }}</td>
                     <td>{{ $post->descricao }}</td>
@@ -52,16 +49,6 @@
         </tbody>
     </table>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 {{-- https://pt.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/pt/css-box-model // scroll
 
@@ -123,10 +110,5 @@ class ArticleList extends Component
 </div>
 
 
-
-
-
-
-        ----------------------------------------------------
-
-        https://www.positronx.io/build-onscroll-load-more-in-laravel-with-livewire-package/  outro modelo de scroll --}}
+        https://www.positronx.io/build-onscroll-load-more-in-laravel-with-livewire-package/  outro modelo de scroll 
+--}}

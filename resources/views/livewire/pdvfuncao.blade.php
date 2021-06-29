@@ -1,4 +1,4 @@
-<script src="js/app.js">
+
 <script language =" javascript">
 
  function checartabela() {

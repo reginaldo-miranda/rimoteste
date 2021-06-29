@@ -14,6 +14,6 @@ class vendasitens extends Model
         'id_produto',
         'qde',
         'valorunit',
-        'status'
+        'status',
     ];
 }

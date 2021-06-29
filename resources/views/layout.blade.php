@@ -21,13 +21,13 @@
       
        
     </head> 
-    @include('livewire.pdvfuncao')
-    <body onload="checartabela()">
+    <body>
        
-        @yield('content')
+        @yield('content') 
 
 
         @livewireScripts
+
         <script src="js/app.js"></script> 
         <script src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script> 
