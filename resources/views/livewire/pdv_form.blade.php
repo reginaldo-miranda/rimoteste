@@ -70,10 +70,17 @@
             <label for="inputvalor" class="negrito">Valor<label>
         </div>
         <div class="row">
-           {{--  <input type="text"     id="inputprod" disabled>  --}}
-            <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
-            <input id="inputqde"   type="text">
-            <input id="inputvalor" type="text">
+           {{--  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
+                 <input id="inputqde"   type="text" name="inputqde">
+                 <input id="inputvalor" type="text" name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
+           --}}
+            {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
+                    placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
+            --}}
+                 <input id="inputprod"  type="text"  name="inputprod"  wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
+                 <input id="inputqde"   type="text"  name="inputqde">
+                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
+                   
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
         <!-- </div> -->
@@ -89,6 +96,31 @@
      <!-- </div> -->
  
 </div>
+
+<script>
+$(".inputs").keyup(function() {
+    if (this.value.length == this.maxLength) {
+        $(this).next('.inputs').focus();
+    }
+});
+</script>
+<script type="text/javascript">
+
+function PressEnter(nextinputId){
+    if(event.keyCode == 13){
+        document.getElementById(nextinputId).focus();     
+        return false;           
+    }
+}
+
+</script>
+
+<input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
+<input type="text" id="input2"  maxlength="5" required>
+
+
+
+
 
 <script>
     $("#btnfechar").hide();
