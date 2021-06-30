@@ -77,9 +77,9 @@
             {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
-                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)"
+                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:model="edit()"
                   maxlength="5" onkeypress="PressEnter('inputqde');" required>
-                 <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeypress="PressEnter('inputvalor');"required>
+                 <input id="inputqde"   type="text"  name="inputqde" wire:model.lazy="qde" maxlength="5" onkeypress="PressEnter('inputvalor');"required>
                  <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" maxlength="5" required>
                    
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
