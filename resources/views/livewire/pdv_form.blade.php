@@ -9,7 +9,7 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                     {{ $prod_id}} {{ $descricao }} {{ $pvenda }} 
+                     {{ '' }} {{ '' }} {{ '' }} 
                    {{ $totalvenda }}
                  </textarea>
             </div>

@@ -30,11 +30,12 @@ class VendaComponente extends Component
     public function render()
     {
 
-      //  $venda = DB::table('vendas');
+       $venda = DB::table('vendas');
        // dd($venda);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
-       // return view('livewire.venda-componente'['vendas' => $venda]);
+        dd($venda);
+        return view('livewire.venda-componente',['vendas' => $venda]);
     }
 /*
     public function abrir(){
