@@ -1,4 +1,5 @@
 @extends('layout')
+
 {{-- <div class="scrolling-pagination"> --}}
 
 <style>

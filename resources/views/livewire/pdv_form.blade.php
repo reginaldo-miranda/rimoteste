@@ -9,7 +9,8 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                    {{ $prod_id}} {{ $descricao }} {{ $pvenda }}  
+                     {{ $prod_id}} {{ $descricao }} {{ $pvenda }} 
+                   {{ $totalvenda }}
                  </textarea>
             </div>
         </div>
@@ -20,7 +21,7 @@
 
             <div id="valortotal">
                    <div class="form-group">
-                     <h2>valor total:<input     type="text"></h2>
+                     <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
                   </div>
                   <div class="form-group">
                       <h3>Valor pago:&nbsp<input type="text"></h3>
@@ -49,8 +50,8 @@
                  @foreach ($produtos as $post)
                    @if($status == 1)
                         <script>
+                            document.getElementById("inputqde").focus();
                             document.getElementById("botaoabir").style.display = 'none';
-                            document.getElementById("inputprod").focus();
                             document.getElementById("btnfechar").style.display = 'none';
                             //$("#btnfechar").hide();
                             //$("#btncancela").show();
@@ -77,9 +78,11 @@
             {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
-                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:model="edit()"
-                  maxlength="5" onkeypress="PressEnter('inputqde');" required>
-                 <input id="inputqde"   type="text"  name="inputqde" wire:model.lazy="qde" maxlength="5" onkeypress="PressEnter('inputvalor');"required>
+                  <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');"required>
+
+                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)"
+                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>
+                
                  <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" maxlength="5" required>
                    
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
@@ -128,12 +131,14 @@ function PressEnter(nextinputId){
 
 
 <script>
+
     $("#btnfechar").hide();
+
     function getfocus(id) {
 
          
       //  document.getElementById("inputprod").disabled = false;
-        document.getElementById("inputprod").focus();
+        document.getElementById("inputqde").focus();
 
  
         $("#botaoabir").hide();
@@ -142,10 +147,11 @@ function PressEnter(nextinputId){
        
       
         //  id.innerHTML = "Ooops!";
+        id.innerHTML = "Ooops caixa aberto gaste bem!";
         $("#botaoabir").show();
        
-        id.innerHTML = "Ooops caixa aberto gaste bem!";
-        //document.getElementById('botaoabir').style.display = 'none';
+        
+        document.getElementById('botaoabir').style.display = 'block';
    
     }
 

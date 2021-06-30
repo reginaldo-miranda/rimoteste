@@ -20,7 +20,7 @@ class VendaitensComponente extends Component
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
     public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $fechado = 2;
-    public $post,$vendas;
+    public $post,$vendapdv,$venda, $totalvenda;
 
    
     public function render()
@@ -30,6 +30,7 @@ class VendaitensComponente extends Component
                
         ->select('vendasitens.*','produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
+
          return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
          
      }
@@ -63,7 +64,9 @@ class VendaitensComponente extends Component
           //  $this->getfocus(id);va
           //  $this->view = 'pdvbusca';
           //  return back()->withInput();
-      
+          $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
+          FROM vendasitens WHERE status = 1;");
+          dd($totalvenda);
     }
 
     public function abrir(){
@@ -74,10 +77,13 @@ class VendaitensComponente extends Component
            // 'id_cliente' =>$this->cliente,
            // 'valor_total'=>$this->valortotal,
           'status' =>$status
-                        
+                       
       ]);
-      
+
+     // dd($vendapdv);
+      //return view('livewire.pdv_form',['vendas' => $vendapdv]); 
     }
+    
    
    public function destruir($id){
 
