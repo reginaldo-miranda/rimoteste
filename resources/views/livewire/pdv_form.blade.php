@@ -9,8 +9,8 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                     {{ '' }} {{ '' }} {{ '' }} 
-                   {{ $totalvenda }}
+                     {{ '' }} {{ $descricao }} {{ $vlrvenda }} 
+                   {{ '' }}
                  </textarea>
             </div>
         </div>
@@ -18,10 +18,19 @@
         <!-------------------------------------------------------------------------->
 
         <div id="blocodevalores">
+          
+          @if( is_array($totalvenda))
+              @foreach($totalvenda as $vendas)
+                {{ $vendas->$vlrvenda }}                
+              @endforeach 
+          @endif
 
             <div id="valortotal">
                    <div class="form-group">
-                     <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
+                  {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
+                   --}}
+
+                    <h2>valor total:<input type="text" value="{{ $vlrvenda }}"></h2>
                   </div>
                   <div class="form-group">
                       <h3>Valor pago:&nbsp<input type="text"></h3>
@@ -47,18 +56,26 @@
             <div class="ml-auto mr-0" style="width: 68%">
               @include('livewire.pdvvenda')
 
-                 @foreach ($produtos as $post)
-                   @if($status == 1)
-                        <script>
-                            document.getElementById("inputqde").focus();
-                            document.getElementById("botaoabir").style.display = 'none';
-                            document.getElementById("btnfechar").style.display = 'none';
-                            //$("#btnfechar").hide();
-                            //$("#btncancela").show();
-                        </script>
-                   @endif
-                  
-                 @endforeach  
+              @if( is_array($totalvenda))
+                 @foreach($totalvenda as $vendas)
+                  {{ $vendas->$vlrvenda }}                
+                  @endforeach 
+              @endif
+             
+              @if(is_array($produtos))
+                  @foreach ($produtos as $post)
+                      @if($status == 1)
+                          <script>
+                              document.getElementById("inputqde").focus();
+                              document.getElementById("botaoabir").style.display = 'none';
+                              document.getElementById("btnfechar").style.display = 'none';
+                              //$("#btnfechar").hide();
+                              //$("#btncancela").show();
+                          </script>
+                      @endif
+                      
+                  @endforeach  
+               @endif   
               </div>
           </div>     
         
@@ -69,6 +86,7 @@
             <label for="inputprod"  class="negrito">produto</label>
             <label for="inputqde"   id="labelqde">Qde</label>
             <label for="inputvalor" class="negrito">Valor<label>
+              {{ $vlrvenda }}
         </div>
         <div class="row">
            {{--  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >

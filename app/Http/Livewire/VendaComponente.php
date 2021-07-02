@@ -17,11 +17,17 @@ class VendaComponente extends Component
 {   
    
 
-    public $venda;
+    public $vendab, $produtos;
 
     public function mount(){
 
-       // $this->$venda = 'venda do pdv mount';
+        // $venda = DB::table('vendas')->get();
+        $vendab = vendas::get();
+        // dd($venda);
+        // return view('livewire.venda-componente');
+        // return view('livewire.pdv_form',['vendas' => $venda]); 
+   
+        return view('livewire.venda-componente',['vendas' => $vendab]);
         
     }
 
@@ -30,13 +36,18 @@ class VendaComponente extends Component
     public function render()
     {
 
-       $venda = DB::table('vendas');
-       // dd($venda);
+    /*    
+        // $venda = DB::table('vendas')->get();
+        $vendab = vendas::get();
+        // dd($venda);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
-        dd($venda);
-        return view('livewire.venda-componente',['vendas' => $venda]);
+ 
+        return view('livewire.venda-componente',['vendas' => $vendab]);
+     */
+    return view('livewire.venda-componente',['vendas' => $vendab]);
     }
+    
 /*
     public function abrir(){
         
