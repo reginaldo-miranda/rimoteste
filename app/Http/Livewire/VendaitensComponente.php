@@ -20,7 +20,7 @@ class VendaitensComponente extends Component
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
     public $view ='formpdv';
     public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $fechado = 2;
-    public $post,$vendapdv,$vendab, $totalvenda, $vlrvenda;
+    public $post,$vendapdv,$vendab, $totalvenda, $vlrvenda, $id_cliente;
 
    
     public function render()

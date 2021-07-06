@@ -15,40 +15,40 @@ use Livewire\WithPagination;
 
 class VendaComponente extends Component
 {   
-   
+    public $vendab, $id_cliente;
+/*
+    public function mount($id_cliente){
 
-    public $vendab, $produtos;
-
-    public function mount(){
-
+        $this->id_cliente = $id_cliente;
+    
         // $venda = DB::table('vendas')->get();
-        $vendab = vendas::get();
+        // $vendab = vendas::get();
         // dd($venda);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
    
-        return view('livewire.venda-componente',['vendas' => $vendab]);
+        // return view('livewire.venda-componente',['vendas' => $vendab]);
         
     }
-
-
+*/
 
     public function render()
     {
 
-    /*    
+   
         // $venda = DB::table('vendas')->get();
         $vendab = vendas::get();
-        // dd($venda);
+        dd($vendab);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
  
-        return view('livewire.venda-componente',['vendas' => $vendab]);
-     */
+      // return view('livewire.venda-componente',['vendas' => $vendab]);
+     
     return view('livewire.venda-componente',['vendas' => $vendab]);
+    
     }
     
-/*
+ /*
     public function abrir(){
         
         $status = 1;
