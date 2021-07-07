@@ -38,7 +38,7 @@ class VendaComponente extends Component
    
         // $venda = DB::table('vendas')->get();
         $vendab = vendas::get();
-        dd($vendab);
+       // dd($vendab);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
  

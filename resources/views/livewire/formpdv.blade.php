@@ -15,12 +15,12 @@
     <div class="row" >
       
        <div>
-          @include('livewire.pdvvenda')
+        {{--   @include('livewire.pdvvenda')  --}}
        </div>  
           
           
         <label>produto <textarea id="areavenda" row="1" cols="25" name="areavenda1">
-          {{ $descricao }}
+        
          </textarea></label>
           {{--   <input type="text" class="form-control" wire:model="searchprod1">  
         <input type="text" class="form-control" wire:keydown.enter="edit({{ $id }})"> --}} 

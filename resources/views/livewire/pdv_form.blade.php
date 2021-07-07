@@ -1,4 +1,3 @@
-@extends('layout')
 
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
 
@@ -9,8 +8,8 @@
             </div>
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                     {{ '' }} {{ $descricao }} {{ $vlrvenda }} 
-                   {{ '' }}
+                 {{--     {{ '' }} {{ $descricao }} {{ $vlrvenda }} 
+                   {{ '' }}  --}}
                  </textarea>
             </div>
         </div>
@@ -18,19 +17,22 @@
         <!-------------------------------------------------------------------------->
 
         <div id="blocodevalores">
-          
-          @if( is_array($totalvenda))
-              @foreach($totalvenda as $vendas)
-                {{ $vendas->$vlrvenda }}                
-              @endforeach 
-          @endif
-
+         {{--  
+              @if( is_array($totalvenda))
+                  @foreach($totalvenda as $vendas)
+                    {{ $vendas->$vlrvenda }}                
+                  @endforeach 
+              @endif
+          --}}
             <div id="valortotal">
                    <div class="form-group">
                   {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
                    --}}
 
-                    <h2>valor total:<input type="text" value="{{ $vlrvenda }}"></h2>
+                    <h2>valor total:<input type="text"> 
+                      {{-- value="{{ $vlrvenda }}">  --}}
+
+                    </h2>
                   </div>
                   <div class="form-group">
                       <h3>Valor pago:&nbsp<input type="text"></h3>
@@ -54,8 +56,8 @@
           </div>
           <div class="col-8">
             <div class="ml-auto mr-0" style="width: 68%">
-              @include('livewire.pdvvenda')
-
+      {{--        @include('livewire.pdvvenda')
+ 
               @if( is_array($totalvenda))
                  @foreach($totalvenda as $vendas)
                   {{ $vendas->$vlrvenda }}                
@@ -77,6 +79,7 @@
                   @endforeach  
                @endif   
               </div>
+               --}}
           </div>     
         
       </div>   <!----- fim da row 2 --------->  
@@ -86,7 +89,7 @@
             <label for="inputprod"  class="negrito">produto</label>
             <label for="inputqde"   id="labelqde">Qde</label>
             <label for="inputvalor" class="negrito">Valor<label>
-              {{ $vlrvenda }}
+           
         </div>
         <div class="row">
            {{--  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
@@ -109,9 +112,9 @@
 
         <!-- <div> --->
             <div class="col-2 ml-auto mr-0">
-                         
+           {{--              
               <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
-              {{--<button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
+              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
                <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
             </div> 
        </div>
