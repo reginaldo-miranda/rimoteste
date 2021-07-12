@@ -9,13 +9,22 @@
         </tr>
     </thead>
     <tbody>
-   
+    {{-- @livewire('produto-component')  --}}
      @foreach($produtos as $post)
       <tr>
-          <td>{{ $post->id }}</td>
-          <td>{{ $post->descricao }}</td>
-          <td>{{ $post->grupo }}</td>
-          <td>{{ $post->pvenda }}</td>
+        
+            <td>{{ $post->id }}</td>
+            <td>{{ $post->descricao }}</td>
+            <td>{{ $post->grupo }}</td>
+            <td>{{ $post->pvenda }}</td>
+         {{--  
+
+         <td>@livewire('produto-component ', ['produto' => $prod_id ])</td>  
+         <td>@livewire('produto-component ', ['produto' => $descricao ])</td>   
+         <td>@livewire('produto-component ', ['produto' => $grupo ])</td>  
+         <td>@livewire('produto-component ', ['produto' => $pvenda ])</td>   --}}
+
+
           <td>
               <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
                   Editar

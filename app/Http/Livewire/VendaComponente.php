@@ -16,11 +16,12 @@ use Livewire\WithPagination;
 class VendaComponente extends Component
 {   
     public $vendab, $id_cliente;
-/*
-    public function mount($id_cliente){
-
-        $this->id_cliente = $id_cliente;
     
+
+    public function mount($venda_id){
+
+        $this->venda = venda::find($id_cliente);
+   /*
         // $venda = DB::table('vendas')->get();
         // $vendab = vendas::get();
         // dd($venda);
@@ -28,17 +29,18 @@ class VendaComponente extends Component
         // return view('livewire.pdv_form',['vendas' => $venda]); 
    
         // return view('livewire.venda-componente',['vendas' => $vendab]);
-        
+*/        
     }
-*/
+
+
 
     public function render()
     {
 
    
         // $venda = DB::table('vendas')->get();
-        $vendab = vendas::get();
-       // dd($vendab);
+        $vendab = vendas::all();
+      // dd($vendab);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
  

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\models\produto;
 use App\Http\Livewire\produtos;
+use App\Http\livewire\vendaitenscomponente;
 use Illuminate\Pagination\Paginator;
 use Livewire\WithPagination;
 

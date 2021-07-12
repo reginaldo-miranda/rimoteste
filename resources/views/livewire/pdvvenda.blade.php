@@ -23,7 +23,7 @@
 
     <table id="tabelavenda" class="table table-striped table-hover table-bordered">
        
-    {{--     <tbody>
+       <tbody>
             @foreach ($produtos as $post)
                 <tr>
                     
@@ -48,7 +48,7 @@
                 </tr>
             @endforeach
         </tbody>
-         --}}
+         
     </table>
 </div>
 

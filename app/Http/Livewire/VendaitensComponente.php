@@ -32,7 +32,7 @@ class VendaitensComponente extends Component
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
 
          return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
-        // dd($produtos);
+        //dd($produtos);
      }
 
     public function edit($id){

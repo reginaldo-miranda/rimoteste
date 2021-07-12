@@ -6,5 +6,9 @@
          @livewire('venda-componente')
          @livewire('pdvcomponent')  
          @livewire('vendaitens-componente')
+           {{--     
+            @livewire('produto-component')
+         --}}    
+      
      </div>
  @endsection
