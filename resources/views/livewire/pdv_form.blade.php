@@ -1,6 +1,6 @@
 
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
-
+    @include('livewire.venda-componente')
     <div class="row"> <!-- inicio row 1 -----> 
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
@@ -9,7 +9,7 @@
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
              
-             {{--    {{ '' }} {{ $id_cliente }} {{ $vlrvenda }}  {{ '' }}    --}}
+                 {{ ''}} {{-- {{ $id_cliente }} {{ $vlrvenda }}  {{ '' }}    --}}
                        
 
                  </textarea>
@@ -26,6 +26,7 @@
                   @endforeach 
               @endif
           --}}
+         
             <div id="valortotal">
                    <div class="form-group">
                   {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>

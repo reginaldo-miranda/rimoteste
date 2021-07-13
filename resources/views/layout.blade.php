@@ -26,6 +26,7 @@
         @yield('content') 
 
 
+
         @livewireScripts
 
         <script src="js/app.js"></script> 

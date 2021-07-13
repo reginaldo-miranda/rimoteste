@@ -14,37 +14,37 @@ use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
 class VendaComponente extends Component
-{   
-    public $vendab, $id_cliente;
+{    
+    public $vendab, $id_cliente, $nometeste = 'jose';
+
     
 
-    public function mount($venda_id){
+    public function mount($nometeste){
 
-        $this->venda = venda::find($id_cliente);
-   /*
+      $this->nometeste = $nometeste;
+
+       // $this->venda = venda::find($id_cliente);
         // $venda = DB::table('vendas')->get();
         // $vendab = vendas::get();
         // dd($venda);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
-   
         // return view('livewire.venda-componente',['vendas' => $vendab]);
-*/        
+       
     }
+    
 
 
 
     public function render()
     {
-
-   
+          
         // $venda = DB::table('vendas')->get();
-        $vendab = vendas::all();
-      // dd($vendab);
+        $vendab = vendas::get();
+        // dd($vendab);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
- 
-      // return view('livewire.venda-componente',['vendas' => $vendab]);
+        // return view('livewire.venda-componente',['vendas' => $vendab]);
      
     return view('livewire.venda-componente',['vendas' => $vendab]);
     

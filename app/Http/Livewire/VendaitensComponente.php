@@ -26,6 +26,7 @@ class VendaitensComponente extends Component
     public function render()
     {
         //$produtos = vendasitens::get();
+  
         $produtos = DB::table('vendasitens')
                
         ->select('vendasitens.*','produtos.descricao')
