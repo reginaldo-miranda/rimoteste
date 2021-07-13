@@ -15,10 +15,9 @@ use Livewire\WithPagination;
 
 class VendaComponente extends Component
 {    
-    public $vendab, $id_cliente, $nometeste = 'jose';
-
-    
-
+    public $vendab, $id_cliente, $nome = 'jose';
+ 
+/*
     public function mount($nometeste){
 
       $this->nometeste = $nometeste;
@@ -33,7 +32,7 @@ class VendaComponente extends Component
        
     }
     
-
+*/
 
 
     public function render()
@@ -41,7 +40,7 @@ class VendaComponente extends Component
           
         // $venda = DB::table('vendas')->get();
         $vendab = vendas::get();
-        // dd($vendab);
+        //dd($vendab);
         // return view('livewire.venda-componente');
         // return view('livewire.pdv_form',['vendas' => $venda]); 
         // return view('livewire.venda-componente',['vendas' => $vendab]);
@@ -50,7 +49,7 @@ class VendaComponente extends Component
     
     }
     
- /*
+ 
     public function abrir(){
         
         $status = 1;
@@ -58,12 +57,12 @@ class VendaComponente extends Component
         $venda = vendas::create([
             // 'id_cliente' =>$this->cliente,
             // 'valor_total'=>$this->valortotal,
-           'status' =>$status
+           'statusvenda'=>$status,
                         
        ]);
  
       // dd($vendapdv);
        //return view('livewire.pdv_form',['vendas' => $vendapdv]); 
      }
-     */
+     
 }

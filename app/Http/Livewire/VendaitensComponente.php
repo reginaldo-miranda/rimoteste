@@ -33,7 +33,7 @@ class VendaitensComponente extends Component
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
 
          return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
-        //dd($produtos);
+        
      }
 
     public function edit($id){
@@ -71,7 +71,7 @@ class VendaitensComponente extends Component
           
         return view('livewire.vendaitens-componente',['vendaitens'=> $totalvenda]); 
     }
-
+/*
     public function abrir(){
         
        $status = 1;
@@ -86,7 +86,7 @@ class VendaitensComponente extends Component
      // dd($vendapdv);
       //return view('livewire.pdv_form',['vendas' => $vendapdv]); 
     }
-    
+    */
    
    public function destruir($id){
 
