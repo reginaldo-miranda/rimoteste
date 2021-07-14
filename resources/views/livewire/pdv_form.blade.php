@@ -1,6 +1,6 @@
 
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
-  
+ 
     <div class="row"> <!-- inicio row 1 -----> 
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
@@ -51,6 +51,7 @@
 
     <div class="container" style="background-color:rgb(211, 181, 181)">
       <div class="row"> <!-- row 2 ---->
+       
         <div class="col-4">
             <div id="btnabrir">
                   {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
@@ -59,17 +60,12 @@
           </div>
           <div class="col-8">
             <div class="ml-auto mr-0" style="width: 68%">
-      {{--        @include('livewire.pdvvenda')
- 
-              @if( is_array($totalvenda))
-                 @foreach($totalvenda as $vendas)
-                  {{ $vendas->$vlrvenda }}                
-                  @endforeach 
-              @endif
-             
-              @if(is_array($produtos))
-                  @foreach ($produtos as $post)
-                      @if($status == 1)
+              @livewire('vendaitens-componente')
+      {{--        @include('livewire.pdvvenda')  --}}
+              
+              @if(is_array($vendab))
+                  @foreach ($vendab as $post)
+                      @if($statusvenda == 1)
                           <script>
                               document.getElementById("inputqde").focus();
                               document.getElementById("botaoabir").style.display = 'none';
@@ -102,10 +98,11 @@
             {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
+    
                   <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');"required>
 
-                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)"
-                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>
+                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
+                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>"
                 
                  <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" maxlength="5" required>
                    

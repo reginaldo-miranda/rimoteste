@@ -32,7 +32,10 @@ class VendaitensComponente extends Component
         ->select('vendasitens.*','produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
 
-         return view('livewire.vendaitens-componente',['produtos'=> $produtos]);  
+        $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
+        FROM vendasitens WHERE status = 1;");
+
+         return view('livewire.vendaitens-componente',['produtos'=> $produtos, $totalvenda ]);  
         
      }
 
@@ -60,16 +63,18 @@ class VendaitensComponente extends Component
             'status'     =>$this->status
            
           ]);
+
           $vendaitens->refresh();
+
           $this->prod_id = '';
           //  $this->getfocus(id);va
           //  $this->view = 'pdvbusca';
           //  return back()->withInput();
-          $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
-          FROM vendasitens WHERE status = 1;");
-        //  dd($totalvenda);
+        //  $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
+         // FROM vendasitens WHERE status = 1;");
+         //dd($totalvenda);
           
-        return view('livewire.vendaitens-componente',['vendaitens'=> $totalvenda]); 
+        //return view('livewire.vendaitens-componente',['vendaitens'=> $totalvenda]); 
     }
 /*
     public function abrir(){
