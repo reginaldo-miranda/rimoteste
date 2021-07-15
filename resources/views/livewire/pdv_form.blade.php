@@ -99,12 +99,12 @@
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
     
-                  <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');"required>
+                 <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
 
                  <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
-                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>"
+                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>
                 
-                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" maxlength="5" required>
+                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" required>
                    
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
