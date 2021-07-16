@@ -6,11 +6,11 @@
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
+                 
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
              
-                 {{$nome}} {{-- {{ $id_cliente }} {{ $vlrvenda }}  {{ '' }}    --}}
-                       
+                  {{ $totalvenda }}   {{$nome}} {{ $id_venda }}            
 
                  </textarea>
             </div>

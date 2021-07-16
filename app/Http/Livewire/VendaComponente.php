@@ -17,11 +17,11 @@ class VendaComponente extends Component
 {    
     public $vendab, $id_cliente, $prod_id, $nome = 'jose';
 
-    public $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
+    public $descricao, $grupo, $pvenda, $buscapdv, $id_venda;
     public $view ='formpdv';
     public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $fechado = 2;
 
-    public $post;
+    public $post, $totalvenda;
 
 /*
     public function render()
@@ -101,17 +101,26 @@ class VendaComponente extends Component
 public function render()
 {
 
+   
     $produtos = DB::table('vendasitens')
            
     ->select('vendasitens.*','produtos.descricao')
     ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=' , 1)->get();
-
-    $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
-    FROM vendasitens WHERE status = 1;");
-
-     return view('livewire.venda-componente',['produtos'=> $produtos, $totalvenda ]);  
+     $this ->somar();     
+     return view('livewire.venda-componente',['produtos'=> $produtos ]);  
     
  }
+
+  public function somar(){
+    $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
+    FROM vendasitens WHERE status = 1;");
+    //dd($totalvenda);
+
+
+       return view('livewire.pdv_form')->with(compact('totalvenda',$totalvenda));
+
+  }
+
 
 public function edit($id){
 
@@ -135,6 +144,7 @@ public function abrir(){
         // 'id_cliente' =>$this->cliente,
         // 'valor_total'=>$this->valortotal,
        'statusvenda'=>$status,
+       
                     
    ]);
 
@@ -145,17 +155,19 @@ public function abrir(){
 public function gravar(){
     $vendaitens = vendasitens::create([
         
-        'id_cliente' =>$this->cliente,
-        'id_produto' =>$this->prod_id,
+
+        'id_cliente' => $this->cliente,
+        'id_produto' => $this->prod_id,
         'qde'        => $this->qde,
         'valorunit'  => $this->pvenda,
-        'status'     =>$this->status
+        'status'     => $this->status
        
       ]);
 
       $vendaitens->refresh();
 
       $this->prod_id = '';
+
       //  $this->getfocus(id);va
       //  $this->view = 'pdvbusca';
       //  return back()->withInput();
