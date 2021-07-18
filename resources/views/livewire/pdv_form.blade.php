@@ -9,9 +9,7 @@
               
             <div id="textareadescprod">
                 <textarea id="textareavenda" name="textareavenda">
-                  @foreach ($totalvenda as $tt )
-                    {{ $tt->totalv }}
-                  @endforeach
+                
                     {{$nome}} {{ $id_venda }}            
 
                  </textarea>

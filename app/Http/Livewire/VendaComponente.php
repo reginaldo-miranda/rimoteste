@@ -120,6 +120,7 @@ class VendaComponente extends Component
     ->select('vendasitens.*', 'produtos.descricao')
     ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=', 1)->get();
         $this ->somar();
+      //  dd($totalvenda);
         return view('livewire.venda-componente', ['produtos'=> $produtos]);
     }
         public function somar(){
@@ -128,7 +129,7 @@ class VendaComponente extends Component
             FROM vendasitens WHERE status = 1;");
            //dd($totalvenda);
           
-           return redirect('/');
+           //return ($totalvenda);
          
       }
     

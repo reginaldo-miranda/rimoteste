@@ -16,7 +16,7 @@ use Livewire\WithPagination;
 
 class VendaitensComponente extends Component
 {
-    
+    /*
         public $prod_id, $descricao, $grupo, $pvenda, $buscapdv, $id_venda ;
         public $view ='formpdv';
         public $cliente = 1, $qde=2, $valortotal=100, $status = 1, $fechado = 2;
@@ -149,5 +149,5 @@ class VendaitensComponente extends Component
         ->join('orders', 'users.id', '=', 'orders.user_id')
         ->select('users.*', 'contacts.phone', 'orders.price')
         ->get();
-*/
-}
+
+} */
