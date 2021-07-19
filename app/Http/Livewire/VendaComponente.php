@@ -32,7 +32,7 @@ class VendaComponente extends Component
     public $fechado = 2;
     public $post;
     public $totalvenda;
-    public $totalv, $re;
+    public $totalv, $res;
 
     /*
         public function render()
@@ -113,6 +113,7 @@ class VendaComponente extends Component
         ->select('vendasitens.*', 'produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=', 1)->get();
          $this ->somar();
+         $this->mostarIdVenda();
         // $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
         // FROM vendasitens WHERE status = 1;"); */
        
@@ -123,23 +124,12 @@ class VendaComponente extends Component
             
        $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
            FROM vendasitens WHERE status = 1;");
-        $this->totalvenda = $totalvenda;   
+           $this->totalvenda = $totalvenda;   
       
        //dd($totalvenda);
-    
-       //return view('livewire.venda-componente', ['totalvenda'=> $totalvenda]);
-    
                
     }
     
-
-    /*
-        public function somaritens()
-        {
-            $totalvenda = DB::select("SELECT qde*valorunit FROM vendasitens WHERE status = 1;");
-            dd($totalvenda);
-        }
-   */
     public function edit($id)
     {
         $produtos = produto::find($id);
@@ -163,10 +153,13 @@ class VendaComponente extends Component
        'statusvenda'=>$status,
                            
         ]);
-          
+     
+    }
+
+    public function mostarIdVenda(){
         $res  = vendas::get()->last();
-        //dd($res);
-       //return view('livewire.venda-componente',['vendas' => $res]);
+       // dd($res);
+        $this->res = $res;
     }
 
     public function gravar()

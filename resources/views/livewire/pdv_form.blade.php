@@ -10,15 +10,17 @@
        
             <div id="textareadescprod">
                                       
-                <textarea id="textareavenda" name="textareavenda">
+                <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif">
                     @if( is_array($totalvenda))
                           @foreach($totalvenda as $vendas)
-                                {{ $vendas->totalv }}  {{$nome}} {{ $id_venda }}                     
+                               {{ $vendas->totalv }}  {{$nome}} {{ $res->id_venda }}                     
                           @endforeach 
                     @else
                                 <h1><p>nao é array venda pdv</p></h1>    
                     @endif 
+                 
                 </textarea>
+                
             </div>
         </div>
 
@@ -32,10 +34,7 @@
                   {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
                    --}}
 
-                    <h2>valor total:<input type="text"> 
-                      {{-- value="{{ $vlrvenda }}">  --}}
-
-                    </h2>
+                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv')}}"type="text" ></h2>
                   </div>
                   <div class="form-group">
                       <h3>Valor pago:&nbsp<input type="text"></h3>
@@ -50,6 +49,7 @@
     </div> <!-- fim da div row 1 ---->
 
     <div class="container" style="background-color:rgb(211, 181, 181)">
+      
       <div class="row"> <!-- row 2 ---->
        
         <div class="col-4">
