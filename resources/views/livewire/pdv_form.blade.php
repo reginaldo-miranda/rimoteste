@@ -6,26 +6,26 @@
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
-              
+ 
+       
             <div id="textareadescprod">
+                                      
                 <textarea id="textareavenda" name="textareavenda">
-                
-                    {{$nome}} {{ $id_venda }}            
-
-                 </textarea>
+                    @if( is_array($totalvenda))
+                          @foreach($totalvenda as $vendas)
+                                {{ $vendas->totalv }}  {{$nome}} {{ $id_venda }}                     
+                          @endforeach 
+                    @else
+                                <h1><p>nao é array venda pdv</p></h1>    
+                    @endif 
+                </textarea>
             </div>
         </div>
 
         <!-------------------------------------------------------------------------->
 
         <div id="blocodevalores">
-         {{--  
-              @if( is_array($totalvenda))
-                  @foreach($totalvenda as $vendas)
-                    {{ $vendas->$vlrvenda }}                
-                  @endforeach 
-              @endif
-          --}}
+        
          
             <div id="valortotal">
                    <div class="form-group">
@@ -60,9 +60,7 @@
           </div>
           <div class="col-8">
             <div class="ml-auto mr-0" style="width: 68%">
-              @livewire('vendaitens-componente')
-      {{--        @include('livewire.pdvvenda')  --}}
-              
+              @include('livewire.pdvvenda')
               @if(is_array($vendab))
                   @foreach ($vendab as $post)
                       @if($statusvenda == 1)
@@ -78,7 +76,7 @@
                   @endforeach  
                @endif   
               </div>
-               --}}
+           
           </div>     
         
       </div>   <!----- fim da row 2 --------->  
@@ -91,6 +89,7 @@
            
         </div>
         <div class="row">
+          
            {{--  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
                  <input id="inputqde"   type="text" name="inputqde">
                  <input id="inputvalor" type="text" name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
@@ -98,7 +97,7 @@
             {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                     placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
             --}}
-    
+     
                  <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
 
                  <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)

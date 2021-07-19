@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent;
 use Livewire\Component;
 use App\models\produto;
 use App\models\vendasitens;
+use App\models\vendas;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
 
@@ -17,7 +19,7 @@ class Pdvcomponent extends Component
 {
     public $prod_id, $descricao, $grupo, $pvenda, $buscapdv ;
     public $view ='formpdv';
-    public $cliente = 1, $qde=2;
+    public $cliente = 1, $qde=2; //, $totalvenda;
 
      
     public $searchprod1;
@@ -35,7 +37,7 @@ class Pdvcomponent extends Component
                              ->orderby('id','desc')->paginate(4);
         /*   $produtos = produto::orderby('id','desc')->paginate(4); */
 
-        
+            
         return view('livewire.pdvcomponent',['produtos'=> $produtos]);
         
                 

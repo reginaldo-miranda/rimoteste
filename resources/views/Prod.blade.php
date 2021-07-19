@@ -4,8 +4,7 @@
 
 @section('content')
     <div class="container">
-       
-     {{--   @livewire('produto-component')  --}}
-    </div>
+        @livewire('produto-component')  
+     </div>
 
 @endsection

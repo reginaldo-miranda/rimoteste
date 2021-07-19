@@ -4,7 +4,8 @@
 @section('content')
      <div class="container">
          @livewire('venda-componente')
-       
+         @livewire('pdvcomponent') 
+          
       {{--  @livewire('vendaitens-componente')
             @livewire('pdvcomponent')  
             @livewire('produto-component')
