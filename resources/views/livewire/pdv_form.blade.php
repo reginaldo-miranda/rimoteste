@@ -10,16 +10,16 @@
        
             <div id="textareadescprod">
                                       
-                <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif">
-                    @if( is_array($totalvenda))
+             {{--    <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif">  --}}
+              <p><h3> @if( is_array($totalvenda))
                           @foreach($totalvenda as $vendas)
-                               {{ $vendas->totalv }}  {{$nome}} {{ $res->id_venda }}                     
+                           qde :{{ $vendas->qdeitens }} nome :{{$nome}} n:da venda{{ $res->id_venda }}  {{ $descricao }}                  
                           @endforeach 
-                    @else
-                                <h1><p>nao é array venda pdv</p></h1>    
-                    @endif 
-                 
-                </textarea>
+                      @else
+                          <h1><p>nao é array venda pdv</p></h1>    
+                      @endif 
+              </h3></p> 
+               {{--  </textarea>  --}}
                 
             </div>
         </div>
@@ -34,7 +34,7 @@
                   {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
                    --}}
 
-                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv')}}"type="text" ></h2>
+                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv')}}"type="number" step="0.01"></h2>
                   </div>
                   <div class="form-group">
                       <h3>Valor pago:&nbsp<input type="text"></h3>
@@ -90,21 +90,22 @@
         </div>
         <div class="row">
           
-           {{--  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
+                 <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
                  <input id="inputqde"   type="text" name="inputqde">
                  <input id="inputvalor" type="text" name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
-           --}}
-            {{--   <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
-                    placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
-            --}}
-     
+                 {{-- 
+                     <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
+                         placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
+                  --}}   
+
+          {{--   
                  <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
 
                  <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
                   maxlength="5" onkeydown="PressEnter('inputvalor');" required>
                 
                  <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" required>
-                   
+        --}}             
             <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
            
         <!-- </div> -->

@@ -51,10 +51,29 @@ input{
   margin-right: 30px;
   font-weight: bold;
 }
+#textareadescprod{
+  
+}
 
 #textareavenda{
-  width: 100%;
+ 
+  /*  background: transparent; */
+    border: 0;
+    outline: 0;
+    text-align: left;
+    width: 100%;
+ /*   max-width: 100%; */
+ /*   position: absolute; */
+  
+
 }
+
+
+
+
+
+
+
 .negrito{
   font-weight: bold;
 }

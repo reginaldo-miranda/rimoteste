@@ -17,11 +17,10 @@ class VendaComponente extends Component
 {
     public $vendab;
     public $id_cliente;
-    public $prod_id;
+
     public $nome = 'jose';
-    public $descricao;
-    public $grupo;
-    public $pvenda;
+
+    public $descricao, $grupo, $pvenda, $prod_id; // cadastro produto
     public $buscapdv;
     public $id_venda;
     public $view ='formpdv';
@@ -34,78 +33,6 @@ class VendaComponente extends Component
     public $totalvenda;
     public $totalv, $res;
 
-    /*
-        public function render()
-        {
-
-            // $venda = DB::table('vendas')->get();
-             $vendab = vendas::get();
-            //dd($vendab);
-            // return view('livewire.venda-componente');
-            // return view('livewire.pdv_form',['vendas' => $venda]);
-            // return view('livewire.venda-componente',['vendas' => $vendab]);
-
-            return view('livewire.venda-componente',['vendas' => $vendab]);
-
-        }
-
-        public function abrir(){
-
-            $status = 1;
-
-            $venda = vendas::create([
-                // 'id_cliente' =>$this->cliente,
-                // 'valor_total'=>$this->valortotal,
-               'statusvenda'=>$status,
-
-           ]);
-
-          // dd($vendapdv);
-           //return view('livewire.pdv_form',['vendas' => $vendapdv]);
-         }
-         public function edit($id){
-
-
-            $produtos = produto::find($id);
-
-
-            $this->prod_id   = $produtos->id;
-            $this->descricao = $produtos->descricao;
-            $this->grupo     = $produtos->grupo;
-            $this->pvenda    = $produtos->pvenda;
-            $this->gravar();
-           // return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
-        }
-
-
-        public function gravar(){
-            $vendaitens = vendasitens::create([
-
-                'id_cliente' =>$this->cliente,
-                'id_produto' =>$this->prod_id,
-                'qde'        => $this->qde,
-                'valorunit'  => $this->pvenda,
-                'status'     =>$this->status
-
-              ]);
-
-              $vendaitens->refresh();
-
-              $this->prod_id = '';
-              //  $this->getfocus(id);va
-              //  $this->view = 'pdvbusca';
-              //  return back()->withInput();
-              //  $totalvenda  = DB::select("SELECT SUM(qde * valorunit)
-              // FROM vendasitens WHERE status = 1;");
-              // dd($totalvenda);
-              // return view('livewire.vendaitens-componente',['vendaitens'=> $totalvenda]);
-        }
-
-    }
-    */
- 
-    
- 
     public function render()
     {
         $produtos = DB::table('vendasitens')
@@ -122,7 +49,7 @@ class VendaComponente extends Component
 
     public function somar(){
             
-       $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
+       $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv, count(status) as qdeitens
            FROM vendasitens WHERE status = 1;");
            $this->totalvenda = $totalvenda;   
       
