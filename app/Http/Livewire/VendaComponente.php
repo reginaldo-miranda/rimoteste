@@ -78,26 +78,29 @@ class VendaComponente extends Component
         // 'id_cliente' =>$this->cliente,
         // 'valor_total'=>$this->valortotal,
        'statusvenda'=>$status,
+       
                            
         ]);
-     
+      
     }
 
     public function mostarIdVenda(){
         $res  = vendas::get()->last();
-       // dd($res);
+      // dd($res);
         $this->res = $res;
+      // dd($id_venda);
     }
 
     public function gravar()
     {
         $vendaitens = vendasitens::create([
     
-        'id_cliente' => $this->cliente,
-        'id_produto' => $this->prod_id,
-        'qde'        => $this->qde,
-        'valorunit'  => $this->pvenda,
-        'status'     => $this->status
+        'id_cliente'  => $this->cliente,
+        'id_produto'  => $this->prod_id,
+        'qde'         => $this->qde,
+        'valorunit'   => $this->pvenda,
+        'status'      => $this->status,
+        'id_venda'    => $this->$id_venda,
        
         ]);
 
@@ -141,15 +144,17 @@ class VendaComponente extends Component
         // $this->view = ('livewire.vendaitens-componente');
     }
 
+    /*
     public function checar()
     {
-        $produtos = DB::table('vendasitens')->where('status', '=', 1)->get();
+        $produtos = DB::table('vendasitens')->where('statusvenda', '=', 1)->get();
         $status = 1;
         $this->abrir($status);
 
         return view('livewire.pdv_form', ['vendasitens'=> $produtos]);
     }
-}
+*/
+}   
 
 
 /*
