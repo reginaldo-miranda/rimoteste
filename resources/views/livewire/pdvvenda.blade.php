@@ -27,7 +27,7 @@
             @foreach ($produtos as $post)
                 <tr>
                     
-                    <td>{{ $post->id_venda }}</td> 
+                    <td>{{ $post->id_vendai }}</td> 
                     <td>{{ $post->id_cliente }}</td> 
                     <td>{{ $post->id_produto }}</td>
                     <td>{{ $post->qde }}</td>

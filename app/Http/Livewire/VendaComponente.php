@@ -86,13 +86,13 @@ class VendaComponente extends Component
 
     public function mostarIdVenda(){
         $res  = vendas::get()->last();
-      // dd($res);
-        $this->res = $res;
-      // dd($id_venda);
-    }
+            $this->res = $res;
+
+      }
 
     public function gravar()
     {
+        
         $vendaitens = vendasitens::create([
     
         'id_cliente'  => $this->cliente,
@@ -100,7 +100,7 @@ class VendaComponente extends Component
         'qde'         => $this->qde,
         'valorunit'   => $this->pvenda,
         'status'      => $this->status,
-        'id_venda'    => $this->$id_venda,
+        'id_vendai'    => $this->id_vendai,
        
         ]);
 

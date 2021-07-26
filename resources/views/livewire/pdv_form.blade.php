@@ -91,8 +91,10 @@
         <div class="row">
           
                  <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
-                 <input id="inputqde"   type="text" name="inputqde">
-                 <input id="inputvalor" type="text" name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}  ">
+                 <input id="inputqde"   type="text"    name="inputqde">
+                 <input id="inputvalor" type="text"    name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}">
+                 {{--  <input id="inputidvenda" type="text"   name="id_venda" value="{{ $res->id_venda ?? old('id_venda')}}">  --}}
+                 <input type="text" name="inputidvenda" value="{{ $id_vendai ?? old('id_vendai')}}" wire:model="id_vendai"> 
                  {{-- 
                      <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
                          placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
