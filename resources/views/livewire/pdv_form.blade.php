@@ -1,131 +1,144 @@
+<div class="container-fluid" style="background-color:rgb(154, 154, 247)">
 
-<div class="container-fluid" style="background-color:rgb(154, 154, 247)" >
- 
-    <div class="row"> <!-- inicio row 1 -----> 
+    <div class="row">
+        <!-- inicio row 1 ----->
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
- 
-       
+
+
             <div id="textareadescprod">
-                                      
-             {{--    <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif">  --}}
-              <p><h3> @if( is_array($totalvenda))
-                          @foreach($totalvenda as $vendas)
-                           qde :{{ $vendas->qdeitens }} nome :{{$nome}} n:da venda{{ $res->id_venda }}  {{ $descricao }}                  
-                          @endforeach 
-                      @else
-                          <h1><p>nao é array venda pdv</p></h1>    
-                      @endif 
-              </h3></p> 
-               {{--  </textarea>  --}}
-                
+
+                {{-- <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif"> --}}
+                <p>
+                <h3>
+                    @if (is_array($totalvenda))
+                        @foreach ($totalvenda as $vendas)
+                            qde :{{ $vendas->qdeitens }} nome :{{ $nome }} {{ $descricao }}
+                        @endforeach
+                    @else
+                        <h1>
+                            <p>nao é array venda pdv</p>
+                        </h1>
+                    @endif
+                    n:da venda :{{ $res->id_venda }}
+                    {{ $vv = $res->id_venda }}
+                </h3>
+                </p>
+                {{-- </textarea> --}}
+
             </div>
         </div>
 
         <!-------------------------------------------------------------------------->
 
         <div id="blocodevalores">
-        
-         
-            <div id="valortotal">
-                   <div class="form-group">
-                  {{--   <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2>
-                   --}}
 
-                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv')}}"type="number" step="0.01"></h2>
-                  </div>
-                  <div class="form-group">
-                      <h3>Valor pago:&nbsp<input type="text"></h3>
-                  </div>
-                  <div class="form-group">
-                      <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
-                  </div>
-              
+
+            <div id="valortotal">
+                <div class="form-group">
+                    {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
+
+                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.01">
+                    </h2>
+                </div>
+                <div class="form-group">
+                    <h3>Valor pago:&nbsp<input type="text"></h3>
+                </div>
+                <div class="form-group">
+                    <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
+                </div>
+                {{ $vv }}
+
             </div>
 
         </div>
     </div> <!-- fim da div row 1 ---->
 
     <div class="container" style="background-color:rgb(211, 181, 181)">
-      
-      <div class="row"> <!-- row 2 ---->
-       
-        <div class="col-4">
-            <div id="btnabrir">
-                  {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                  <button id="botaoabir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="ml-auto mr-0" style="width: 68%">
-              @include('livewire.pdvvenda')
-              @if(is_array($vendab))
-                  @foreach ($vendab as $post)
-                      @if($statusvenda == 1)
-                          <script>
-                              document.getElementById("inputqde").focus();
-                              document.getElementById("botaoabir").style.display = 'none';
-                              document.getElementById("btnfechar").style.display = 'none';
-                              //$("#btnfechar").hide();
-                              //$("#btncancela").show();
-                          </script>
-                      @endif
-                      
-                  @endforeach  
-               @endif   
-              </div>
-           
-          </div>     
-        
-      </div>   <!----- fim da row 2 --------->  
-    </div> 
-    <!-- <div class="col-12"> -->
-        <div>
-            <label for="inputprod"  class="negrito">produto</label>
-            <label for="inputqde"   id="labelqde">Qde</label>
-            <label for="inputvalor" class="negrito">Valor<label>
-           
-        </div>
+
         <div class="row">
-          
-                 <input type="text"     id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)" >
-                 <input id="inputqde"   type="text"    name="inputqde">
-                 <input id="inputvalor" type="text"    name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}">
-                 {{--  <input id="inputidvenda" type="text"   name="id_venda" value="{{ $res->id_venda ?? old('id_venda')}}">  --}}
-                 <input type="text" name="inputidvenda" value="{{ $id_vendai ?? old('id_vendai')}}" wire:model="id_vendai"> 
-                 {{-- 
-                     <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
-                         placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}">
-                  --}}   
+            <!-- row 2 ---->
 
-          {{--   
-                 <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
+            <div class="col-4">
+                <div id="btnabrir">
+                    {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
+                    <button id="botaoabir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="ml-auto mr-0" style="width: 68%">
+                    @include('livewire.pdvvenda')
+                    @if (is_array($vendab))
+                        @foreach ($vendab as $post)
+                            @if ($statusvenda == 1)
+                                <script>
+                                    document.getElementById("inputqde").focus();
+                                    document.getElementById("botaoabir").style.display = 'none';
+                                    document.getElementById("btnfechar").style.display = 'none';
+                                    //$("#btnfechar").hide();
+                                    //$("#btncancela").show();
+                                </script>
+                            @endif
 
-                 <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
-                  maxlength="5" onkeydown="PressEnter('inputvalor');" required>
-                
-                 <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" required>
-        --}}             
-            <button type="button"  id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
-           
+                        @endforeach
+                    @endif
+                </div>
+
+            </div>
+
+        </div>
+        <!----- fim da row 2 --------->
+    </div>
+    <!-- <div class="col-12"> -->
+    <div>
+
+        <label for="inputqde" id="labelqde">Qde</label>
+        <label for="inputvalor" class="negrito">Valor<label>
+                <label for="inputprod" class="negrito">produto</label>
+
+    </div>
+
+    <div class="row">
+
+
+        <input id="inputqde" type="text" name="inputqde" wire:model="qde">
+        <input id="inputvalor" type="text" name="inputvalor" value="{{ $pvenda ?? old('pvalor') }}">
+        <input type="text" id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">
+
+
+        {{-- <input id="inputidvenda" type="text"   name="id_venda" value="{{ $res->id_venda ?? old('id_venda')}}"> 
+                 
+                  
+                        <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
+                         placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}"> --}}
+
+        {{-- <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
+
+                        <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
+                         maxlength="5" onkeydown="PressEnter('inputvalor');" required>
+                        
+                        <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" required> --}}
+
+        <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
+        <input wire:model="id_venda" type="text" name="id_venda">
         <!-- </div> -->
 
         <!-- <div> --->
-            <div class="col-2 ml-auto mr-0">
-           {{--              
-              <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
-              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button>  --}}
-               <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
-            </div> 
-       </div>
-     <!-- </div> -->
- 
+        <div class="col-2 ml-auto mr-0">
+            {{-- <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
+              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> --}}
+            <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
+        </div>
+    </div>
+    <!-- </div> -->
+
 </div>
 
 <script>
-  /*
+    /*
 $(".input").keyup(function() {
     if (this.value.length == this.maxLength) {
         $(this).next('.inputs').focus();
@@ -136,52 +149,45 @@ $(".input").keyup(function() {
 
 
 <script type="text/javascript">
-
-function PressEnter(nextinputId){
-    if(event.keyCode == 13){
-        document.getElementById(nextinputId).focus();     
-        return false;           
+    function PressEnter(nextinputId) {
+        if (event.keyCode == 13) {
+            document.getElementById(nextinputId).focus();
+            return false;
+        }
     }
-}
-
 </script>
-{{-- 
-  <input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
-  <input type="text" id="input2"  maxlength="5" required>
- --}}
+{{-- <input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
+  <input type="text" id="input2"  maxlength="5" required> --}}
 
 
 
 
 <script>
-
     $("#btnfechar").hide();
 
     function getfocus(id) {
 
-         
-      //  document.getElementById("inputprod").disabled = false;
+
+        //  document.getElementById("inputprod").disabled = false;
         document.getElementById("inputqde").focus();
 
- 
+
         $("#botaoabir").hide();
         $("#btnfechar").show();
         $("#btncancela").show();
-       
-      
+
+
         //  id.innerHTML = "Ooops!";
         id.innerHTML = "Ooops caixa aberto gaste bem!";
         $("#botaoabir").show();
-       
-        
+
+
         document.getElementById('botaoabir').style.display = 'block';
-   
+
     }
+</script>
 
-
-    </script>
-
-{{--  ------------------------- inicio ---------------------------------  
+{{-- ------------------------- inicio ---------------------------------  
 
 $(function () {
   setDisabled(true);
@@ -215,7 +221,7 @@ $(function () {
 </div>
 <button id="IniciarTarefa">Incluir</button>
 <button id="submeter">Gravar</button>
-{{--  ------------------------- fim ---------------------------------  --}}
+{{--  ------------------------- fim --------------------------------- --}}
 
 
 

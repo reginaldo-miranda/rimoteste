@@ -10,7 +10,7 @@ class vendasitens extends Model
     use HasFactory;
     
     protected $fillable = [
-        'id_venda',
+        'id_vendai',
         'id_cliente',
         'id_produto',
         'qde',

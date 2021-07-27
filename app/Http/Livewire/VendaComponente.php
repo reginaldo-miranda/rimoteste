@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
+//namespace App\Http\Requests;
 
 use Livewire\Component;
 use App\models\vendas;
@@ -10,6 +11,7 @@ use App\Http\Livewire\document;
 use App\Http\Livewire\produtos;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
+
 //use App\Http\Livewire\DB;
 use Livewire\WithPagination;
 
@@ -22,35 +24,41 @@ class VendaComponente extends Component
 
     public $descricao, $grupo, $pvenda, $prod_id; // cadastro produto
     public $buscapdv;
+
     public $id_venda;
+
     public $view ='formpdv';
     public $cliente = 1;
-    public $qde=2;
+    public $qde;
     public $valortotal=100;
     public $status = 1;
     public $fechado = 2;
     public $post;
     public $totalvenda;
-    public $totalv, $res;
+    public $totalv, $res , $vv;
 
+  
     public function render()
     {
         $produtos = DB::table('vendasitens')
            
         ->select('vendasitens.*', 'produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=', 1)->get();
+        
          $this ->somar();
          $this->mostarIdVenda();
         // $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
         // FROM vendasitens WHERE status = 1;"); */
        
         return view('livewire.venda-componente', ['produtos'=> $produtos]);
+      
     }
 
     public function somar(){
             
        $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv, count(status) as qdeitens
            FROM vendasitens WHERE status = 1;");
+          
            $this->totalvenda = $totalvenda;   
       
        //dd($totalvenda);
@@ -87,7 +95,7 @@ class VendaComponente extends Component
     public function mostarIdVenda(){
         $res  = vendas::get()->last();
             $this->res = $res;
-
+         
       }
 
     public function gravar()
@@ -95,12 +103,13 @@ class VendaComponente extends Component
         
         $vendaitens = vendasitens::create([
     
+
         'id_cliente'  => $this->cliente,
         'id_produto'  => $this->prod_id,
         'qde'         => $this->qde,
         'valorunit'   => $this->pvenda,
         'status'      => $this->status,
-        'id_vendai'    => $this->id_vendai,
+        'id_vendai'   => $this->id_venda     
        
         ]);
 
