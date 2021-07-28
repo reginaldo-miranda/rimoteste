@@ -1,0 +1,34 @@
+entrar no pdv
+
+pdv fechado
+
+botao para abrir a venda 
+	statusvenda = 1
+    troca a mensagem de fechado para aberto
+    habilitar os botoes cancelar e fechar a venda
+    dirige o foco na quantidade
+
+loop Enquanto a venda estiver aberta fazer essa rotina (venda)
+
+    digitar a quantidade
+	digitar o codigo do produto
+	buscar o produto (codigo, descricao, preco de venda)
+
+	gravar na vendaitens (codigo do produto, descricao, preco de venda e status = 1)
+
+      buscar o id_venda na tabela venda e gravar em vendaitens
+
+      mostar a descricao e o preco de venda
+
+	  incluir na grade de venda
+
+	  mostar o total da venda e qquantidade de itens
+
+	  limpar os inputs
+loop
+	
+Fim do loop da rodtina de venda
+
+botao fechar a venda
+	mudar o status da venda e vendaitens para 2
+

@@ -5,7 +5,7 @@
 }
 
 .container-fluid{
-  height: 620px;
+  height: 650px;
 }
 
 #inputqde{
@@ -47,12 +47,21 @@ input{
 }
 
 #labelqde{
-  margin-left: 130px;
+  margin-left: 30px;
   margin-right: 30px;
   font-weight: bold;
 }
+
+#labelvalor{
+ margin-left: 130px;
+
+}
 #textareadescprod{
   
+}
+#qdeitens{
+
+  margin-left: 500px;
 }
 
 #textareavenda{

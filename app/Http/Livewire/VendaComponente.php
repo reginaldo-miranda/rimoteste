@@ -17,7 +17,7 @@ use Livewire\WithPagination;
 
 class VendaComponente extends Component
 {
-    public $vendab;
+    public $checar;
     public $id_cliente;
 
     public $nome = 'jose';
@@ -47,6 +47,7 @@ class VendaComponente extends Component
         
          $this ->somar();
          $this->mostarIdVenda();
+         $this->checar();
         // $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
         // FROM vendasitens WHERE status = 1;"); */
        
@@ -64,6 +65,14 @@ class VendaComponente extends Component
        //dd($totalvenda);
                
     }
+    public function checar()
+    {
+        $checar = DB::table('vendas')->where('statusvenda', '=', 1)->get();
+        
+        $this->checar = $checar;
+
+       // return view('livewire.pdv_form', ['vendas'=> $checar] );
+    }
     
     public function edit($id)
     {
@@ -73,6 +82,7 @@ class VendaComponente extends Component
         $this->descricao = $produtos->descricao;
         $this->grupo     = $produtos->grupo;
         $this->pvenda    = $produtos->pvenda;
+        
         $this->gravar();
         //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
@@ -95,7 +105,7 @@ class VendaComponente extends Component
     public function mostarIdVenda(){
         $res  = vendas::get()->last();
             $this->res = $res;
-         
+          
       }
 
     public function gravar()
@@ -113,9 +123,9 @@ class VendaComponente extends Component
        
         ]);
 
-        $this->prod_id = '';
+     //  $this->prod_id = '';
         
-        $vendaitens->refresh();
+      //  $vendaitens->refresh();
         //  $this->getfocus(id);va
         //  $this->view = 'pdvbusca';
         //  return back()->withInput();
@@ -153,16 +163,8 @@ class VendaComponente extends Component
         // $this->view = ('livewire.vendaitens-componente');
     }
 
-    /*
-    public function checar()
-    {
-        $produtos = DB::table('vendasitens')->where('statusvenda', '=', 1)->get();
-        $status = 1;
-        $this->abrir($status);
-
-        return view('livewire.pdv_form', ['vendasitens'=> $produtos]);
-    }
-*/
+    
+   
 }   
 
 
