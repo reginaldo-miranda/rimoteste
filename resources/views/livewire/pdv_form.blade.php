@@ -23,14 +23,23 @@
                             <p>nao é array venda pdv</p>
                         </h1>
                     @endif
+                 {{-- 
+                    @if (is_array($res))
 
-                    @if (!empty($res))
-                       n:da venda :{{$vv = $res->id_venda }}
+                       @if(!empty($res))
+                            @foreach($res as $ke)
+                               n:da venda :{{ $ke->id_venda }}     
+                            @endforeach
+                        @else
+                          $id_venda = 0;
+   
+                        @endif
+                       
                     @else 
-                        $id_venda = 0;
-                      
+                        <h3>nao e array res</h3>
+                                               
                     @endif
-                 
+                  --}}
                 </h3>
                 </p>
              
@@ -79,9 +88,10 @@
                 <div class="ml-auto mr-0" style="width: 68%">
                     @include('livewire.pdvvenda')
                     @if (is_array( $checar))
-                       <h1>é array</h1>
+                       <h1>é array checar</h1>
                         @foreach ($checar as $checa)
-                          {{  $ch = $checa->statusvenda }}
+                         status da venda : {{  $ch = $checa->statusvenda }}
+                            
                             @if ($ch == 1)
                                 <script>
                                     document.getElementById("inputqde").focus();
@@ -91,8 +101,9 @@
                                     //$("#btncancela").show();
                                 </script>
                             @endif
-
+                            numero da venda : {{ $checa->id_venda }}
                         @endforeach
+              
                     @else
                       <h1>checar nao é array</h1>
                     @endif  
@@ -132,8 +143,8 @@
             data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
           
             
-        @if (!empty($res))
-             <input  wire:model.lazy="id_venda"  type="text" name="id_venda" value="{{ $vv }}"> 
+        @if (empty($res))
+             <input  wire:model.lazy="id_venda"  type="text" name="id_venda" value="{{$checa->id_venda}}"> 
         @endif)
            
      

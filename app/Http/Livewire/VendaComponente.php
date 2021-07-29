@@ -35,7 +35,7 @@ class VendaComponente extends Component
     public $fechado = 2;
     public $post;
     public $totalvenda;
-    public $totalv, $res , $vv;
+    public $totalv, $res , $numerovenda, $checa;
 
   
     public function render()
@@ -46,7 +46,7 @@ class VendaComponente extends Component
         ->join('produtos', 'produtos.id', '=', 'vendasitens.id_produto')->where('status', '=', 1)->get();
         
          $this ->somar();
-         $this->mostarIdVenda();
+        // $this->mostarIdVenda();
          $this->checar();
         // $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
         // FROM vendasitens WHERE status = 1;"); */
@@ -70,10 +70,18 @@ class VendaComponente extends Component
         $checar = DB::table('vendas')->where('statusvenda', '=', 1)->get();
       
         $this->checar = $checar->toArray();
-       // dd($checar);
+      //  dd($checar);
        // return view('livewire.pdv_form', ['vendas'=> $checar] );
     }
-    
+/*
+    public function mostarIdVenda(){
+
+        $res  = DB::table('vendas')->get()->last();
+            $this->res = $res->toArray();
+         //  dd($res);
+          
+      }
+    */
     public function edit($id)
     {
         $produtos = produto::find($id);
@@ -102,11 +110,7 @@ class VendaComponente extends Component
       
     }
 
-    public function mostarIdVenda(){
-        $res  = vendas::get()->last();
-            $this->res = $res;
-          
-      }
+
 
     public function gravar()
     {
