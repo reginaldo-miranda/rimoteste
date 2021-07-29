@@ -81,8 +81,8 @@
                     @if (is_array( $checar))
                        <h1>é array</h1>
                         @foreach ($checar as $checa)
-                          {{  $checa->statusvenda }}
-                            @if ($checar->statusvenda == 1)
+                          {{  $ch = $checa->statusvenda }}
+                            @if ($ch == 1)
                                 <script>
                                     document.getElementById("inputqde").focus();
                                     document.getElementById("botaoabir").style.display = 'none';
@@ -128,45 +128,22 @@
         <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" >
        
 
-
-        {{-- <input id="inputidvenda" type="text"   name="id_venda" value="{{ $res->id_venda ?? old('id_venda')}}"> 
-                 
-                  
-                        <input type="text" class="form-control" id="text_razaosocial" name="nomeCliente"
-                         placeholder=" Nome do cliente:" value="{{ $dados->razaosocial ?? old('razaosocial') }}"> --}}
-
-        {{-- <input id="inputqde"   type="text"  name="inputqde" maxlength="5" onkeydown="PressEnter('inputprod');" required>
-
-                        <input id="inputprod"  type="text"  name="inputprod" wire:model.lazy="prod_id" wire:keydown.enter=edit($event.target.value)
-                         maxlength="5" onkeydown="PressEnter('inputvalor');" required>
-                        
-                        <input id="inputvalor" type="text"  name="inputvalor" value="{{ $pvenda ?? old('pvalor')}}" required> --}}
-
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
           
             
         @if (!empty($res))
-             <input  wire:model.keydown.enter="id_venda"  type="text" name="id_venda" value="{{ $vv }}"> 
+             <input  wire:model.lazy="id_venda"  type="text" name="id_venda" value="{{ $vv }}"> 
         @endif)
            
      
-
-        {{-- 
-           @foreach ($this->reasons as $key => $item)
-           <input wire:model='reasons.{{ $key }}' type="text" />
-           @endforeach
-        --}}   
-
-
-        
         <!-- </div> -->
 
         <!-- <div> --->
         <div class="col-2 ml-auto mr-0">
             
-            {{-- <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>   
-              <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> --}}
+           <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    
+           {{--     <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> --}}
                
             <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
         </div>

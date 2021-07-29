@@ -70,9 +70,10 @@
             <div class="col-8">
                 <div class="ml-auto mr-0" style="width: 68%">
                     @include('livewire.pdvvenda')
-                    @if (is_array($vendab))
-                        @foreach ($vendab as $post)
-                            @if ($statusvenda == 1)
+                    @if (is_array($checar))
+                        @foreach ($checar as $post)
+                          {{--  {{ $post->statusvenda }}
+                            @if ($post->$statusvenda == 1)  --}}
                                 <script>
                                     document.getElementById("inputqde").focus();
                                     document.getElementById("botaoabir").style.display = 'none';
@@ -163,7 +164,7 @@ $(".input").keyup(function() {
 
 
 <script>
-    $("#btnfechar").hide();
+ //   $("#btnfechar").hide();
 
     function getfocus(id) {
 
@@ -173,7 +174,7 @@ $(".input").keyup(function() {
 
 
         $("#botaoabir").hide();
-        $("#btnfechar").show();
+        //$("#btnfechar").show();
         $("#btncancela").show();
 
 

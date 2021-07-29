@@ -68,9 +68,9 @@ class VendaComponente extends Component
     public function checar()
     {
         $checar = DB::table('vendas')->where('statusvenda', '=', 1)->get();
-        
-        $this->checar = $checar;
-
+      
+        $this->checar = $checar->toArray();
+       // dd($checar);
        // return view('livewire.pdv_form', ['vendas'=> $checar] );
     }
     
@@ -143,6 +143,7 @@ class VendaComponente extends Component
     public function fecharvenda()
     {
         $produtos =  DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
+        $vendas   =  DB::update("update vendas SET STATUSVENDA = 2 WHERE STATUSVENDA = 1");
 
         /*   $produtos = DB::table('vendasitens')
             ->join('produtos', 'produtos.id', '=', 'produtos.id')
