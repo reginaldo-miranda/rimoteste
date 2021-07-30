@@ -88,22 +88,38 @@
                 <div class="ml-auto mr-0" style="width: 68%">
                     @include('livewire.pdvvenda')
                     @if (is_array( $checar))
-                       <h1>é array checar</h1>
-                        @foreach ($checar as $checa)
-                         status da venda : {{  $ch = $checa->statusvenda }}
+                        @if(!empty($checar))
                             
-                            @if ($ch == 1)
-                                <script>
-                                    document.getElementById("inputqde").focus();
-                                    document.getElementById("botaoabir").style.display = 'none';
-                                    document.getElementById("btnfechar").style.display = 'none';
-                                    //$("#btnfechar").hide();
-                                    //$("#btncancela").show();
-                                </script>
-                            @endif
-                            numero da venda : {{ $checa->id_venda }}
-                        @endforeach
-              
+                        
+                            <h4>é array checar</h4>
+                                @foreach ($checar as $checa)
+                               {{--  status da venda : {{  $ch = $checa->statusvenda }}  --}}
+                                    
+                                    @if ($checa->statusvenda == 1) 
+                                        <script>
+                                            document.getElementById("inputqde").focus();
+                                            document.getElementById("botaoabir").style.display = 'none';
+                                            document.getElementById("btnfechar").style.display = 'none';
+                                            //$("#btnfechar").hide();
+                                            //$("#btncancela").show();
+                                        </script>
+                                @endif 
+                                    
+                                @endforeach
+
+                                numero da venda : {{ $checa->id_venda }}
+                                
+                                <input wire:model.refer="id_venda" type="text" name="id_venda" value="{{ $checa->id_venda ?? old('id_venda') }}" >     
+                                
+
+                              
+                                
+                        @else
+                                <p>fechada</p>
+                        @endif        
+                                
+                                
+
                     @else
                       <h1>checar nao é array</h1>
                     @endif  
@@ -141,11 +157,10 @@
 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
-          
-            
-        @if (empty($res))
-             <input  wire:model.lazy="id_venda"  type="text" name="id_venda" value="{{$checa->id_venda}}"> 
-        @endif)
+                    
+
+      
+        
            
      
         <!-- </div> -->
