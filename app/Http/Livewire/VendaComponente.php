@@ -104,19 +104,20 @@ class VendaComponente extends Component
         // 'id_cliente' =>$this->cliente,
         // 'valor_total'=>$this->valortotal,
        'statusvenda'=>$status,
-
+    
        
                            
         ]);
-      
+        
     }
 
 
 
     public function gravar()
     {
-        $res = vendas::find($id_venda);
-        $this->id_vendai = $res->id_vendai; 
+        $res = vendas::get()->last();
+        $this->id_venda = $res->id_venda; 
+       // dd($id_venda);
 
         $vendaitens = vendasitens::create([
     
@@ -126,7 +127,7 @@ class VendaComponente extends Component
         'qde'         => $this->qde,
         'valorunit'   => $this->pvenda,
         'status'      => $this->status,
-         
+        'id_vendai'   => $res->id_venda,
         ]);
 
         

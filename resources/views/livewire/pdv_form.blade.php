@@ -108,9 +108,9 @@
                                 @endforeach
 
                                 numero da venda : {{ $checa->id_venda }}
-                                
+                                {{-- 
                                 <input wire:model.refer="id_venda" type="text" name="id_venda" value="{{ $checa->id_venda ?? old('id_venda') }}" >     
-                                
+                                 --}}
 
                               
                                 
