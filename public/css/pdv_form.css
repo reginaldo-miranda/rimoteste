@@ -1,98 +1,83 @@
-
-*{
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.container-fluid{
-  height: 650px;
+.container-fluid {
+    height: 650px;
 }
 
-#inputqde{
-  width: 50px;
-  margin-inline: 15px;
-}
-input{
-  height: 40px;
-  width: 180px;
-  background-color: azure;
-  
-}
-#inputvalor{
-  width: 100px;
+#inputqde {
+    width: 50px;
+    margin-inline: 15px;
 }
 
-#btnabrir{
-  margin-top: 130px;
-  margin-left: 130px;
-    
-}
-#botaoabir{
-  font-size: 24px;
-  height: 80px;
-  background-color: rgb(238, 185, 185);
-  border-radius: 5px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  
+input {
+    height: 40px;
+    width: 180px;
+    background-color: azure;
 }
 
-#btntabela{
-  padding: 0;
-  height: 15px;
-  font-size: 12px;
-  text-align: center;
-
+#inputvalor {
+    width: 100px;
 }
 
-#labelqde{
-  margin-left: 30px;
-  margin-right: 30px;
-  font-weight: bold;
+#btnabrir {
+    margin-top: 130px;
+    margin-left: 130px;
 }
 
-#labelvalor{
- margin-left: 130px;
-
-}
-#textareadescprod{
-  
-}
-#qdeitens{
-
-  margin-left: 500px;
+#botaoabrir {
+    font-size: 24px;
+    height: 80px;
+    background-color: rgb(238, 185, 185);
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-#textareavenda{
- 
-  /*  background: transparent; */
+#btntabela {
+    padding: 0;
+    height: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+
+#labelqde {
+    margin-left: 30px;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+#labelvalor {
+    margin-left: 130px;
+}
+
+#textareadescprod {}
+
+#qdeitens {
+    margin-left: 500px;
+}
+
+#textareavenda {
+    /*  background: transparent; */
     border: 0;
     outline: 0;
     text-align: left;
     width: 100%;
- /*   max-width: 100%; */
- /*   position: absolute; */
-  
-
+    /*   max-width: 100%; */
+    /*   position: absolute; */
 }
 
-
-
-
-
-
-
-.negrito{
-  font-weight: bold;
+.negrito {
+    font-weight: bold;
 }
-
 
 table {
-  max-width: 170px;
+    max-width: 170px;
 }
 
 td {
-  width: 45px;
+    width: 45px;
 }
-

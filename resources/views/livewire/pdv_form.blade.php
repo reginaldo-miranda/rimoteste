@@ -1,3 +1,4 @@
+@include('layout')
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)">
 
     <div class="row">
@@ -6,8 +7,50 @@
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
-        
+   {{--   inicio dos script         --}}
+        <script type="text/javascript">
+            /*
+            function PressEnter(nextinputId) {
+                if (event.keyCode == 13) {
+                    document.getElementById(nextinputId).focus();
+                return false;
+                }
+            }
+       
+            $("#btnfechar").hide();
+            --}} */
 
+            function getfocus(id) {
+
+
+                //  document.getElementById("inputprod").disabled = false;
+                document.getElementById("inputqde").focus();
+
+
+                $("#botaoabrir").hide();
+                $("#btnfechar").show();
+                $("#btncancela").show();
+
+
+                //  id.innerHTML = "Ooops!";
+                //  id.innerHTML = "Ooops caixa aberto gaste bem!";
+                //  $("#botaoabrir").show();
+
+
+             //   document.getElementById('botaoabir').style.display = 'block';
+
+            }
+                /*
+            $(".input").keyup(function() {
+                if (this.value.length == this.maxLength) {
+                    $(this).next('.inputs').focus();
+                }
+            });
+            */
+            
+    </script>
+
+    {{-- fim dos script --}}
 
             <div id="textareadescprod">
 
@@ -23,23 +66,7 @@
                             <p>nao é array venda pdv</p>
                         </h1>
                     @endif
-                 {{-- 
-                    @if (is_array($res))
-
-                       @if(!empty($res))
-                            @foreach($res as $ke)
-                               n:da venda :{{ $ke->id_venda }}     
-                            @endforeach
-                        @else
-                          $id_venda = 0;
-   
-                        @endif
-                       
-                    @else 
-                        <h3>nao e array res</h3>
-                                               
-                    @endif
-                  --}}
+                 
                 </h3>
                 </p>
              
@@ -79,9 +106,10 @@
             <!-- row 2 ---->
 
             <div class="col-4">
+
                 <div id="btnabrir">
-                    {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> --}}
-                    <button id="botaoabir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
+                    {{-- <button id="botaoabir" wire:click="abrir({{ $ap = 1}}) ">abrir venda</button> 
+                    <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>  --}}
                 </div>
             </div>
             <div class="col-8">
@@ -95,19 +123,31 @@
                                 @foreach ($checar as $checa)
                                {{--  status da venda : {{  $ch = $checa->statusvenda }}  --}}
                                     
-                                    @if ($checa->statusvenda == 1) 
-                                        <script>
+                                  {{--    @if ($checa->statusvenda == 1)  --}}
+                                       
+                                     {{-- 
+                                       <script>
+                                            
                                             document.getElementById("inputqde").focus();
-                                            document.getElementById("botaoabir").style.display = 'none';
+                                            document.getElementById("botaoabrir").style.display = 'none';
                                             document.getElementById("btnfechar").style.display = 'none';
                                             //$("#btnfechar").hide();
                                             //$("#btncancela").show();
+                                            
+                                            <h3>dentro do foreach e if</h3>
                                         </script>
-                                @endif 
+                                      --}}    
+                                 {{--    @endif  --}}
                                     
                                 @endforeach
 
                                 numero da venda : {{ $checa->id_venda }}
+                                @if ($checa->statusvenda == 2)
+                                  @if(!empty($checa))
+                                       <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
+                                  @endif                              
+                                   
+                                @endif  
                                 {{-- 
                                 <input wire:model.refer="id_venda" type="text" name="id_venda" value="{{ $checa->id_venda ?? old('id_venda') }}" >     
                                  --}}
@@ -116,6 +156,8 @@
                                 
                         @else
                                 <p>fechada</p>
+                                 <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
+                                 <script>$("#btnfechar").hide();</script>
                         @endif        
                                 
                                 
@@ -158,11 +200,7 @@
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
                     
-
-      
-        
-           
-     
+    
         <!-- </div> -->
 
         <!-- <div> --->
@@ -178,55 +216,14 @@
 
 </div>
 
-<script>
-    /*
-$(".input").keyup(function() {
-    if (this.value.length == this.maxLength) {
-        $(this).next('.inputs').focus();
-    }
-});
-*/
-</script>
 
-
-<script type="text/javascript">
-    function PressEnter(nextinputId) {
-        if (event.keyCode == 13) {
-            document.getElementById(nextinputId).focus();
-            return false;
-        }
-    }
-</script>
 {{-- <input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
   <input type="text" id="input2"  maxlength="5" required> --}}
 
 
 
 
-<script>
-    $("#btnfechar").hide();
 
-    function getfocus(id) {
-
-
-        //  document.getElementById("inputprod").disabled = false;
-        document.getElementById("inputqde").focus();
-
-
-        $("#botaoabir").hide();
-        $("#btnfechar").show();
-        $("#btncancela").show();
-
-
-        //  id.innerHTML = "Ooops!";
-        id.innerHTML = "Ooops caixa aberto gaste bem!";
-        $("#botaoabir").show();
-
-
-        document.getElementById('botaoabir').style.display = 'block';
-
-    }
-</script>
 
 
 
