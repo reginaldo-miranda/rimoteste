@@ -43,6 +43,10 @@ input {
     font-size: 12px;
     text-align: center;
 }
+#btnfechar{
+
+   /* display: block;*/
+}
 
 #labelqde {
     margin-left: 30px;

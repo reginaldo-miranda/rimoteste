@@ -35,7 +35,7 @@ class VendaComponente extends Component
     public $fechado = 2;
     public $post;
     public $totalvenda;
-    public $totalv, $res , $numerovenda, $checa;
+    public $totalv, $res , $numerovenda, $checa, $btn;
 
   
     public function render()
@@ -98,12 +98,12 @@ class VendaComponente extends Component
 
     public function abrir()
     {
-        $status = 1;
+        $stat = 1;
      
         $venda = vendas::create([
         // 'id_cliente' =>$this->cliente,
         // 'valor_total'=>$this->valortotal,
-       'statusvenda'=>$status,
+       'statusvenda'=>$stat,
     
        
                            
@@ -151,10 +151,10 @@ class VendaComponente extends Component
     }
 
     public function fecharvenda()
-    {
+    {   
         $produtos =  DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
         $vendas   =  DB::update("update vendas SET STATUSVENDA = 2 WHERE STATUSVENDA = 1");
-
+       
         /*   $produtos = DB::table('vendasitens')
             ->join('produtos', 'produtos.id', '=', 'produtos.id')
             ->where('status', '=' , 1)
