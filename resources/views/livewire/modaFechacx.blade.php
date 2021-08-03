@@ -7,13 +7,14 @@
  --}}
 
 
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exemploModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
  
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         {{--    inicio         --}}
-         @include('livewire.tableProd')  
+         @include('livewire.tableFecharCX')  
         {{--     fim             --}}
       </div> 
     </div>   

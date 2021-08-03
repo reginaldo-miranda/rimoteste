@@ -200,11 +200,16 @@
 
         <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" >
        
-
+{{-- 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
-                    
-    
+ --}}
+        <button type="button" id="btnmodal" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" data-bs-whatever="fecharCx">Fechar</button>
+
+        <button type="button" class="btn-sm btn btn-primary" data-bs-toggle="modal"
+         data-bs-target="#exampleModal" data-bs-whatever="@tableFecharCx">Open modal</button>    
+  
         <!-- </div> -->
 
         <!-- <div> --->

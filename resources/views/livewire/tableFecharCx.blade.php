@@ -10,14 +10,12 @@
     </thead>
     <tbody>
     {{-- @livewire('produto-component')  --}}
-     @foreach($produtos as $post)
+     @foreach($produtos as $prod)
       <tr>
-        
-            <td>{{ $post->id }}</td>
-            <td>{{ $post->descricao }}</td>
-            <td>{{ $post->grupo }}</td>
-            <td>{{ $post->pvenda }}</td>
-          
+                    
+            <td>{{ $prod->grupo }}</td>
+            <td>{{ $prod->pvenda }}</td>
+            <td><input type="text"></td>
          {{--  
 
          <td>@livewire('produto-component ', ['produto' => $prod_id ])</td>  
@@ -46,6 +44,8 @@
 </table>
 
 
- {{ $produtos->links() }}  
+
+
+ 
 
  

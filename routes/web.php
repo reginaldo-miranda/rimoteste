@@ -35,6 +35,11 @@ Route::get('/', function() {
 Route::get('/menu',function(){
     return view('menu');
 });
+
+Route::get('/fecharCx', function(){
+    return view('fechaCx');
+});
+
 /*
 Route::get('mostra', function(){
     return view('livewire.posts');
