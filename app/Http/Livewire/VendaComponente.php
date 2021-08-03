@@ -130,7 +130,8 @@ class VendaComponente extends Component
         'id_vendai'   => $res->id_venda,
         ]);
 
-        
+        $this->prod_id = '';
+        $this->pvenda = '';
         
 
      //  $this->prod_id = '';
@@ -165,6 +166,9 @@ class VendaComponente extends Component
                $("#botaoabir").show();
             </script>
          */
+        $this->qde = '';
+        $this->prod_id = '';
+        $this->pvenda = '';
     }
 
     public function default()
@@ -172,6 +176,9 @@ class VendaComponente extends Component
         // $this->nome = '';
         // $this->fone = '';
         // $this->view = ('livewire.vendaitens-componente');
+        $this->qde = '';
+        $this->prod_id = '';
+        $this->pvenda = '';
     }
 
     

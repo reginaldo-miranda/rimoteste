@@ -24,7 +24,7 @@
                 document.getElementById("inputqde").focus();
                 $("#botaoabrir").hide();
                 $("#btnfechar").hide();
-                $("#btncancela").show();
+                //$("#btncancela").show();
                 //  id.innerHTML = "Ooops!";
                   id.innerHTML = "Ooops caixa aberto gaste bem!";
                 //  $("#botaoabrir").show();
@@ -101,7 +101,7 @@
                     @if(!empty($checar))
                         <h4>é array checar</h4>
                             @foreach ($checar as $checa)
-                            {{ $btn = $checa->statusvenda }}
+                           {{--  {{ $btn = $checa->statusvenda }}  --}}
                             @endforeach
                             numero da venda : {{ $checa->id_venda }}
                     @else
@@ -215,10 +215,10 @@
                  @if(!empty($checar))
                             
                     @foreach ($checar as $checa)
-                        {{ $btn = $checa->statusvenda }}
+                       {{--  {{ $btn = $checa->statusvenda }}  --}}
                      @endforeach
-                     @if($btn == 1)
-                        numero da venda : {{ $checa->id_venda }}
+                     @if($checa->statusvenda == 1)
+                      {{--   numero da venda : {{ $checa->id_venda }}  --}}
                         <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    
                      @endif    
             
@@ -229,9 +229,10 @@
             
            {{-- esta em uso   <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    
            
-           {{--     <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> --}}
+           {{--     <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> 
                
-            <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button>
+            <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button> --}}
+            <button  id="btnfechar" class="btn btn-danger" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button>
         </div>
     </div>
     <!-- </div> -->

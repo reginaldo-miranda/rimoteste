@@ -15,14 +15,23 @@
         overflow-y: auto;
        /* overflow-x: hidden; */
     }
+   
 
 </style>
 
 
 <div class="p">
-
+    
     <table id="tabelavenda" class="table table-striped table-hover table-bordered">
-       
+        <thead>
+            <tr>
+                <th>Venda n: </th>
+                <th>Cod Cliente</th>
+                <th>Cod Prod</th>
+                <th>Qde</th>
+                <th colspan="2"&nbsp;></th>
+            </tr>
+        </thead>
        <tbody>
             @foreach ($produtos as $post)
                 <tr>
