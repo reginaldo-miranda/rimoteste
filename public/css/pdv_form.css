@@ -77,10 +77,10 @@ input {
 .negrito {
     font-weight: bold;
 }
-
+/*
 table{
     max-width: 590px;
-}
+}*/
 
 td {
     width: 50px;

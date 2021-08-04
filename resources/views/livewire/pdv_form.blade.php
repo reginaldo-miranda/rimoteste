@@ -49,7 +49,7 @@
                 <h3>
                     @if (is_array($totalvenda))
                         @foreach ($totalvenda as $vendas)
-                             nome :{{ $nome }} {{ $descricao }}
+                             {{--  nome :{{ $nome }} --}}  {{ $descricao }}
                         @endforeach
                     @else
                         <h1>
