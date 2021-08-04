@@ -1,48 +1,49 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>codigo</th>
-            <th>descricao</th>
-            <th>grupo</th>
-            <th>preco</th>
-            <th colspan="2"&nbsp;></th>
-        </tr>
-    </thead>
-    <tbody>
-    {{-- @livewire('produto-component')  --}}
-     @foreach($produtos as $prod)
-      <tr>
-                    
-            <td>{{ $prod->grupo }}</td>
-            <td>{{ $prod->pvenda }}</td>
-            <td><input type="text"></td>
-         {{--  
+<div class="modal fade" id="ModalFechar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Fechamento de caixa</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            valor total:<input value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.001">
 
-         <td>@livewire('produto-component ', ['produto' => $prod_id ])</td>  
-         <td>@livewire('produto-component ', ['produto' => $descricao ])</td>   
-         <td>@livewire('produto-component ', ['produto' => $grupo ])</td>  
-         <td>@livewire('produto-component ', ['produto' => $pvenda ])</td>   --}}
+          <div>dinheiro :<input type="text"></div>  
+          
+          <div>Cartao   :<input type="text"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" >Close</button>
+          {{-- <button type="button" class="btn btn-primary">Save changes</button>  
+          <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" data-dismiss="modal">fechar</button>    --}}
+          @if (is_array( $checar))
+
+          @if(!empty($checar))
+                     
+             @foreach ($checar as $checa)
+                {{--  {{ $btn = $checa->statusvenda }}  --}}
+              @endforeach
+
+              @if($checa->statusvenda == 1)
+                <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" data-dismiss="modal">fechar i</button> 
+              
+              @endif    
+     
+         @endif
+     @endif 
 
 
-          <td>
-              <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
-                  Editar
-              </button>
-          </td>
-          <td>
-            <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
-                Deletar
-            </button>
-        </td>
-      </tr>
-        
-     @endforeach
-   
 
-    </tbody>
-    
-</table>
 
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

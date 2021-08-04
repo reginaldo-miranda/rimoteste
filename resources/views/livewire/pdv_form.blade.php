@@ -27,7 +27,7 @@
                 //$("#btncancela").show();
                 //  id.innerHTML = "Ooops!";
                   id.innerHTML = "Ooops caixa aberto gaste bem!";
-                //  $("#botaoabrir").show();
+                  $("#botaoabrir").show();
              //   document.getElementById('botaoabir').style.display = 'block';
             }
                 /*
@@ -114,62 +114,10 @@
                 @endif 
             </div>
             <div class="col-8">
-                <div class="ml-auto mr-0" style="width: 68%">
+                <div class="ml-auto mr-0" style="width: 68%">  
                     @include('livewire.pdvvenda')
-                  {{-- 
-                    @if (is_array( $checar))
-                        @if(!empty($checar))
-                                                   
-                            <h4>é array checar</h4>
-
-                                @foreach ($checar as $checa)
-                               {{--  status da venda : {{  $ch = $checa->statusvenda }}  --}}
-                                    
-                                  {{--    @if ($checa->statusvenda == 1)  --}}
-                                       
-                                     {{-- 
-                                       <script>
-                                            
-                                            document.getElementById("inputqde").focus();
-                                            document.getElementById("botaoabrir").style.display = 'none';
-                                            document.getElementById("btnfechar").style.display = 'none';
-                                            //$("#btnfechar").hide();
-                                            //$("#btncancela").show();
-                                            
-                                            <h3>dentro do foreach e if</h3>
-                                        </script>
-                                      --}}    
-                                 {{--    @endif  -
-                                    
-                                @endforeach
-
-                                numero da venda : {{ $checa->id_venda }}
-                               {{-- 
-                                    @if ($checa->statusvenda == 2)
-                                    @if(!empty($checa))
-                                        <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
-                                    @endif                              
-                                    @endif
-                                --}}  
-                                {{-- 
-                                <input wire:model.refer="id_venda" type="text" name="id_venda" value="{{ $checa->id_venda ?? old('id_venda') }}" >     
-                                 -
-
-                              
-                                
-                        @else
-                                <p>fechada</p>
-                                 <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
-                                 <script> document.getElementById("btnfechar").style.display = 'none';</script>
-                        @endif        
-                                
-                                
-
-                    @else
-                      <h1>checar nao é array</h1>
-                    @endif  
-                    --}}  
-                </div>
+                    @include('livewire.tableFecharCx')
+                 </div>
 
             </div>
             
@@ -185,8 +133,6 @@
         <label for="inputvalor" id="labelvalor" class="negrito">Valor<label>
         <div id="qdeitens">qde de itens :{{ $vendas->qdeitens }} </div>
        
-        
-
     </div>
 
     <div class="row">
@@ -200,15 +146,9 @@
 
         <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" >
        
-{{-- 
-        <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-            data-bs-target="#exampleModal" data-bs-whatever="@tableprod">Lista</button>
- --}}
-        <button type="button" id="btnmodal" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-            data-bs-target="#exampleModal" data-bs-whatever="fecharCx">Fechar</button>
 
-        <button type="button" class="btn-sm btn btn-primary" data-bs-toggle="modal"
-         data-bs-target="#exampleModal" data-bs-whatever="@tableFecharCx">Open modal</button>    
+        <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#modalProd" data-bs-whatever="@tableprod">Lista</button>
   
         <!-- </div> -->
 
@@ -222,23 +162,20 @@
                     @foreach ($checar as $checa)
                        {{--  {{ $btn = $checa->statusvenda }}  --}}
                      @endforeach
+
                      @if($checa->statusvenda == 1)
-                      {{--   numero da venda : {{ $checa->id_venda }}  --}}
-                        <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    
+                     
+                        <button type="button" id="btnfechar" class="btn btn-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalFechar">Fechar</button>  {{-- data-bs-whatever="@tableFecharCx" --}}
+                     
                      @endif    
             
                 @endif
             @endif     
+      
 
-
-            
-           {{-- esta em uso   <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">fechar</button>    
-           
-           {{--     <button  id="btnfechar"  wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" class="btn btn-success" onclick="getfechar(this)">fechar</button> 
-               
-            <button id="btncancela" wire:click="default" class="btn btn-danger">cancela</button> --}}
-            <button  id="btnfechar" class="btn btn-danger" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button>
         </div>
+           <button  id="btnabrirmodal" class="btn btn-danger btn-sm" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button> 
     </div>
     <!-- </div> -->
 

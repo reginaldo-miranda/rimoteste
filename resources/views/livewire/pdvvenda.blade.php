@@ -1,4 +1,4 @@
-@extends('layout')
+{{-- @extends('layout')  --}}
 
 {{-- <div class="scrolling-pagination"> --}}
 
@@ -8,41 +8,47 @@
        /*  border:solid 1px #000000;
        width:600px;
        height:400px;
-       overflow:auto;*/
-        background: rgb(230, 230, 230);
-        width: 500px;
+        overflow:auto; */
+        background: rgb(202, 190, 190);
+        width: auto;
         height: 380px;
         overflow-y: auto;
-       /* overflow-x: hidden; */
+        border:solid 1px #000000;
+        
     }
-   
-
+/*
+#largura{
+    width: 200px;
+}*/
 </style>
 
 
 <div class="p">
     
-    <table id="tabelavenda" class="table table-striped table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>Venda n: </th>
-                <th>Cod Cliente</th>
-                <th>Cod Prod</th>
-                <th>Qde</th>
-                <th colspan="2"&nbsp;></th>
-            </tr>
+  
+    
+    <table id="tabelavenda" class="table table-condensed table-hover table-bordered table-sm ">
+        <thead>        
+          {{--  <th>Venda n: </th>
+          <th>Cod Cliente</th>  --}}
+          <th>Codigo</th>
+          <th>Qde</th>
+          <th>Descricao</th>
+          <th>P Unit</th>
+          <th colspan="4"&nbsp;></th> 
+      
         </thead>
        <tbody>
             @foreach ($produtos as $post)
                 <tr>
                     
-                    <td>{{ $post->id_vendai }}</td> 
-                    <td>{{ $post->id_cliente }}</td> 
+                  {{--  <td>{{ $post->id_vendai }}</td> 
+                    <td>{{ $post->id_cliente }}</td>  --}}
                     <td>{{ $post->id_produto }}</td>
                     <td>{{ $post->qde }}</td>
                     <td>{{ $post->descricao }}</td>
                     <td>{{ $post->valorunit }}</td>
-                    <td>{{ $post->status }}</td>
+                   {{--  <td>{{ $post->status }}</td>  --}}
                     <td>
                         <button wire:click="edit({{ $post->id }})" class="btn btn-primary" id="btntabela">
                             Editar
@@ -60,6 +66,7 @@
          
     </table>
 </div>
+
 
 {{-- https://pt.khanacademy.org/computing/computer-programming/html-css/css-layout-properties/pt/css-box-model // scroll
 

@@ -78,10 +78,33 @@ input {
     font-weight: bold;
 }
 
-table {
-    max-width: 170px;
+table{
+    max-width: 590px;
 }
 
 td {
-    width: 45px;
+    width: 50px;
 }
+
+.modal-backdrop {
+    
+    display:none;
+    z-index: -1;
+  }
+
+
+  thead th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+  }
+   /*
+  tbody th {
+   position: -webkit-sticky; /* for Safari */
+  /* position: sticky; 
+    left: 0;
+  }*/
+/*
+  .modal + .modal-backdrop + .modal + .modal-backdrop {
+      display:none
+    }*/
