@@ -98,6 +98,24 @@ td {
     position: sticky;
     top: 0;
   }
+  #inptvalortotal{
+      margin-left: 70px;
+     
+    
+  }
+
+  #legendavalortotal{
+      margin-left: 150px;
+      font-size: 35px;
+  }
+
+  #inptvlr{
+    height: 80px;  
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+    
+  }
    /*
   tbody th {
    position: -webkit-sticky; /* for Safari */

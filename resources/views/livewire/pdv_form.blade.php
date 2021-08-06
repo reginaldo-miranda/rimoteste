@@ -74,17 +74,18 @@
             <div id="valortotal">
                 <div class="form-group">
                     {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
-
-                    <h2>valor total:<input value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.01">
-                    </h2>
+                    <label id="legendavalortotal">valor total</label> 
+                    <p id="inptvalortotal"><input id="inptvlr" class="form-control"value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.01"></p>
+                    
                 </div>
+                {{-- 
                 <div class="form-group">
                     <h3>Valor pago:&nbsp<input type="text"></h3>
                 </div>
                 <div class="form-group">
                     <h3>Troco:&nbsp &nbsp &nbsp &nbsp <input type="text"></h3>
                 </div>
-                
+                 --}}
             </div>
 
         </div>
