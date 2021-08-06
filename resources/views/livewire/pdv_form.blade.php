@@ -7,6 +7,9 @@
             <div id="menu">
                 <a href="{{ url('/menu') }}" id="menu">Menu</a>
             </div>
+            <div id="image">
+               <img src="{{ asset('image/logopdv.bmp') }}" />
+            </div>
    {{--   inicio dos script         --}}
         <script type="text/javascript">
             /*
@@ -91,7 +94,8 @@
         </div>
     </div> <!-- fim da div row 1 ---->
 
-    <div class="container" style="background-color:rgb(211, 181, 181)">
+  {{--  <div class="container" style="background-color:rgb(211, 181, 181)">  --}} 
+         <div class="container" style="background-color:rgb(107, 231, 114)">
 
         <div class="row">
             <!-- row 2 ---->
@@ -105,16 +109,20 @@
                            {{--  {{ $btn = $checa->statusvenda }}  --}}
                             @endforeach
                             numero da venda : {{ $checa->id_venda }}
+                        
+                             
+                          
                     @else
                             <p>fechada</p>
                             <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
                     @endif        
-
+                    
                 @else
                 <h1>checar nao é array</h1>
                 @endif 
             </div>
             <div class="col-8">
+                 
                 <div class="ml-auto mr-0" style="width: 68%">  
                     @include('livewire.pdvvenda')
                     @include('livewire.tableFecharCx')

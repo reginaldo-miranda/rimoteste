@@ -8,13 +8,13 @@
           </button>
         </div>
         <div class="modal-body">
-            valor total:<input id="inputvlrtotal" class="input-group " value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.001">
+            <div class="inputes">valor total:<input id="inputvlrtotal" class="input-group " value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.001"> </div>
 
-          <div>dinheiro :<input id="inputdinh" type="text" class="input-group" ></div>  
+          <div class="inputes">dinheiro :<input id="inputdinh" type="text" class="input-group" ></div>  
           
-          <div>Cartao   :<input id="inputcartao" type="text" class="input-group" ></div>
+          <div class="inputes">Cartao   :<input id="inputcartao" type="text" class="input-group" ></div>
 
-          <div>Pix   :<input id="inputpix" type="text" class="input-group" ></div>
+          <div class="inputes">Pix   :<input id="inputpix" type="text" class="input-group" ></div>
         
         </div>
         <div class="modal-footer">

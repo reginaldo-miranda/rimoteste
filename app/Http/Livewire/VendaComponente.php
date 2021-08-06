@@ -35,7 +35,7 @@ class VendaComponente extends Component
     public $fechado = 2;
     public $post;
     public $totalvenda;
-    public $totalv, $res , $numerovenda, $checa, $btn;
+    public $totalv, $res , $numerovenda, $checa, $btn, $temp=1;
 
   
     public function render()
@@ -132,6 +132,11 @@ class VendaComponente extends Component
 
         $this->prod_id = '';
         $this->pvenda = '';
+        //$this->descricao = '';
+          
+    
+
+        
         
 
      //  $this->prod_id = '';
@@ -169,6 +174,7 @@ class VendaComponente extends Component
         $this->qde = '';
         $this->prod_id = '';
         $this->pvenda = '';
+        $this->descricao = '';
     }
 
     public function default()
