@@ -11,6 +11,7 @@
                <img src="{{ asset('image/logopdv.bmp') }}" />
             </div>
    {{--   inicio dos script         --}}
+   <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
         <script type="text/javascript">
             /*
             function PressEnter(nextinputId) {
@@ -40,6 +41,10 @@
                 }
             });
             */
+
+            $(document).ready(function(){
+              $('#inputvalor').mask('0.000.000,00');
+             });
             
     </script>
 
@@ -78,7 +83,7 @@
                 <div class="form-group">
                     {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
                     <label id="legendavalortotal">valor total</label> 
-                    <p id="inptvalortotal"><input id="inptvlr" class="form-control"value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.01"></p>
+                    <p id="inptvalortotal"><input id="inptvlr" class="form-control"value="{{ $vendas->totalv ?? old('totalv') }}" data-mask="00000,00"></p>
                     
                 </div>
                 {{-- 
@@ -153,7 +158,9 @@
 
         <input wire:keydown.enter="edit($event.target.value)" wire:model.lazy="prod_id" type="text" id="inputprod"  >
 
-        <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" >
+        <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" data-mask="00000,00">
+
+        <input type="number" pattern="[0-9]*" data-politespace data-grouplength="3" data-delimiter="," data-reverse value="1234" />
        
 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
@@ -222,4 +229,65 @@
 @else
 <h1>checar nao é array</h1>
 @endif 
+
+
+<input type="text" data-mask="(00) 00000-0000" class="form-control" placeholder="Telefone" id="telefone" name="telefone">
+
+
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+function formatar_mascara(src, mascara) {
+ var campo = src.value.length;
+ var saida = mascara.substring(0,1);
+ var texto = mascara.substring(campo);
+ if(texto.substring(0,1) != saida) {
+ src.value += texto.substring(0,1);
+ }
+}
+</script>
+</head>
+<body>
+
+
+<form action="#" method="post">
+
+CPF:<input name="cpf" method="post" type="text" maxlength="14" size="40" onkeypress="formatar_mascara(this,'###.###.###-##')">
+CEP:<input name="cep" method="post" type="text" maxlength="11" size="40" onkeypress="formatar_mascara(this,'##.###-###')">
+Fone:<input name="fone" method="post" type="text" maxlength="12" size="40" onkeypress="formatar_mascara(this,'##-####-####')">
+</form>
+</body>
+</html>
+
+------------------------------
+
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
+
+
+
+ma vez referenciado os .js em seu projeto, vamos tratar dos scripts. Veja e analise os seguinte código abaixo:
+
+
+$('.telefone').mask('(00) 0 0000-0000');
+$('.dinheiro').mask('#.##0,00', {reverse: true});
+$('.estado').mask('AA');
+        
+
+Através dele, basta chamar os inputs em html referenciando suas respectivas classes:
+
+<input type="text" name="telefone" class="telefone form-control" placeholder="(17) 9 9173-3578" />
+<label for="dinheiro">R$</label><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" />
+<input type="text" id="estado" name="estado" class="estado form-control" placeholder="UF" />
+
+
+
+--------------------------------------
+
+  <div>
+    <label for="phone">Price</label>
+    <input type="number" pattern="[0-9]*" data-politespace data-grouplength="3" data-delimiter="," data-reverse value="1234" />
+  </div>
+
+
  --}}
