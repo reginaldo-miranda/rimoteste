@@ -1,6 +1,6 @@
 @include('layout')
 <div class="container-fluid" style="background-color:rgb(154, 154, 247)">
-
+  
     <div class="row">
         <!-- inicio row 1 ----->
         <div id="cabecalho" style="background-color:rgb(189, 247, 189); width: 55%">
@@ -10,47 +10,7 @@
             <div id="image">
                <img src="{{ asset('image/logopdv.bmp') }}" />
             </div>
-   {{--   inicio dos script         --}}
-   <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
-        <script type="text/javascript">
-            /*
-            function PressEnter(nextinputId) {
-                if (event.keyCode == 13) {
-                    document.getElementById(nextinputId).focus();
-                return false;
-                }
-            }
-       
-            $("#btnfechar").hide();
-            --}} */
-            function getfocus(id) {
-                //  document.getElementById("inputprod").disabled = false;
-                document.getElementById("inputqde").focus();
-                $("#botaoabrir").hide();
-                $("#btnfechar").hide();
-                //$("#btncancela").show();
-                //  id.innerHTML = "Ooops!";
-                  id.innerHTML = "Ooops caixa aberto gaste bem!";
-                  $("#botaoabrir").show();
-             //   document.getElementById('botaoabir').style.display = 'block';
-            }
-                /*
-            $(".input").keyup(function() {
-                if (this.value.length == this.maxLength) {
-                    $(this).next('.inputs').focus();
-                }
-            });
-            */
-
-            $(document).ready(function(){
-              $('#inputvalor').mask('0.000.000,00');
-             });
-            
-    </script>
-
-    {{-- fim dos script --}}
-
-            <div id="textareadescprod">
+             <div id="textareadescprod">
 
                 {{-- <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif"> --}}
                 <p>
@@ -83,7 +43,7 @@
                 <div class="form-group">
                     {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
                     <label id="legendavalortotal">valor total</label> 
-                    <p id="inptvalortotal"><input id="inptvlr" class="form-control"value="{{ $vendas->totalv ?? old('totalv') }}" data-mask="00000,00"></p>
+                    <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{ $vendas->totalv ?? old('totalv') }}"></p>
                     
                 </div>
                 {{-- 
@@ -160,13 +120,11 @@
 
         <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" data-mask="00000,00">
 
-        <input type="number" pattern="[0-9]*" data-politespace data-grouplength="3" data-delimiter="," data-reverse value="1234" />
-       
+        
 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#modalProd" data-bs-whatever="@tableprod">Lista</button>
-  
-        <!-- </div> -->
+           <!-- </div> -->
 
         <!-- <div> --->
         <div class="col-2 ml-auto mr-0">
@@ -191,24 +149,61 @@
       
 
         </div>
-           <button  id="btnabrirmodal" class="btn btn-danger btn-sm" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button> 
+   
+            <button  id="btnabrirmodal" class="btn btn-danger btn-sm" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button> 
     </div>
     <!-- </div> -->
+    <script type="text/javascript">
+        /*
+        function PressEnter(nextinputId) {
+            if (event.keyCode == 13) {
+                document.getElementById(nextinputId).focus();
+            return false;
+            }
+        }
+   
+        $("#btnfechar").hide();
+        --}} */
+        function getfocus(id) {
+            //  document.getElementById("inputprod").disabled = false;
+            document.getElementById("inputqde").focus();
+            $("#botaoabrir").hide();
+            $("#btnfechar").hide();
+            //$("#btncancela").show();
+            //  id.innerHTML = "Ooops!";
+              id.innerHTML = "Ooops caixa aberto gaste bem!";
+              $("#botaoabrir").show();
+         //   document.getElementById('botaoabir').style.display = 'block';
+
+        }
+            /*
+        $(".input").keyup(function() {
+            if (this.value.length == this.maxLength) {
+                $(this).next('.inputs').focus();
+            }
+        });
+        */
+        $(document).ready(function(){
+            $('.date').mask('00/00/0000')
+        });
+       
+         
+        $(document).ready(function(){
+            $('#inputvalor').mask('#.##0,00', {reverse: true});
+            
+         });
+        
+         $('#inputvalor').mask('#.##0,00', {reverse: true});
+         
+
+</script>
 
 </div>
 
 
-{{-- <input type="text" id="input1"  maxlength="5" onkeyup="PressEnter('input2');" required>
-  <input type="text" id="input2"  maxlength="5" required> --}}
-
-
-
-
-
-
-
-
 {{-- https://www.youtube.com/watch?v=qvxSEov0UhY&t=203s // pesquisa search --}}
+
+{{-- https://www.youtube.com/watch?v=kCoHIDtAbwE // formatar o input--}}
 
 
 {{-- 
@@ -262,32 +257,19 @@ Fone:<input name="fone" method="post" type="text" maxlength="12" size="40" onkey
 
 ------------------------------
 
-<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
+<form method="post">
+    <input type="text" name="dinheiro" placeholder="Dinheiro">
+</form>
 
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="http://localhost/Artigos/dist/jquery.maskMoney.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[name=dinheiro]').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+    });
+</script>
 
-ma vez referenciado os .js em seu projeto, vamos tratar dos scripts. Veja e analise os seguinte código abaixo:
+--}}
 
-
-$('.telefone').mask('(00) 0 0000-0000');
-$('.dinheiro').mask('#.##0,00', {reverse: true});
-$('.estado').mask('AA');
-        
-
-Através dele, basta chamar os inputs em html referenciando suas respectivas classes:
-
-<input type="text" name="telefone" class="telefone form-control" placeholder="(17) 9 9173-3578" />
-<label for="dinheiro">R$</label><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" />
-<input type="text" id="estado" name="estado" class="estado form-control" placeholder="UF" />
-
-
-
---------------------------------------
-
-  <div>
-    <label for="phone">Price</label>
-    <input type="number" pattern="[0-9]*" data-politespace data-grouplength="3" data-delimiter="," data-reverse value="1234" />
-  </div>
-
-
- --}}
+ 
