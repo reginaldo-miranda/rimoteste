@@ -8,8 +8,8 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="inputes">valor total:<input id="inputvlrtotal" class="input-group " value="{{ $vendas->totalv ?? old('totalv') }}" type="number" step="0.001"> </div>
-
+            <div class="inputes">valor total:<input id="inputvlrtotal" class="input-group " value="{{ number_format($vendas->totalv, 2, ',' , '.') ?? old('totalv') }}"> </div>
+         
           <div class="inputes">dinheiro :<input id="inputdinh" type="text" class="input-group" ></div>  
           
           <div class="inputes">Cartao   :<input id="inputcartao" type="text" class="input-group" ></div>

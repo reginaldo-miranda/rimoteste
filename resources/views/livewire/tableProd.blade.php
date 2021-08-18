@@ -16,7 +16,8 @@
             <td>{{ $post->id }}</td>
             <td>{{ $post->descricao }}</td>
             <td>{{ $post->grupo }}</td>
-            <td>{{ $post->pvenda }}</td>
+           {{--  <td>{{ $post->pvenda }}</td> --}}
+           <td>{{ number_format($post->pvenda, 2, ',', '.') }}</td>
           
          {{--  
 

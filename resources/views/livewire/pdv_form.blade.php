@@ -43,7 +43,9 @@
                 <div class="form-group">
                     {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
                     <label id="legendavalortotal">valor total</label> 
-                    <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{ $vendas->totalv ?? old('totalv') }}"></p>
+                    {{--<p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{ $vendas->totalv ?? old('totalv') }}"></p> --}}
+                    <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}"></p>
+                       {{--<td>{{ number_format($post->pvenda, 2, ',', '.') }}</td> --}}
                     
                 </div>
                 {{-- 
@@ -204,6 +206,10 @@
 {{-- https://www.youtube.com/watch?v=qvxSEov0UhY&t=203s // pesquisa search --}}
 
 {{-- https://www.youtube.com/watch?v=kCoHIDtAbwE // formatar o input--}}
+
+{{-- https://www.youtube.com/watch?v=MNN-YyF020o  // formatar laravel --}}
+
+{{-- https://www.youtube.com/watch?v=eOMnHsVm6vE // formatar dinheiro js--}}
 
 
 {{-- 

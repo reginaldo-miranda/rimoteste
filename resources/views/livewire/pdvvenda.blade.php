@@ -47,7 +47,8 @@
                     <td>{{ $post->id_produto }}</td>
                     <td>{{ $post->qde }}</td>
                     <td>{{ $post->descricao }}</td>
-                    <td>{{ $post->valorunit }}</td>
+                {{-- <td>{{ $post->valorunit }}</td>  --}}
+                    <td>{{ number_format($post->valorunit, 2, ',', '.') }}</td>
                    {{--  <td>{{ $post->status }}</td>  --}}
                     <td>
                         <button wire:click="edit({{ $post->id }})" class="btn btn-primary" id="btntabela">
