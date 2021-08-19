@@ -135,6 +135,10 @@ thead th {
     margin-left: 100px;
 }
 
+#cabecalho{
+  height:188px;
+
+}
 
 /*
   tbody th {

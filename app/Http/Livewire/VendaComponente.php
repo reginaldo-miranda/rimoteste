@@ -37,6 +37,10 @@ class VendaComponente extends Component
     public $totalvenda;
     public $totalv, $res , $numerovenda, $checa, $btn, $temp=1;
 
+    public $inputdinh;
+    public $inputcartao;
+    public $inputpix;
+
   
     public function render()
     {
@@ -156,8 +160,18 @@ class VendaComponente extends Component
         vendasitens::destroy($id);
     }
 
-    public function fecharvenda()
+    public function calfechamento(){ // tela de fechamento de caixa tableFechaCX
+
+        $resultdo = $totalv - $inputdinh;
+        dd($resultado);
+
+    }
+
+    public function fecharvenda()  
     {   
+       
+       
+
         $produtos =  DB::update("update vendasitens SET STATUS = 2 WHERE id_cliente = 1");
         $vendas   =  DB::update("update vendas SET STATUSVENDA = 2 WHERE STATUSVENDA = 1");
        

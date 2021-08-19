@@ -13,22 +13,22 @@
              <div id="textareadescprod">
 
                 {{-- <textarea id="textareavenda" name="textareavenda" style="font: bold 18px Arial, Helvetica, sans-serif"> --}}
+         {{--       <div>    
                 <p>
-                <h3>
-                    @if (is_array($totalvenda))
-                        @foreach ($totalvenda as $vendas)
-                             {{--  nome :{{ $nome }} --}}  {{ $descricao }}
-                        @endforeach
-                    @else
-                        <h1>
-                            <p>nao é array venda pdv</p>
-                        </h1>
-                    @endif
-                 
-                </h3>
+                    <h3>
+                        @if (is_array($totalvenda))
+                            @foreach ($totalvenda as $vendas)
+                                {{--  nome :{{ $nome }}  <h2>{{ $descricao }}</h2>
+                            @endforeach
+                        @else
+                             <h1>
+                                <p>nao é array venda pdv</p>
+                            </h1>
+                        @endif
+                    
+                    </h3>
                 </p>
-             
-                
+            </div>  --}}
                 {{-- </textarea> --}}
 
             </div>
@@ -44,7 +44,20 @@
                     {{-- <h2>valor total:<input type="text" value="{{ $totalvenda ?? old('totalvenda')}}"></h2> --}}
                     <label id="legendavalortotal">valor total</label> 
                     {{--<p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{ $vendas->totalv ?? old('totalv') }}"></p> --}}
-                    <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}"></p>
+
+
+                   
+                    @if (is_array($totalvenda))
+                        @foreach ($totalvenda as $vendas)
+                            <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}"></p>
+                        @endforeach
+                     @else
+                        <h1>
+                            <p>nao é array venda pdv</p>
+                        </h1>
+                      @endif
+
+
                        {{--<td>{{ number_format($post->pvenda, 2, ',', '.') }}</td> --}}
                     
                 </div>
@@ -75,7 +88,7 @@
                             @foreach ($checar as $checa)
                            {{--  {{ $btn = $checa->statusvenda }}  --}}
                             @endforeach
-                            numero da venda : {{ $checa->id_venda }}
+                            numero da venda : {{ $checa->id_venda }} <h2>{{ $descricao }} </h2>
                         
                              
                           
@@ -120,7 +133,7 @@
 
         <input wire:keydown.enter="edit($event.target.value)" wire:model.lazy="prod_id" type="text" id="inputprod"  >
 
-        <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor" data-mask="00000,00">
+        <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor">
 
         
 
