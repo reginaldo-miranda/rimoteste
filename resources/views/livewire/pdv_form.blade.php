@@ -49,7 +49,7 @@
                    
                     @if (is_array($totalvenda))
                         @foreach ($totalvenda as $vendas)
-                            <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}" wire.model='totalv'></p>
+                            <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($total = $vendas->totalv, 2, ',', '.') ?? old('totalv') }}"></p>
                         @endforeach
                      @else
                         <h1>
@@ -189,7 +189,6 @@
               id.innerHTML = "Ooops caixa aberto gaste bem!";
               $("#botaoabrir").show();
          //   document.getElementById('botaoabir').style.display = 'block';
-
         }
             /*
         $(".input").keyup(function() {
@@ -210,7 +209,6 @@
         
          $('#inputvalor').mask('#.##0,00', {reverse: true});
          
-
 </script>
 
 </div>
@@ -226,9 +224,7 @@
 
 
 {{-- 
-
 @if (is_array( $checar))
-
     @if(!empty($checar))
         <h4>é array checar</h4>
             @foreach ($checar as $checa)
@@ -239,15 +235,10 @@
             <p>fechada</p>
             <button id="botaoabrir" wire:click="abrir" onclick="getfocus(this)">Caixa Fechado</button>
     @endif        
-
 @else
 <h1>checar nao é array</h1>
 @endif 
-
-
 <input type="text" data-mask="(00) 00000-0000" class="form-control" placeholder="Telefone" id="telefone" name="telefone">
-
-
 <html>
 <head>
 <title></title>
@@ -263,24 +254,17 @@ function formatar_mascara(src, mascara) {
 </script>
 </head>
 <body>
-
-
 <form action="#" method="post">
-
 CPF:<input name="cpf" method="post" type="text" maxlength="14" size="40" onkeypress="formatar_mascara(this,'###.###.###-##')">
 CEP:<input name="cep" method="post" type="text" maxlength="11" size="40" onkeypress="formatar_mascara(this,'##.###-###')">
 Fone:<input name="fone" method="post" type="text" maxlength="12" size="40" onkeypress="formatar_mascara(this,'##-####-####')">
 </form>
 </body>
 </html>
-
 ------------------------------
-
 <form method="post">
     <input type="text" name="dinheiro" placeholder="Dinheiro">
 </form>
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="http://localhost/Artigos/dist/jquery.maskMoney.min.js"></script>
 <script>
@@ -288,7 +272,4 @@ Fone:<input name="fone" method="post" type="text" maxlength="12" size="40" onkey
         $('[name=dinheiro]').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
     });
 </script>
-
 --}}
-
- 

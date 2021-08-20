@@ -162,12 +162,8 @@ class VendaComponente extends Component
 
     public function calfechamento($inputdinh){ // tela de fechamento de caixa tableFechaCX
      
- 
-       foreach($this->totalvenda as $key =>$value){
-             $key->totalv->$value; 
-       }
-   
-         dd( $key ->totalv->$value );
+    
+     dd($inputdinh);
  
           
     }
