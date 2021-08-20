@@ -14,7 +14,7 @@
     <div class="modal-content">
       <div class="modal-header">
         {{--    inicio         --}}
-         @include('livewire.tableFecharCX')  
+         @include('livewire.fechamentocx.tableFecharCX')  
         {{--     fim             --}}
       </div> 
     </div>   

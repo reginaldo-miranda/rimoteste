@@ -105,7 +105,7 @@
                  
                 <div class="ml-auto mr-0" style="width: 68%">  
                     @include('livewire.pdvvenda')
-                    @include('livewire.tableFecharCx')
+                    @include('livewire.fechamentocx.tableFecharCx')
                  </div>
 
             </div>
