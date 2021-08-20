@@ -40,6 +40,7 @@ class VendaComponente extends Component
     public $inputdinh;
     public $inputcartao;
     public $inputpix;
+    public $resultado, $total;
 
   
     public function render()
@@ -65,8 +66,7 @@ class VendaComponente extends Component
            FROM vendasitens WHERE status = 1;");
           
            $this->totalvenda = $totalvenda;   
-      
-       //dd($totalvenda);
+          
                
     }
     public function checar()
@@ -160,11 +160,16 @@ class VendaComponente extends Component
         vendasitens::destroy($id);
     }
 
-    public function calfechamento(){ // tela de fechamento de caixa tableFechaCX
-
-        $resultdo = $totalv - $inputdinh;
-        dd($resultado);
-
+    public function calfechamento($inputdinh){ // tela de fechamento de caixa tableFechaCX
+     
+ 
+       foreach($this->totalvenda as $key =>$value){
+             $key->totalv->$value; 
+       }
+   
+         dd( $key ->totalv->$value );
+ 
+          
     }
 
     public function fecharvenda()  

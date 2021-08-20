@@ -49,7 +49,7 @@
                    
                     @if (is_array($totalvenda))
                         @foreach ($totalvenda as $vendas)
-                            <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}"></p>
+                            <p id="inptvalortotal"><input id="inptvlr" class="form-control" value="{{number_format($vendas->totalv, 2, ',', '.') ?? old('totalv') }}" wire.model='totalv'></p>
                         @endforeach
                      @else
                         <h1>
