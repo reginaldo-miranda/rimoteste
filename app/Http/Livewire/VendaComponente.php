@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 //namespace App\Http\Requests;
-
+use Illuminate\Http\Request;
 use Livewire\Component;
 use App\models\vendas;
 use App\models\produto;
