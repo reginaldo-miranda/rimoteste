@@ -160,10 +160,13 @@ class VendaComponente extends Component
         vendasitens::destroy($id);
     }
 
-    public function calfechamento($inputdinh){ // tela de fechamento de caixa tableFechaCX
+    public function calfechamento($inputvlrtotal){ // tela de fechamento de caixa tableFechaCX
      
-    
-     dd($inputdinh);
+    $dados=([
+     // $inputdinh ->$inputdinh,
+        $inputvlrtotal->$inputvlrtotal,
+    ]);
+     dd($dados);
  
           
     }

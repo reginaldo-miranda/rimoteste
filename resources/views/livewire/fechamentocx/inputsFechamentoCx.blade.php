@@ -16,11 +16,11 @@
     @error("searchprod")<span>{{ $message }}</span> @enderror --}}
  
     <div class="inputes">valor total:
-        <input type="text" class="input-group " id="inputvlrtotal" name="inputvlrtotal" value="{{ number_format($total, 2, ',' , '.') ?? old('total') }}">
+        <input type="text" wire:model.defer="inputvlrtotal" class="input-group " id="inputvlrtotal" name="inputvlrtotal" value="{{ number_format($total, 2, ',' , '.') ?? old('total') }}">
     </div>
     
     <div class="inputes">dinheiro:
-        <input type="text" wire.model.defer="inputdinh" class="input-group"  id="inputdinh"     name="inputdinh"    
+        <input type="text" wire:model.defer="inputdinh" class="input-group"  id="inputdinh"     name="inputdinh"    
                value="{{ number_format($inputdinh, 2, ',' ,  '.')}}">
       </div>   
            
