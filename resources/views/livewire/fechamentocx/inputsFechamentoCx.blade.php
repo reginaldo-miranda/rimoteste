@@ -37,22 +37,44 @@
    {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  --}}
     <script>
     $(document).ready(function() {
-        $("#inputvlrtotal,#inputdinh,#inputcartao").on('keyup', function() {
+        $("#inputvlrtotal,#inputdinh").on('keyup', function() {
       
           var total  = parseFloat($('#inputvlrtotal').val()) || 0;
           var dinh   = parseFloat($('#inputdinh').val()) || 0;
-          var cartao = parseFloat($('#inputcartao').val()) || 0;
-
-              
-          //var totalValorAdicionalDX = total
+         
           var totalgeral = total-dinh;
           $('#inputvlrtotal').val(totalgeral);
           var totalg = total-cartao;
-          
-                      
-       //  $('#inputvlrtotal').val(totalValorAdicionalDX);
+      
         });
       });
+
+
+      $(document).ready(function() {
+        $("#inputvlrtotal,#inputcartao").on('keyup', function() {
+      
+          var total  = parseFloat($('#inputvlrtotal').val()) || 0;
+          var cartao = parseFloat($('#inputcartao').val()) || 0;
+          var totalgeral = total-cartao;
+          $('#inputvlrtotal').val(totalgeral);
+         
+          
+       
+        });
+      });
+      $(document).ready(function() {
+        $("#inputvlrtotal,#inputpix").on('keyup', function() {
+      
+          var total  = parseFloat($('#inputvlrtotal').val()) || 0;
+          var pix = parseFloat($('#inputpix').val()) || 0;
+          var totalgeral = total-pix;
+          $('#inputvlrtotal').val(totalgeral);
+                  
+                      
+      
+        });
+      });
+
 </script>
     
 {{-- https://pt.stackoverflow.com/questions/211767/somar-inputs-com-jquery-e-tempo-real  calculo de caixa--}}
