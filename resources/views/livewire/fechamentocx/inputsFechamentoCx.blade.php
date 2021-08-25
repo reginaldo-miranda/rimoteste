@@ -16,11 +16,12 @@
     @error("searchprod")<span>{{ $message }}</span> @enderror --}}
  
     <div class="inputes">valor total:
-        <input type="text" wire:model.defer="inputvlrtotal" class="input-group " id="inputvlrtotal" name="inputvlrtotal" value="{{ number_format($total, 2, ',' , '.') ?? old('total') }}">
+        <input type="text"  class="input-group " id="inputvlrtotal" name="inputvlrtotal" 
+        value="{{ number_format($total, 2, ',' , '.') ?? old('total') }}">
     </div>
     
     <div class="inputes">dinheiro:
-        <input type="text" wire:model.defer="inputdinh" class="input-group"  id="inputdinh"     name="inputdinh"    
+        <input type="text" class="input-group"  id="inputdinh"     name="inputdinh"    
                value="{{ number_format($inputdinh, 2, ',' ,  '.')}}">
       </div>   
            
@@ -30,4 +31,28 @@
     <div class="inputes">Pix   :
         <input id="inputpix" type="text" class="input-group" >
     </div>
+
+    
     @include('livewire.fechamentocx.botaoFechamentoCx')
+   {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  --}}
+    <script>
+    $(document).ready(function() {
+        $("#inputvlrtotal,#inputdinh,#inputcartao").on('keyup', function() {
+      
+          var total  = parseFloat($('#inputvlrtotal').val()) || 0;
+          var dinh   = parseFloat($('#inputdinh').val()) || 0;
+          var cartao = parseFloat($('#inputcartao').val()) || 0;
+
+              
+          //var totalValorAdicionalDX = total
+          var totalgeral = total-dinh;
+          $('#inputvlrtotal').val(totalgeral);
+          var totalg = total-cartao;
+          
+                      
+       //  $('#inputvlrtotal').val(totalValorAdicionalDX);
+        });
+      });
+</script>
+    
+{{-- https://pt.stackoverflow.com/questions/211767/somar-inputs-com-jquery-e-tempo-real  calculo de caixa--}}
