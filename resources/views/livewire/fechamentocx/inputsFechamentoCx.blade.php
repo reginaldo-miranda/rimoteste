@@ -35,12 +35,11 @@
       N1:  <input type="text"  id="n1" value="{{ $total }}" /> <br>
       dinh:<input type="text"  id="n2" value="{{ $inputdinh }}"  onchange="calcular()"/> <br>
       Pix: <input type="text"  id="n3" value="{{ $inputpix }}" onchange="calcular()" /> <br>
+    
   
     </form>
-    
-    <div 
-        id="resultado">
-    </div>
+    <input type="text" id="resto"> 
+    <div id="resultado"></div>
 
     
     @include('livewire.fechamentocx.botaoFechamentoCx')
@@ -93,11 +92,16 @@
 } 
 */
 function calcular() {
-  var n1 = parseInt(document.getElementById('n1').value, 10);
-  var n2 = parseInt(document.getElementById('n2').value, 10);
-  document.getElementById('resultado').innerHTML = n1-n2;
+ // var n1 = parseInt(document.getElementById('n1').value, 10);
+ // var n2 = parseInt(document.getElementById('n2').value, 10);
+ // document.getElementById('resultado').innerHTML = n1-n2;
 
- 
+  var n1 = parseFloat(document.getElementById('n1').value, 10);
+  var n2 = parseFloat(document.getElementById('n2').value, 10);
+  var ress =  document.getElementById('resultado').innerHTML = n1-n2;
+
+  $('#resto').val(ress)
+
 }
 
 </script>   
