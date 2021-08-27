@@ -33,8 +33,8 @@
     </div> --}}
     <form action="" method="post">
       N1:  <input type="text"  id="n1" value="{{ $total }}" /> <br>
-      dinh:<input type="text"  id="n2" value="{{ $inputdinh }}"  onchange="calcular()"/> <br>
-      Pix: <input type="text"  id="n3" value="{{ $inputpix }}" onchange="calcular()" /> <br>
+      dinh n2:<input type="text"  id="n2" value="{{ $inputdinh }}"  onchange="calcular()"/> <br>
+      Pix n3: <input type="text"  id="n3" value="{{ $inputpix }}" onchange="calcular()" /> <br>
     
   
     </form>
@@ -91,18 +91,47 @@
 
 } 
 */
+function checarNaN(val) {
+  
+  if (isNaN(val))
+    val = 0;
+
+  return val;
+}
+
 function calcular() {
  // var n1 = parseInt(document.getElementById('n1').value, 10);
  // var n2 = parseInt(document.getElementById('n2').value, 10);
  // document.getElementById('resultado').innerHTML = n1-n2;
 
-  var n1 = parseFloat(document.getElementById('n1').value, 10);
-  var n2 = parseFloat(document.getElementById('n2').value, 10);
+  var n1 = checarNaN(parseFloat(document.getElementById('n1').value, 10));
+  var n2 = checarNaN(parseFloat(document.getElementById('n2').value, 10));
+  var n3 = checarNaN(parseFloat(document.getElementById('n3').value, 10));
+
+
   var ress =  document.getElementById('resultado').innerHTML = n1-n2;
 
-  $('#resto').val(ress)
+  if (isNaN(ress)){
 
+    return ress = 0
+  }else{
+    $('#resto').val(ress)
+ 
+  
+  var ress =  document.getElementById('resultado').innerHTML = ress-n3;
+  }
+  
+  
 }
+
+/*
+function milliseconds(x) {
+  if (isNaN(x)) {
+    return 'Not a Number!';
+  }
+  return x * 1000;
+}
+*/
 
 </script>   
 
