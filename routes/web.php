@@ -50,3 +50,5 @@ Route::get('mostra', 'App\Http\Controllers\PostComponent@render')
 
 
 // pesquisa em livewire https://www.youtube.com/watch?v=qvxSEov0UhY
+
+// https://www.youtube.com/watch?v=ASDbZLUZAbw subir na nuvem com filezila
