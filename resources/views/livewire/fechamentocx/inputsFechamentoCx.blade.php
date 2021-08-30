@@ -2,6 +2,10 @@
       <div class="inputes">valor total:
         <input type="text"  id="n1" value="{{ $total }}" />
       </div>  
+
+      <div class="inputes">Troco :
+        <input type="text" id="resto"> 
+      </div> 
       <div class="inputes">dinheiro:
         <input type="text"  id="n2"  value="{{ number_format($inputdinh, 2, ',' ,  '.')}}" onchange="calcular()"/> 
       </div>
@@ -11,9 +15,7 @@
       <div class="inputes">Cartao   :
         <input type="text"  id="n4" value="{{ number_format($inputcartao,2, ',', '.') }}" onchange="calcular()"/> <br>
       </div>
-      <div class="inputes">
-        <input type="text" id="resto"> 
-      </div>  
+     
       
        <div id="resultado"></div>
 
@@ -29,9 +31,23 @@ function checarNaN(val) {
   
   if (isNaN(val))
     val = 0;
-
-  return val;
+   return val;
 }
+
+
+function checartroco(valtroco){
+  
+ if (valtroco < 0 ){
+    alert('deu');
+    return checarNaN(valtroco);
+ 
+    
+ }else{
+   alert('valor maior') 
+   return checarNaN(valtroco);
+ }
+}
+
 
 function calcular() {
 
@@ -40,11 +56,15 @@ function calcular() {
   var n3 = checarNaN(parseFloat(document.getElementById('n3').value, 10));
   var n4 = checarNaN(parseFloat(document.getElementById('n4').value, 10));
 
-  var ress =  document.getElementById('resultado').innerHTML = n1-n2;
-  var ress =  document.getElementById('resultado').innerHTML = ress-n3;
-  var ress =  document.getElementById('resultado').innerHTML = ress-n4;
-  $('#resto').val(ress)
+  var ress = checartroco(document.getElementById('resultado').innerHTML = n1-n2);
+  var ress = document.getElementById('resultado').innerHTML = ress-n3;
+  var ress = document.getElementById('resultado').innerHTML = ress-n4;
 
+
+ $('#resto').val(ress);
+
+   
+     
   // if (isNaN(ress)){
   //   return ress = 0
   // }else{
