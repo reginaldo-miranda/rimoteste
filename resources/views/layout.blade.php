@@ -31,9 +31,9 @@
 
 
     @livewireScripts
-
+    
     <script src="js/app.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></scri>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript Bundle with Popper  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

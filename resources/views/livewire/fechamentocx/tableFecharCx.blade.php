@@ -25,18 +25,10 @@
 
             @if($checa->statusvenda == 1)
               <button  id="btnfechar" class="btn btn-success" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on" data-dismiss="modal">fechar i</button> 
-            
             @endif    
    
-       @endif
-   @endif 
-
-
-
-
-
-
-
+         @endif
+       @endif 
       </div>
     </div>
   </div>
