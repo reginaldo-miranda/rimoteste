@@ -1,5 +1,6 @@
 <table class="table">
     <thead>
+     
         <tr>
             <th>codigo</th>
             <th>descricao</th>
@@ -7,6 +8,7 @@
             <th>preco</th>
             <th colspan="2"&nbsp;></th>
         </tr>
+     
     </thead>
     <tbody>
     {{-- @livewire('produto-component')  --}}
@@ -28,20 +30,30 @@
 
 
           <td>
-              <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm">
+              <button wire:click="edit({{ $post->id }})"class="btn btn-primary btn-sm" id="btntabela">
                   Editar
               </button>
           </td>
           <td>
-            <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm">
+            <button wire:click="destroy({{ $post->id }})" class="btn btn-danger btn-sm" id="btntabela">
                 Deletar
             </button>
         </td>
+       
       </tr>
         
      @endforeach
    
-
+      <tr>
+         <td>
+             <th>
+                <label>procurar produtos</label>
+                <input type="text"  wire:model="searchprod">  
+                @error("searchprod")<span>{{ $message }}</span> @enderror
+             </th>
+        </td> 
+      </tr>
+    
     </tbody>
     
 </table>

@@ -146,6 +146,11 @@ thead th {
     background-color: azure;
 }
 
+#modalProd{
+
+   /* width: 800px;*/
+}
+
 /*
   tbody th {
    position: -webkit-sticky; /* for Safari */
