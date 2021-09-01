@@ -89,14 +89,20 @@ class VendaComponente extends Component
     public function edit($id)
     {
         $produtos = produto::find($id);
-
-        $this->prod_id   = $produtos->id;
-        $this->descricao = $produtos->descricao;
-        $this->grupo     = $produtos->grupo;
-        $this->pvenda    = $produtos->pvenda;
+      //  dd($produtos);
+          if(!empty($produtos)){  
+             $this->prod_id   = $produtos->id;
+             $this->descricao = $produtos->descricao;
+             $this->grupo     = $produtos->grupo;
+             $this->pvenda    = $produtos->pvenda;
         
-        $this->gravar();
-    
+            $this->gravar();
+          }else{
+            $this->prod_id = '';
+            $this->descricao = '';
+            
+          }
+                 
         //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 
