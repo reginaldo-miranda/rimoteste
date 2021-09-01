@@ -139,6 +139,12 @@ thead th {
   height:188px;
 
 }
+#mostrades{
+  
+    width:400px;
+    height: 50px;
+    background-color: azure;
+}
 
 /*
   tbody th {

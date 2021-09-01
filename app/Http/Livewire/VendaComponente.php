@@ -96,6 +96,7 @@ class VendaComponente extends Component
         $this->pvenda    = $produtos->pvenda;
         
         $this->gravar();
+    
         //  return view('livewire.vendaitens-componente',['produtos'=> $produtos]);
     }
 

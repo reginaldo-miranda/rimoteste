@@ -84,13 +84,13 @@
                 @if (is_array( $checar))
 
                     @if(!empty($checar))
-                        <h4>é array checar</h4>
+                          {{-- é array checar --}} 
                             @foreach ($checar as $checa)
                            {{--  {{ $btn = $checa->statusvenda }}  --}}
                             @endforeach
-                            numero da venda : {{ $checa->id_venda }} <h2>{{ $descricao }} </h2>
-                        
-                             
+                            numero da venda : {{ $checa->id_venda }} 
+                            <div id="mostrades"><h2>{{ $descricao }}</h2></div>
+                                        
                           
                     @else
                             <p>fechada</p>
@@ -100,7 +100,9 @@
                 @else
                 <h1>checar nao é array</h1>
                 @endif 
+                
             </div>
+           
             <div class="col-8">
                  
                 <div class="ml-auto mr-0" style="width: 68%">  
@@ -131,10 +133,10 @@
 
         {{-- <input type="text" id="inputprod" wire:model.lazy="prod_id" wire:keydown.enter="edit($event.target.value)">  --}}
 
-        <input wire:keydown.enter="edit($event.target.value)" wire:model.lazy="prod_id" type="text" id="inputprod"  >
+        <input wire:keydown.enter="edit($event.target.value, limpardesc() )" wire:model.lazy="prod_id" type="text" id="inputprod">
 
         <input value="{{ $pvenda ?? old('pvalor') }}" type="text" id="inputvalor" name="inputvalor">
-
+        
         
 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
@@ -167,9 +169,16 @@
    
             <button  id="btnabrirmodal" class="btn btn-danger btn-sm" wire:click="fecharvenda({{ $post ? $post->id_venda : ''}}) on">Cancela</button> 
     </div>
+    
     <!-- </div> -->
+
+    <script type="text/javascript" 
+        src="js/inputs.js">
+    </script>
+
     <script type="text/javascript">
-        /*
+
+      /*  
         function PressEnter(nextinputId) {
             if (event.keyCode == 13) {
                 document.getElementById(nextinputId).focus();
@@ -182,8 +191,10 @@
         function getfocus(id) {
             //  document.getElementById("inputprod").disabled = false;
             document.getElementById("inputqde").focus();
+         
             $("#botaoabrir").hide();
             $("#btnfechar").hide();
+           
             //$("#btncancela").show();
             //  id.innerHTML = "Ooops!";
               id.innerHTML = "Ooops caixa aberto gaste bem!";
@@ -205,10 +216,11 @@
         $(document).ready(function(){
             $('#inputvalor').mask('#.##0,00', {reverse: true});
             
+            
          });
         
          $('#inputvalor').mask('#.##0,00', {reverse: true});
-         
+         $("#mostrades").show();
 </script>
 
 </div>

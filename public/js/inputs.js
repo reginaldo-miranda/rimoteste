@@ -15,7 +15,7 @@ function checartroco(valtroco){
     n2.setAttribute('disabled','');
     n4.setAttribute('disabled','');
     n3.setAttribute('disabled','');
-    
+    document.getElementById('troco').innerHTML = 'Troco';
     return checarNaN(valtroco);
  
     
@@ -51,6 +51,17 @@ function calcular() {
           n2.removeAttribute('disabled','');
           n3.removeAttribute('disabled','');
           n4.removeAttribute('disabled','');
-
-
+          document.getElementById('troco').innerHTML = 'Troco';
+       
   }
+
+function limpardesc(){
+    //$('#mostrades').show();
+
+    setTimeout(function(){ 
+        $('#mostrades').hide();
+    }, 1200);
+}
+ 
+
+
