@@ -2,7 +2,7 @@
     <thead>
      
         <tr>
-            <th>codigo</th>
+            <th>codigo a</th>
             <th>descricao</th>
             <th>grupo</th>
             <th>preco</th>
@@ -43,7 +43,7 @@
       </tr>
         
      @endforeach
-   
+     
       <tr>
          <td>
              <th>

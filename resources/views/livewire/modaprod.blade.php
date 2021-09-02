@@ -7,13 +7,14 @@
  --}}
 
 
-{{-- <div class="modal fade" id="modalProd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-  <div class="modal-dialog modal-lg" id="modalProd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  {{--  <div class="modal-dialog">    --}}
-    <div class="modal-content">
+ <div class="modal fade" id="modalProd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      
+    <div class="modal-dialog">  
+    <div class="modal-content" id="tmanhomodal">    
       <div class="modal-header">
         {{--    inicio         --}}
-         @include('livewire.tableProd')  
+            @include('livewire.tableProd')  
+           
         {{--     fim             --}}
       </div> 
     </div>   
