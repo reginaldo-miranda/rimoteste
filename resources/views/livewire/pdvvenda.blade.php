@@ -31,7 +31,7 @@
         <thead>        
           {{--  <th>Venda n: </th>
           <th>Cod Cliente</th>  --}}
-          <th>Codigo</th>
+          <th>Cod gr</th>
           <th>Qde</th>
           <th>Descricao</th>
           <th>P Unit</th>

@@ -1,6 +1,6 @@
 <table class="table">
     <thead>
-     
+     <div>tabela busca modal pdv e estoque</div>
         <tr>
             <th>codigo a</th>
             <th>descricao</th>
@@ -11,7 +11,7 @@
      
     </thead>
     <tbody>
-    {{-- @livewire('produto-component')  --}}
+    
      @foreach($produtos as $post)
       <tr>
         
@@ -44,15 +44,7 @@
         
      @endforeach
      
-      <tr>
-         <td>
-             <th>
-                <label>procurar produtos</label>
-                <input type="text"  wire:model="searchprod">  
-                @error("searchprod")<span>{{ $message }}</span> @enderror
-             </th>
-        </td> 
-      </tr>
+      
     
     </tbody>
     

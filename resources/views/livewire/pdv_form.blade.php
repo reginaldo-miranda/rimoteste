@@ -158,7 +158,7 @@
                      
                         <button type="button" id="btnfechar" class="btn btn-success btn-sm" data-bs-toggle="modal"
                             data-bs-target="#ModalFechar">Fechar</button>  {{-- data-bs-whatever="@tableFecharCx" --}}
-                     
+                                            
                      @endif    
             
                 @endif

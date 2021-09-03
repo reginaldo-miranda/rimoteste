@@ -14,7 +14,7 @@
       <div class="modal-header">
         {{--    inicio         --}}
             @include('livewire.tableProd')  
-           
+                      
         {{--     fim             --}}
       </div> 
     </div>   

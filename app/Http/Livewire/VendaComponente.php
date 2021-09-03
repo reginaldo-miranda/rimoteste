@@ -55,8 +55,9 @@ class VendaComponente extends Component
          $this->checar();
         // $totalvenda = DB::select("SELECT SUM(qde * valorunit) as totalv
         // FROM vendasitens WHERE status = 1;"); */
-       
+              
         return view('livewire.venda-componente', ['produtos'=> $produtos]);
+       // return view('livewire.produto-component',['produtos'=> $produtos]);
       
     }
 
