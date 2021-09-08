@@ -209,6 +209,17 @@ class VendaComponente extends Component
         $this->pvenda = '';
     }
 
+    function buscarprodpdv(){
+
+        $searchprod = '%'. $this->searchprod .'%';
+        $produtos = produto::where('descricao', 'LIKE', $searchprod)
+                             ->orWhere('grupo', 'LIKE', $searchprod)  
+                             ->orderby('id','desc')->paginate(4);
+        /*   $produtos = produto::orderby('id','desc')->paginate(4); */
+       
+        return view('livewire.venda-componente',['produtos'=> $produtos]);
+
+    }
     
    
 }   

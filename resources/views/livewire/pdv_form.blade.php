@@ -141,6 +141,9 @@
 
         <button type="button" id="btnmodal" class="btn btn-primary btn-sm" data-bs-toggle="modal"
             data-bs-target="#modalProd" data-bs-whatever="@tableprod">Lista</button>
+
+        <button type="button" id="btnbuscaprod">buscar prod </button>   
+        <a href="{{ url('/mostraProd') }}">Produtos</a>
            <!-- </div> -->
 
         <!-- <div> --->

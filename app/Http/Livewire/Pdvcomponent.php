@@ -22,7 +22,7 @@ class Pdvcomponent extends Component
     public $cliente = 1, $qde=2; //, $totalvenda;
 
      
-    public $searchprod1;
+    public $searchprod1, $buscarprodpdv;
 
     protected $paginationTheme = 'bootstrap';
     use WithPagination;

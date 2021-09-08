@@ -43,11 +43,10 @@
       </tr>
         
      @endforeach
-     
       
     
     </tbody>
-    
+   
 </table>
 
 
