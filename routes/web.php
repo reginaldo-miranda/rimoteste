@@ -36,7 +36,9 @@ Route::get('/menu',function(){
     return view('menu');
 });
 
-
+Route::get('/pdvBuscarProd' , function(){
+    return view('pdv_BuscarProdModal');
+});
 
 /*
 Route::get('mostra', function(){
