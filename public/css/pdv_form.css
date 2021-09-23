@@ -115,7 +115,7 @@ thead th {
     font-size: 25px;
     font-weight: bold;
 }
-
+/*
 #inputvlrtotal,
 #inputdinh,
 #inputcartao,
@@ -125,7 +125,7 @@ thead th {
     font-size: 25px;
     font-weight: bold;
 }
-
+*/
 .inputes {
     font-weight: bold;
     font-size: 20px;
@@ -150,6 +150,17 @@ thead th {
 
    width: 800px;
 }
+
+.btnfechar{
+    display:block;
+    width: 140px;
+    margin-left:2px; 
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+  /*  background-color:green;*/
+  
+  }
 
 /*
   tbody th {
